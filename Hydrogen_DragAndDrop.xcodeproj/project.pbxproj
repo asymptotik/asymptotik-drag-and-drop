@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D90BE42188D8E4E005CCDEA /* HyDefaultDragAndDropManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D90BE41188D8E4E005CCDEA /* HyDefaultDragAndDropManagerDelegate.m */; };
 		1DF167E21887509500D621D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF167E11887509500D621D9 /* Foundation.framework */; };
 		1DF167E41887509500D621D9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF167E31887509500D621D9 /* CoreGraphics.framework */; };
 		1DF167E61887509500D621D9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF167E51887509500D621D9 /* UIKit.framework */; };
@@ -18,16 +19,16 @@
 		1DF168031887509500D621D9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF167E51887509500D621D9 /* UIKit.framework */; };
 		1DF1680B1887509500D621D9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DF168091887509500D621D9 /* InfoPlist.strings */; };
 		1DF1680D1887509500D621D9 /* Rnd_DragAndDropTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF1680C1887509500D621D9 /* Rnd_DragAndDropTests.m */; };
-		1DF168251889A6D400D621D9 /* BcvDragAndDropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF168241889A6D400D621D9 /* BcvDragAndDropManager.m */; };
+		1DF168251889A6D400D621D9 /* HyDragAndDropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF168241889A6D400D621D9 /* HyDragAndDropManager.m */; };
 		1DF168291889BA2F00D621D9 /* UIView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF168281889BA2F00D621D9 /* UIView+Image.m */; };
 		1DF1682C1889BCCE00D621D9 /* UIView+DragAndDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF1682B1889BCCE00D621D9 /* UIView+DragAndDrop.m */; };
-		1DF168331889BDFA00D621D9 /* BcvAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF1682F1889BDFA00D621D9 /* BcvAppDelegate.m */; };
-		1DF168341889BDFA00D621D9 /* BcvDragAndDropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF168311889BDFA00D621D9 /* BcvDragAndDropViewController.m */; };
-		1DF168351889BDFA00D621D9 /* BcvDragAndDropViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF168321889BDFA00D621D9 /* BcvDragAndDropViewController.xib */; };
-		1DF168381889BE2000D621D9 /* BcvDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF168371889BE2000D621D9 /* BcvDragView.m */; };
-		1DF1683E188A2D3400D621D9 /* BcvDropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF1683D188A2D3400D621D9 /* BcvDropView.m */; };
-		1DF16841188A2D4D00D621D9 /* BcvDropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF16840188A2D4D00D621D9 /* BcvDropScrollView.m */; };
-		1DF16844188B044F00D621D9 /* BcvInterestedDropZone.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF16843188B044F00D621D9 /* BcvInterestedDropZone.m */; };
+		1DF168331889BDFA00D621D9 /* HyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF1682F1889BDFA00D621D9 /* HyAppDelegate.m */; };
+		1DF168341889BDFA00D621D9 /* HyDragAndDropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF168311889BDFA00D621D9 /* HyDragAndDropViewController.m */; };
+		1DF168351889BDFA00D621D9 /* HyDragAndDropViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DF168321889BDFA00D621D9 /* HyDragAndDropViewController.xib */; };
+		1DF168381889BE2000D621D9 /* HyDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF168371889BE2000D621D9 /* HyDragView.m */; };
+		1DF1683E188A2D3400D621D9 /* HyDropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF1683D188A2D3400D621D9 /* HyDropView.m */; };
+		1DF16841188A2D4D00D621D9 /* HyDropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF16840188A2D4D00D621D9 /* HyDropScrollView.m */; };
+		1DF16844188B044F00D621D9 /* HyDropZoneWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DF16843188B044F00D621D9 /* HyDropZoneWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,42 +42,44 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1DF167DE1887509500D621D9 /* Rnd_DragAndDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rnd_DragAndDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D90BE40188D8E4E005CCDEA /* HyDefaultDragAndDropManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyDefaultDragAndDropManagerDelegate.h; sourceTree = "<group>"; };
+		1D90BE41188D8E4E005CCDEA /* HyDefaultDragAndDropManagerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyDefaultDragAndDropManagerDelegate.m; sourceTree = "<group>"; };
+		1DF167DE1887509500D621D9 /* Hydrogen_DragAndDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydrogen_DragAndDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF167E11887509500D621D9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF167E31887509500D621D9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1DF167E51887509500D621D9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1DF167E91887509500D621D9 /* Rnd_DragAndDrop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Rnd_DragAndDrop-Info.plist"; sourceTree = "<group>"; };
+		1DF167E91887509500D621D9 /* Hydrogen_DragAndDrop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hydrogen_DragAndDrop-Info.plist"; sourceTree = "<group>"; };
 		1DF167EB1887509500D621D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1DF167ED1887509500D621D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1DF167EF1887509500D621D9 /* Rnd_DragAndDrop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rnd_DragAndDrop-Prefix.pch"; sourceTree = "<group>"; };
+		1DF167EF1887509500D621D9 /* Hydrogen_DragAndDrop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hydrogen_DragAndDrop-Prefix.pch"; sourceTree = "<group>"; };
 		1DF167F91887509500D621D9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1DF167FF1887509500D621D9 /* Rnd_DragAndDropTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Rnd_DragAndDropTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF167FF1887509500D621D9 /* Hydrogen_DragAndDropTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hydrogen_DragAndDropTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF168001887509500D621D9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		1DF168081887509500D621D9 /* Rnd_DragAndDropTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Rnd_DragAndDropTests-Info.plist"; sourceTree = "<group>"; };
+		1DF168081887509500D621D9 /* Hydrogen_DragAndDropTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hydrogen_DragAndDropTests-Info.plist"; sourceTree = "<group>"; };
 		1DF1680A1887509500D621D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1DF1680C1887509500D621D9 /* Rnd_DragAndDropTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rnd_DragAndDropTests.m; sourceTree = "<group>"; };
-		1DF1681F18899D8F00D621D9 /* BcvDragSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BcvDragSourceProtocol.h; sourceTree = "<group>"; };
-		1DF168231889A6D400D621D9 /* BcvDragAndDropManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BcvDragAndDropManager.h; sourceTree = "<group>"; };
-		1DF168241889A6D400D621D9 /* BcvDragAndDropManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BcvDragAndDropManager.m; sourceTree = "<group>"; };
-		1DF168261889AE2400D621D9 /* BcvDropZoneProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BcvDropZoneProtocol.h; sourceTree = "<group>"; };
+		1DF1681F18899D8F00D621D9 /* HyDragSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyDragSourceProtocol.h; sourceTree = "<group>"; };
+		1DF168231889A6D400D621D9 /* HyDragAndDropManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyDragAndDropManager.h; sourceTree = "<group>"; };
+		1DF168241889A6D400D621D9 /* HyDragAndDropManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyDragAndDropManager.m; sourceTree = "<group>"; };
+		1DF168261889AE2400D621D9 /* HyDropZoneProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HyDropZoneProtocol.h; sourceTree = "<group>"; };
 		1DF168271889BA2F00D621D9 /* UIView+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Image.h"; sourceTree = "<group>"; };
 		1DF168281889BA2F00D621D9 /* UIView+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Image.m"; sourceTree = "<group>"; };
 		1DF1682A1889BCCE00D621D9 /* UIView+DragAndDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DragAndDrop.h"; sourceTree = "<group>"; };
 		1DF1682B1889BCCE00D621D9 /* UIView+DragAndDrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DragAndDrop.m"; sourceTree = "<group>"; };
-		1DF1682E1889BDFA00D621D9 /* BcvAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BcvAppDelegate.h; sourceTree = "<group>"; };
-		1DF1682F1889BDFA00D621D9 /* BcvAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BcvAppDelegate.m; sourceTree = "<group>"; };
-		1DF168301889BDFA00D621D9 /* BcvDragAndDropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BcvDragAndDropViewController.h; sourceTree = "<group>"; };
-		1DF168311889BDFA00D621D9 /* BcvDragAndDropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BcvDragAndDropViewController.m; sourceTree = "<group>"; };
-		1DF168321889BDFA00D621D9 /* BcvDragAndDropViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BcvDragAndDropViewController.xib; sourceTree = "<group>"; };
-		1DF168361889BE2000D621D9 /* BcvDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BcvDragView.h; sourceTree = "<group>"; };
-		1DF168371889BE2000D621D9 /* BcvDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BcvDragView.m; sourceTree = "<group>"; };
-		1DF168391889BE5700D621D9 /* BcvDragAndDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BcvDragAndDrop.h; sourceTree = "<group>"; };
-		1DF1683C188A2D3400D621D9 /* BcvDropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BcvDropView.h; sourceTree = "<group>"; };
-		1DF1683D188A2D3400D621D9 /* BcvDropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BcvDropView.m; sourceTree = "<group>"; };
-		1DF1683F188A2D4D00D621D9 /* BcvDropScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BcvDropScrollView.h; sourceTree = "<group>"; };
-		1DF16840188A2D4D00D621D9 /* BcvDropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BcvDropScrollView.m; sourceTree = "<group>"; };
-		1DF16842188B044F00D621D9 /* BcvInterestedDropZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BcvInterestedDropZone.h; sourceTree = "<group>"; };
-		1DF16843188B044F00D621D9 /* BcvInterestedDropZone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BcvInterestedDropZone.m; sourceTree = "<group>"; };
+		1DF1682E1889BDFA00D621D9 /* HyAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyAppDelegate.h; sourceTree = "<group>"; };
+		1DF1682F1889BDFA00D621D9 /* HyAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyAppDelegate.m; sourceTree = "<group>"; };
+		1DF168301889BDFA00D621D9 /* HyDragAndDropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyDragAndDropViewController.h; sourceTree = "<group>"; };
+		1DF168311889BDFA00D621D9 /* HyDragAndDropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyDragAndDropViewController.m; sourceTree = "<group>"; };
+		1DF168321889BDFA00D621D9 /* HyDragAndDropViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HyDragAndDropViewController.xib; sourceTree = "<group>"; };
+		1DF168361889BE2000D621D9 /* HyDragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyDragView.h; sourceTree = "<group>"; };
+		1DF168371889BE2000D621D9 /* HyDragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyDragView.m; sourceTree = "<group>"; };
+		1DF168391889BE5700D621D9 /* HyDragAndDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyDragAndDrop.h; sourceTree = "<group>"; };
+		1DF1683C188A2D3400D621D9 /* HyDropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyDropView.h; sourceTree = "<group>"; };
+		1DF1683D188A2D3400D621D9 /* HyDropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyDropView.m; sourceTree = "<group>"; };
+		1DF1683F188A2D4D00D621D9 /* HyDropScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyDropScrollView.h; sourceTree = "<group>"; };
+		1DF16840188A2D4D00D621D9 /* HyDropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyDropScrollView.m; sourceTree = "<group>"; };
+		1DF16842188B044F00D621D9 /* HyDropZoneWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyDropZoneWrapper.h; sourceTree = "<group>"; };
+		1DF16843188B044F00D621D9 /* HyDropZoneWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyDropZoneWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +109,8 @@
 		1DF167D51887509500D621D9 = {
 			isa = PBXGroup;
 			children = (
-				1DF167E71887509500D621D9 /* Rnd_DragAndDrop */,
-				1DF168061887509500D621D9 /* Rnd_DragAndDropTests */,
+				1DF167E71887509500D621D9 /* Hydrogen_DragAndDrop */,
+				1DF168061887509500D621D9 /* Hydrogen_DragAndDropTests */,
 				1DF167E01887509500D621D9 /* Frameworks */,
 				1DF167DF1887509500D621D9 /* Products */,
 			);
@@ -116,8 +119,8 @@
 		1DF167DF1887509500D621D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1DF167DE1887509500D621D9 /* Rnd_DragAndDrop.app */,
-				1DF167FF1887509500D621D9 /* Rnd_DragAndDropTests.xctest */,
+				1DF167DE1887509500D621D9 /* Hydrogen_DragAndDrop.app */,
+				1DF167FF1887509500D621D9 /* Hydrogen_DragAndDropTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,7 +136,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1DF167E71887509500D621D9 /* Rnd_DragAndDrop */ = {
+		1DF167E71887509500D621D9 /* Hydrogen_DragAndDrop */ = {
 			isa = PBXGroup;
 			children = (
 				1DF167E81887509500D621D9 /* Supporting Files */,
@@ -141,33 +144,33 @@
 				1DF1681E18899D8F00D621D9 /* Classes */,
 				1DF167F91887509500D621D9 /* Images.xcassets */,
 			);
-			path = Rnd_DragAndDrop;
+			path = Hydrogen_DragAndDrop;
 			sourceTree = "<group>";
 		};
 		1DF167E81887509500D621D9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1DF167E91887509500D621D9 /* Rnd_DragAndDrop-Info.plist */,
+				1DF167E91887509500D621D9 /* Hydrogen_DragAndDrop-Info.plist */,
 				1DF167EA1887509500D621D9 /* InfoPlist.strings */,
 				1DF167ED1887509500D621D9 /* main.m */,
-				1DF167EF1887509500D621D9 /* Rnd_DragAndDrop-Prefix.pch */,
+				1DF167EF1887509500D621D9 /* Hydrogen_DragAndDrop-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1DF168061887509500D621D9 /* Rnd_DragAndDropTests */ = {
+		1DF168061887509500D621D9 /* Hydrogen_DragAndDropTests */ = {
 			isa = PBXGroup;
 			children = (
 				1DF1680C1887509500D621D9 /* Rnd_DragAndDropTests.m */,
 				1DF168071887509500D621D9 /* Supporting Files */,
 			);
-			path = Rnd_DragAndDropTests;
+			path = Hydrogen_DragAndDropTests;
 			sourceTree = "<group>";
 		};
 		1DF168071887509500D621D9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1DF168081887509500D621D9 /* Rnd_DragAndDropTests-Info.plist */,
+				1DF168081887509500D621D9 /* Hydrogen_DragAndDropTests-Info.plist */,
 				1DF168091887509500D621D9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -176,17 +179,19 @@
 		1DF1681E18899D8F00D621D9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1DF1681F18899D8F00D621D9 /* BcvDragSourceProtocol.h */,
-				1DF168261889AE2400D621D9 /* BcvDropZoneProtocol.h */,
-				1DF168231889A6D400D621D9 /* BcvDragAndDropManager.h */,
-				1DF168241889A6D400D621D9 /* BcvDragAndDropManager.m */,
+				1DF1681F18899D8F00D621D9 /* HyDragSourceProtocol.h */,
+				1DF168261889AE2400D621D9 /* HyDropZoneProtocol.h */,
+				1DF168231889A6D400D621D9 /* HyDragAndDropManager.h */,
+				1DF168241889A6D400D621D9 /* HyDragAndDropManager.m */,
+				1D90BE40188D8E4E005CCDEA /* HyDefaultDragAndDropManagerDelegate.h */,
+				1D90BE41188D8E4E005CCDEA /* HyDefaultDragAndDropManagerDelegate.m */,
 				1DF168271889BA2F00D621D9 /* UIView+Image.h */,
 				1DF168281889BA2F00D621D9 /* UIView+Image.m */,
 				1DF1682A1889BCCE00D621D9 /* UIView+DragAndDrop.h */,
 				1DF1682B1889BCCE00D621D9 /* UIView+DragAndDrop.m */,
-				1DF168391889BE5700D621D9 /* BcvDragAndDrop.h */,
-				1DF16842188B044F00D621D9 /* BcvInterestedDropZone.h */,
-				1DF16843188B044F00D621D9 /* BcvInterestedDropZone.m */,
+				1DF168391889BE5700D621D9 /* HyDragAndDrop.h */,
+				1DF16842188B044F00D621D9 /* HyDropZoneWrapper.h */,
+				1DF16843188B044F00D621D9 /* HyDropZoneWrapper.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -194,17 +199,17 @@
 		1DF1682D1889BDFA00D621D9 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
-				1DF1682E1889BDFA00D621D9 /* BcvAppDelegate.h */,
-				1DF1682F1889BDFA00D621D9 /* BcvAppDelegate.m */,
-				1DF168301889BDFA00D621D9 /* BcvDragAndDropViewController.h */,
-				1DF168311889BDFA00D621D9 /* BcvDragAndDropViewController.m */,
-				1DF168321889BDFA00D621D9 /* BcvDragAndDropViewController.xib */,
-				1DF168361889BE2000D621D9 /* BcvDragView.h */,
-				1DF168371889BE2000D621D9 /* BcvDragView.m */,
-				1DF1683C188A2D3400D621D9 /* BcvDropView.h */,
-				1DF1683D188A2D3400D621D9 /* BcvDropView.m */,
-				1DF1683F188A2D4D00D621D9 /* BcvDropScrollView.h */,
-				1DF16840188A2D4D00D621D9 /* BcvDropScrollView.m */,
+				1DF1682E1889BDFA00D621D9 /* HyAppDelegate.h */,
+				1DF1682F1889BDFA00D621D9 /* HyAppDelegate.m */,
+				1DF168301889BDFA00D621D9 /* HyDragAndDropViewController.h */,
+				1DF168311889BDFA00D621D9 /* HyDragAndDropViewController.m */,
+				1DF168321889BDFA00D621D9 /* HyDragAndDropViewController.xib */,
+				1DF168361889BE2000D621D9 /* HyDragView.h */,
+				1DF168371889BE2000D621D9 /* HyDragView.m */,
+				1DF1683C188A2D3400D621D9 /* HyDropView.h */,
+				1DF1683D188A2D3400D621D9 /* HyDropView.m */,
+				1DF1683F188A2D4D00D621D9 /* HyDropScrollView.h */,
+				1DF16840188A2D4D00D621D9 /* HyDropScrollView.m */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -212,9 +217,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1DF167DD1887509500D621D9 /* Rnd_DragAndDrop */ = {
+		1DF167DD1887509500D621D9 /* Hydrogen_DragAndDrop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DF168101887509500D621D9 /* Build configuration list for PBXNativeTarget "Rnd_DragAndDrop" */;
+			buildConfigurationList = 1DF168101887509500D621D9 /* Build configuration list for PBXNativeTarget "Hydrogen_DragAndDrop" */;
 			buildPhases = (
 				1DF167DA1887509500D621D9 /* Sources */,
 				1DF167DB1887509500D621D9 /* Frameworks */,
@@ -224,14 +229,14 @@
 			);
 			dependencies = (
 			);
-			name = Rnd_DragAndDrop;
+			name = Hydrogen_DragAndDrop;
 			productName = Rnd_DragAndDrop;
-			productReference = 1DF167DE1887509500D621D9 /* Rnd_DragAndDrop.app */;
+			productReference = 1DF167DE1887509500D621D9 /* Hydrogen_DragAndDrop.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1DF167FE1887509500D621D9 /* Rnd_DragAndDropTests */ = {
+		1DF167FE1887509500D621D9 /* Hydrogen_DragAndDropTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DF168131887509500D621D9 /* Build configuration list for PBXNativeTarget "Rnd_DragAndDropTests" */;
+			buildConfigurationList = 1DF168131887509500D621D9 /* Build configuration list for PBXNativeTarget "Hydrogen_DragAndDropTests" */;
 			buildPhases = (
 				1DF167FB1887509500D621D9 /* Sources */,
 				1DF167FC1887509500D621D9 /* Frameworks */,
@@ -242,9 +247,9 @@
 			dependencies = (
 				1DF168051887509500D621D9 /* PBXTargetDependency */,
 			);
-			name = Rnd_DragAndDropTests;
+			name = Hydrogen_DragAndDropTests;
 			productName = Rnd_DragAndDropTests;
-			productReference = 1DF167FF1887509500D621D9 /* Rnd_DragAndDropTests.xctest */;
+			productReference = 1DF167FF1887509500D621D9 /* Hydrogen_DragAndDropTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -265,7 +270,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1DF167D91887509500D621D9 /* Build configuration list for PBXProject "Rnd_DragAndDrop" */;
+			buildConfigurationList = 1DF167D91887509500D621D9 /* Build configuration list for PBXProject "Hydrogen_DragAndDrop" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -278,8 +283,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1DF167DD1887509500D621D9 /* Rnd_DragAndDrop */,
-				1DF167FE1887509500D621D9 /* Rnd_DragAndDropTests */,
+				1DF167DD1887509500D621D9 /* Hydrogen_DragAndDrop */,
+				1DF167FE1887509500D621D9 /* Hydrogen_DragAndDropTests */,
 			);
 		};
 /* End PBXProject section */
@@ -290,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DF167FA1887509500D621D9 /* Images.xcassets in Resources */,
-				1DF168351889BDFA00D621D9 /* BcvDragAndDropViewController.xib in Resources */,
+				1DF168351889BDFA00D621D9 /* HyDragAndDropViewController.xib in Resources */,
 				1DF167EC1887509500D621D9 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,14 +315,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DF168251889A6D400D621D9 /* BcvDragAndDropManager.m in Sources */,
-				1DF168331889BDFA00D621D9 /* BcvAppDelegate.m in Sources */,
+				1DF168251889A6D400D621D9 /* HyDragAndDropManager.m in Sources */,
+				1D90BE42188D8E4E005CCDEA /* HyDefaultDragAndDropManagerDelegate.m in Sources */,
+				1DF168331889BDFA00D621D9 /* HyAppDelegate.m in Sources */,
 				1DF1682C1889BCCE00D621D9 /* UIView+DragAndDrop.m in Sources */,
-				1DF1683E188A2D3400D621D9 /* BcvDropView.m in Sources */,
-				1DF168341889BDFA00D621D9 /* BcvDragAndDropViewController.m in Sources */,
-				1DF16844188B044F00D621D9 /* BcvInterestedDropZone.m in Sources */,
-				1DF168381889BE2000D621D9 /* BcvDragView.m in Sources */,
-				1DF16841188A2D4D00D621D9 /* BcvDropScrollView.m in Sources */,
+				1DF1683E188A2D3400D621D9 /* HyDropView.m in Sources */,
+				1DF168341889BDFA00D621D9 /* HyDragAndDropViewController.m in Sources */,
+				1DF16844188B044F00D621D9 /* HyDropZoneWrapper.m in Sources */,
+				1DF168381889BE2000D621D9 /* HyDragView.m in Sources */,
+				1DF16841188A2D4D00D621D9 /* HyDropScrollView.m in Sources */,
 				1DF168291889BA2F00D621D9 /* UIView+Image.m in Sources */,
 				1DF167EE1887509500D621D9 /* main.m in Sources */,
 			);
@@ -336,7 +342,7 @@
 /* Begin PBXTargetDependency section */
 		1DF168051887509500D621D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1DF167DD1887509500D621D9 /* Rnd_DragAndDrop */;
+			target = 1DF167DD1887509500D621D9 /* Hydrogen_DragAndDrop */;
 			targetProxy = 1DF168041887509500D621D9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -441,10 +447,10 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Rnd_DragAndDrop/Rnd_DragAndDrop-Prefix.pch";
-				INFOPLIST_FILE = "Rnd_DragAndDrop/Rnd_DragAndDrop-Info.plist";
+				GCC_PREFIX_HEADER = "Hydrogen_DragAndDrop/Hydrogen_DragAndDrop-Prefix.pch";
+				INFOPLIST_FILE = "Hydrogen_DragAndDrop/Hydrogen_DragAndDrop-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hydrogen_DragAndDrop;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -458,10 +464,10 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Rnd_DragAndDrop/Rnd_DragAndDrop-Prefix.pch";
-				INFOPLIST_FILE = "Rnd_DragAndDrop/Rnd_DragAndDrop-Info.plist";
+				GCC_PREFIX_HEADER = "Hydrogen_DragAndDrop/Hydrogen_DragAndDrop-Prefix.pch";
+				INFOPLIST_FILE = "Hydrogen_DragAndDrop/Hydrogen_DragAndDrop-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hydrogen_DragAndDrop;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -483,8 +489,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Rnd_DragAndDropTests/Rnd_DragAndDropTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Rnd_DragAndDropTests/Hydrogen_DragAndDropTests-Info.plist";
+				PRODUCT_NAME = Hydrogen_DragAndDropTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -502,8 +508,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rnd_DragAndDrop/Rnd_DragAndDrop-Prefix.pch";
-				INFOPLIST_FILE = "Rnd_DragAndDropTests/Rnd_DragAndDropTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Rnd_DragAndDropTests/Hydrogen_DragAndDropTests-Info.plist";
+				PRODUCT_NAME = Hydrogen_DragAndDropTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -512,7 +518,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DF167D91887509500D621D9 /* Build configuration list for PBXProject "Rnd_DragAndDrop" */ = {
+		1DF167D91887509500D621D9 /* Build configuration list for PBXProject "Hydrogen_DragAndDrop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DF1680E1887509500D621D9 /* Debug */,
@@ -521,21 +527,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DF168101887509500D621D9 /* Build configuration list for PBXNativeTarget "Rnd_DragAndDrop" */ = {
+		1DF168101887509500D621D9 /* Build configuration list for PBXNativeTarget "Hydrogen_DragAndDrop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DF168111887509500D621D9 /* Debug */,
 				1DF168121887509500D621D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		1DF168131887509500D621D9 /* Build configuration list for PBXNativeTarget "Rnd_DragAndDropTests" */ = {
+		1DF168131887509500D621D9 /* Build configuration list for PBXNativeTarget "Hydrogen_DragAndDropTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DF168141887509500D621D9 /* Debug */,
 				1DF168151887509500D621D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

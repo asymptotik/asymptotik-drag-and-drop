@@ -1,5 +1,5 @@
 //
-//  BcvDropScrollView.h
+//  HyDropScrollView.h
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BcvDragAndDrop.h"
+#import "HyDragAndDrop.h"
 
-@interface BcvDropScrollView : UIScrollView <BcvDropZoneProtocol> 
+@interface HyDropScrollView : UIScrollView <HyDropZoneProtocol> 
 
 @property (nonatomic, assign) CGFloat autoScrollEdgeTollerance;
 @property (nonatomic, assign) CGFloat autoScrollVelocity;

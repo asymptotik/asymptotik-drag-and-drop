@@ -1,19 +1,19 @@
 //
-//  BcvDragView.m
+//  HyDragView.m
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
 //  Copyright (c) 2014 Mondo Robot. All rights reserved.
 //
 
-#import "BcvDragView.h"
-#import "BcvDragAndDropManager.h"
+#import "HyDragView.h"
+#import "HyDragAndDropManager.h"
 
-@interface BcvDragView()
+@interface HyDragView()
 
 @end
 
-@implementation BcvDragView
+@implementation HyDragView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -37,8 +37,7 @@
 
 - (BOOL)dragStarted
 {
-    UIPasteboard *pasteboard = [BcvDragAndDropManager instance].pasteboard;
-    [pasteboard setValue:@"string" forPasteboardType:@"com.comcast.bcv.test"];
+    [HyDragAndDropManager instance].pasteboard.string = [NSString stringWithFormat:@"val-%d", self.tag];;
     return YES;
 }
 

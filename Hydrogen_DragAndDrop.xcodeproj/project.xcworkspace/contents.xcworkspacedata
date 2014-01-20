@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Rnd_DragAndDrop.xcodeproj">
+      location = "self:Hydrogen_DragAndDrop.xcodeproj">
    </FileRef>
 </Workspace>

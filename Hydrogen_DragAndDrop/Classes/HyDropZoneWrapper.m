@@ -1,21 +1,22 @@
 //
-//  BcvInterestedDropZone.m
+//  HyDropZoneWrapper.m
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/18/14.
 //  Copyright (c) 2014 Mondo Robot. All rights reserved.
 //
 
-#import "BcvInterestedDropZone.h"
+#import "HyDropZoneWrapper.h"
 
-@implementation BcvInterestedDropZone
+@implementation HyDropZoneWrapper
 
-- (id)initWithDropZone:(id<BcvDropZoneProtocol>)dropZone
+- (id)initWithDropZone:(id<HyDropZoneProtocol>)dropZone interested:(BOOL)interested;
 {
     if((self = [super init]))
     {
         self.dropZone = dropZone;
-        self.isInside = NO;
+        self.isActive = NO;
+        self.isInterested = interested;
     }
     
     return self;

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "BcvAppDelegate.h"
+#import "HyAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([BcvAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([HyAppDelegate class]));
     }
 }

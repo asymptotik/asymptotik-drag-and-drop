@@ -1,14 +1,14 @@
 //
-//  BcvDropScrollView.m
+//  HyDropScrollView.m
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
 //  Copyright (c) 2014 Mondo Robot. All rights reserved.
 //
 
-#import "BcvDropScrollView.h"
+#import "HyDropScrollView.h"
 
-@interface BcvDropScrollView ()
+@interface HyDropScrollView ()
 
 @property (nonatomic, retain) UIColor *savedBackgroundColor;
 @property (nonatomic, assign) CGPoint lastDragPoint;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation BcvDropScrollView
+@implementation HyDropScrollView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -46,28 +46,28 @@
 
 - (BOOL)dragStarted
 {
-    NSLog(@"BcvDropScrollView.dragStarted");
+    NSLog(@"HyDropScrollView.dragStarted");
     
-    //UIPasteboard *pastebaord = [BcvDragAndDropManager instance].pasteboard;
+    //UIPasteboard *pastebaord = [HyDragAndDropManager instance].pasteboard;
     
     return true;
 }
 
 - (void)dragEnded
 {
-    NSLog(@"BcvDropScrollView.dragEnded");
+    NSLog(@"HyDropScrollView.dragEnded");
 }
 
 - (void)dragEntered:(CGPoint)point
 {
-    NSLog(@"BcvDropScrollView.dragEntered");
+    NSLog(@"HyDropScrollView.dragEntered");
     self.savedBackgroundColor = self.backgroundColor;
     self.backgroundColor = [UIColor blueColor];
 }
 
 - (void)dragExited:(CGPoint)point
 {
-    NSLog(@"BcvDropScrollView.dragExited");
+    NSLog(@"HyDropScrollView.dragExited");
     self.backgroundColor = self.savedBackgroundColor;
 }
 
@@ -138,9 +138,9 @@
 
 - (void)dragMoved:(CGPoint)point
 {
-    //NSLog(@"BcvDropScrollView.dragMoved");
+    //NSLog(@"HyDropScrollView.dragMoved");
     
-    _lastDragPoint = [[BcvDragAndDropManager instance] convertPoint:point toView:self];
+    _lastDragPoint = [[HyDragAndDropManager instance].rootView convertPoint:point toView:self];
     CGPoint offset = self.contentOffset;
     
     //
@@ -151,7 +151,7 @@
     _lastDragPoint.y -= offset.y;
     
     CGPoint scrollDelta = [self scrollDelta:_lastDragPoint];
-    NSLog(@"BcvDropScrollView.dragMoved:point: %f %f delta: %f %f", _lastDragPoint.x, _lastDragPoint.y, scrollDelta.x, scrollDelta.y);
+    NSLog(@"HyDropScrollView.dragMoved:point: %f %f delta: %f %f", _lastDragPoint.x, _lastDragPoint.y, scrollDelta.x, scrollDelta.y);
     
     if(!CGPointEqualToPoint(scrollDelta, CGPointZero))
     {
@@ -174,7 +174,7 @@
 - (void)tick:(NSTimer *)timer
 {
     CGPoint scrollDelta = [self scrollDelta:_lastDragPoint];
-    NSLog(@"BcvDropScrollView.dragMoved:point: %f %f delta: %f %f", _lastDragPoint.x, _lastDragPoint.y, scrollDelta.x, scrollDelta.y);
+    NSLog(@"HyDropScrollView.dragMoved:point: %f %f delta: %f %f", _lastDragPoint.x, _lastDragPoint.y, scrollDelta.x, scrollDelta.y);
     
     if(!CGPointEqualToPoint(scrollDelta, CGPointZero))
     {
@@ -194,7 +194,7 @@
 
 - (void)dragDropped:(CGPoint)point
 {
-    NSLog(@"BcvDropScrollView.dragDropped");
+    NSLog(@"HyDropScrollView.dragDropped");
     self.backgroundColor = [UIColor greenColor];
 }
 

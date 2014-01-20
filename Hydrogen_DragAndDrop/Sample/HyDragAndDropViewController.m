@@ -1,14 +1,14 @@
 //
-//  BcvDragAndDropViewController.m
+//  HyDragAndDropViewController.m
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/15/14.
 //  Copyright (c) 2014 Mondo Robot. All rights reserved.
 //
 
-#import "BcvDragAndDropViewController.h"
+#import "HyDragAndDropViewController.h"
 
-@interface BcvDragAndDropViewController ()
+@interface HyDragAndDropViewController ()
 
 @property (nonatomic, retain) IBOutlet UIView *viewSource;
 @property (nonatomic, retain) IBOutlet UIScrollView *scroller;
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation BcvDragAndDropViewController
+@implementation HyDragAndDropViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

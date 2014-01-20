@@ -1,27 +1,27 @@
 //
-//  BcvAppDelegate.m
+//  HyAppDelegate.m
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/15/14.
 //  Copyright (c) 2014 Rick Boykin. All rights reserved.
 //
 
-#import "BcvAppDelegate.h"
-#import "BcvDragAndDropViewController.h"
-#import "BcvDragAndDrop.h"
+#import "HyAppDelegate.h"
+#import "HyDragAndDropViewController.h"
+#import "HyDragAndDrop.h"
 
-@implementation BcvAppDelegate
+@implementation HyAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
-    BcvDragAndDropViewController *test = [[BcvDragAndDropViewController alloc] initWithNibName:@"BcvDragAndDropViewController" bundle:nil];
+    HyDragAndDropViewController *test = [[HyDragAndDropViewController alloc] initWithNibName:@"HyDragAndDropViewController" bundle:nil];
     self.window.rootViewController = test;
     
     [self.window makeKeyAndVisible];
     
-    [[BcvDragAndDropManager instance] start];
+    [[HyDragAndDropManager instance] start];
 
     return YES;
 }

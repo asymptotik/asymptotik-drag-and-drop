@@ -1,5 +1,5 @@
 //
-//  BcvDropView.h
+//  HyDropView.h
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BcvDragAndDrop.h"
+#import "HyDragAndDrop.h"
 
-@interface BcvDropView : UIView <BcvDropZoneProtocol> 
+@interface HyDropView : UIView <HyDropZoneProtocol> 
 
 @end

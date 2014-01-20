@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="9Gl-9N-bgc" customClass="BcvDropScrollView">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="9Gl-9N-bgc" customClass="HyDropScrollView">
                     <rect key="frame" x="0.0" y="273" width="320" height="275"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
@@ -33,43 +33,43 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="630"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view contentMode="scaleToFill" id="LHR-UT-pwF" customClass="BcvDropView">
-                                    <rect key="frame" x="10" y="320" width="145" height="145"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
-                                <view contentMode="scaleToFill" id="NpK-ee-IF3" customClass="BcvDropView">
-                                    <rect key="frame" x="165" y="320" width="145" height="145"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
-                                <view contentMode="scaleToFill" id="FsU-yj-JHp" customClass="BcvDropView">
-                                    <rect key="frame" x="10" y="475" width="145" height="145"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
-                                <view contentMode="scaleToFill" id="3g4-Fs-Vno" customClass="BcvDropView">
-                                    <rect key="frame" x="165" y="475" width="145" height="145"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
-                                <view contentMode="scaleToFill" id="5fo-6B-wus" customClass="BcvDropView">
+                                <view contentMode="scaleToFill" id="5fo-6B-wus" customClass="HyDropView">
                                     <rect key="frame" x="10" y="10" width="145" height="145"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="iyw-HO-bt3" customClass="BcvDropView">
+                                <view tag="1" contentMode="scaleToFill" id="iyw-HO-bt3" customClass="HyDropView">
                                     <rect key="frame" x="165" y="10" width="145" height="145"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="iPr-xQ-qUC" customClass="BcvDropView">
+                                <view tag="1" contentMode="scaleToFill" id="iPr-xQ-qUC" customClass="HyDropView">
                                     <rect key="frame" x="10" y="165" width="145" height="145"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="7eI-sy-QYO" customClass="BcvDropView">
+                                <view contentMode="scaleToFill" id="7eI-sy-QYO" customClass="HyDropView">
                                     <rect key="frame" x="165" y="165" width="145" height="145"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="LHR-UT-pwF" customClass="HyDropView">
+                                    <rect key="frame" x="10" y="320" width="145" height="145"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view tag="1" contentMode="scaleToFill" id="NpK-ee-IF3" customClass="HyDropView">
+                                    <rect key="frame" x="165" y="320" width="145" height="145"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view tag="1" contentMode="scaleToFill" id="FsU-yj-JHp" customClass="HyDropView">
+                                    <rect key="frame" x="10" y="475" width="145" height="145"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="3g4-Fs-Vno" customClass="HyDropView">
+                                    <rect key="frame" x="165" y="475" width="145" height="145"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
@@ -78,10 +78,15 @@
                         </view>
                     </subviews>
                 </scrollView>
-                <view contentMode="scaleToFill" id="Kqm-Tt-Lt6" customClass="BcvDragView">
-                    <rect key="frame" x="80" y="45" width="160" height="96"/>
+                <view contentMode="scaleToFill" id="Kqm-Tt-Lt6" customClass="HyDragView">
+                    <rect key="frame" x="32" y="45" width="96" height="96"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.47766376556760604" green="0.87842032999381248" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view tag="1" contentMode="scaleToFill" id="sJC-uQ-U7o" customClass="HyDragView">
+                    <rect key="frame" x="192" y="45" width="96" height="96"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.47766376560000001" green="0.87842032999999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

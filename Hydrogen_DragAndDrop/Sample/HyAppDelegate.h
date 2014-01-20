@@ -1,5 +1,5 @@
 //
-//  BcvAppDelegate.h
+//  HyAppDelegate.h
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/15/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BcvAppDelegate : UIResponder <UIApplicationDelegate>
+@interface HyAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
