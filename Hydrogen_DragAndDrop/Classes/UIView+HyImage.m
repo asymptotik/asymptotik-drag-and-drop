@@ -7,7 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "UIView+Image.h"
+#import "UIView+HyImage.h"
 
 @implementation UIView (Image)
 

@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Mondo Robot. All rights reserved.
 //
 
-#import "UIView+DragAndDrop.h"
-#import "UIView+Image.h"
+#import "UIView+HyDragAndDrop.h"
+#import "UIView+HyImage.h"
 
 @implementation UIView (DragAndDrop)
 
@@ -15,6 +15,7 @@
 {
     UIImage *image = [self imageFromView];
     UIImageView *imageView = [[[UIImageView alloc] initWithImage:image] autorelease];
+    imageView.alpha = 0.5;
     return imageView;
 }
 

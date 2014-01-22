@@ -1,20 +1,20 @@
 //
-//  HyDropView.m
+//  HySampleOneDropZoneView.m
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
 //  Copyright (c) 2014 Mondo Robot. All rights reserved.
 //
 
-#import "HyDropView.h"
+#import "HySampleOneDropZoneView.h"
 
-@interface HyDropView ()
+@interface HySampleOneDropZoneView ()
 
 @property (nonatomic, retain) UIColor *savedBackgroundColor;
 
 @end
 
-@implementation HyDropView
+@implementation HySampleOneDropZoneView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -27,22 +27,21 @@
 
 - (BOOL)dragStarted
 {
+    self.savedBackgroundColor = self.backgroundColor;
     return YES;
 }
 
 - (BOOL)isInterested
 {
-    //NSLog(@"HyDropView.dragStarted");
+    //NSLog(@"HySampleOneDropZoneView.dragStarted");
     
     BOOL ret = NO;
     UIPasteboard *pastebaord = [HyDragAndDropManager instance].pasteboard;
-    NSString *tagValue = [NSString stringWithFormat:@"val-%d", self.tag];
+    NSString *tagValue = [NSString stringWithFormat:@"val-%ld", (long)self.tag];
     NSString *pasteboardString = pastebaord.string;
     
     if([tagValue isEqualToString:pasteboardString])
         ret = YES;
-    
-    self.savedBackgroundColor = self.backgroundColor;
     
     if(ret)
     {
@@ -58,7 +57,7 @@
 
 - (void)dragEnded
 {
-    //NSLog(@"HyDropView.dragEnded");
+    //NSLog(@"HySampleOneDropZoneView.dragEnded");
     [self performSelector:@selector(delayEnd) withObject:nil afterDelay:0.2];
 }
 
@@ -69,24 +68,24 @@
 
 - (void)dragEntered:(CGPoint)point
 {
-    //NSLog(@"HyDropView.dragEntered");
+    //NSLog(@"HySampleOneDropZoneView.dragEntered");
     self.backgroundColor = [UIColor orangeColor];
 }
 
 - (void)dragExited:(CGPoint)point
 {
-    //NSLog(@"HyDropView.dragExited");
+    //NSLog(@"HySampleOneDropZoneView.dragExited");
     self.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
 }
 
 - (void)dragMoved:(CGPoint)point
 {
-    //NSLog(@"HyDropView.dragMoved");
+    //NSLog(@"HySampleOneDropZoneView.dragMoved");
 }
 
 - (void)dragDropped:(CGPoint)point
 {
-    //NSLog(@"HyDropView.dragDropped");
+    //NSLog(@"HySampleOneDropZoneView.dragDropped");
     self.backgroundColor = [UIColor magentaColor];
 }
 

@@ -1,5 +1,5 @@
 //
-//  HyDropView.h
+//  HyDropZoneView.h
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "HyDragAndDrop.h"
 
-@interface HyDropView : UIView <HyDropZoneProtocol> 
+@interface HySampleOneDropZoneView : UIView <HyDropZoneProtocol>
 
 @end

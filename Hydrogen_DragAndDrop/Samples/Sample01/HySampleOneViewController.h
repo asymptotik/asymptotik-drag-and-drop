@@ -1,5 +1,5 @@
 //
-//  HyDragAndDropViewController.h
+//  HySampleOneViewController.h
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/15/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HyDragAndDropViewController : UIViewController
+@interface HySampleOneViewController : UIViewController
 
 @end

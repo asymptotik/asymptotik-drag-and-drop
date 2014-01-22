@@ -85,9 +85,8 @@
     }
     else if([dropZone isKindOfClass:[UIView class]])
     {
-        UIView<HyDropZoneProtocol> *dropView = (UIView<HyDropZoneProtocol> *)dropZone;
+        UIView *dropView = (UIView *)dropZone;
         CGPoint pointRelativeToDropView = [recognizer locationInView:dropView];
-        
         ret = [dropView pointInside:pointRelativeToDropView withEvent:nil];
     }
     

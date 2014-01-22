@@ -1,5 +1,5 @@
 //
-//  HyDragView.h
+//  HySampleOneDragSourceView.h
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "HyDragAndDrop.h"
 
-@interface HyDragView : UIView<HyDragSourceProtocol>
+@interface HySampleOneDragSourceView : UIView<HyDragSourceProtocol>
 
 @end

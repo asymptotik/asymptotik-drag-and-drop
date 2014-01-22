@@ -7,12 +7,12 @@
 //
 
 #import "HyDragAndDropManager.h"
-#import "UIView+DragAndDrop.h"
+#import "UIView+HyDragAndDrop.h"
 #import "HyDropZoneProtocol.h"
 #import "HyDropZoneWrapper.h"
 #import "HyDefaultDragAndDropManagerDelegate.h"
 
-@interface HyDragAndDropManager ()
+@interface HyDragAndDropManager ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, retain) UIView *rootView;
 @property (nonatomic, retain) id<HyDragSourceProtocol> dragSource;
@@ -22,12 +22,6 @@
 @property (nonatomic, retain) NSArray *interestedDropZones;
 @property (nonatomic, retain) id<HyDragAndDropManagerDelegate> defaultDelegate;
 @property (nonatomic, readonly) id<HyDragAndDropManagerDelegate> activeDelegate;
-
-- (void)dragStart:(UIGestureRecognizer *)recognizer;
-- (void)dragEnded:(UIGestureRecognizer *)recognizer;
-- (void)dragMoved:(UIGestureRecognizer *)recognizer;
-- (void)dragDropped:(UIGestureRecognizer *)recognizer;
-- (void)positionDragShadow:(UIGestureRecognizer *)recognizer;
 
 @end
 
@@ -92,6 +86,7 @@ static HyDragAndDropManager *_instance;
     {
         self.rootView = rootView;
         self.recognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)] autorelease];
+        self.recognizer.delegate = self;
         [self.rootView addGestureRecognizer:self.recognizer];
     }
 }
@@ -180,6 +175,13 @@ static HyDragAndDropManager *_instance;
     }
 }
 
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)recognizer
+{
+    NSLog(@"HyDragAndDropManager:gestureRecognizerShouldBegin");
+    // Only begin if we have a dragSource.
+    return [self dragStart:recognizer];
+}
+
 /**
  * Handles the gesture. 
  */
@@ -188,9 +190,6 @@ static HyDragAndDropManager *_instance;
     switch(recognizer.state)
     {
         case UIGestureRecognizerStateBegan:
-            {
-                [self dragStart:recognizer];
-            }
             break;
         case UIGestureRecognizerStateChanged:
             if(_dragSource)
@@ -206,13 +205,21 @@ static HyDragAndDropManager *_instance;
             }
             break;
         case UIGestureRecognizerStateCancelled:
+            if(_dragSource)
+            {
+                NSLog(@"UIGestureRecognizerStateCancelled");
+                [self dragEnded:recognizer];
+            }
+            break;
         case UIGestureRecognizerStateFailed:
             if(_dragSource)
             {
+                NSLog(@"UIGestureRecognizerStateFailed");
                 [self dragEnded:recognizer];
             }
             break;
         case UIGestureRecognizerStatePossible:
+            NSLog(@"UIGestureRecognizerStatePossible");
             break;
     }
 }
@@ -258,9 +265,10 @@ static HyDragAndDropManager *_instance;
 }
 
 /**
- * Called when a drag operation starts.
+ * Called when a drag operation starts. Returns true if a self.dragSource was set indicating
+ * that a drag source was found and dragging will commence.
  */
-- (void)dragStart:(UIGestureRecognizer *)recognizer
+- (BOOL)dragStart:(UIGestureRecognizer *)recognizer
 {
     NSLog(@"HyDragAndDropManager.dragStart");
     
@@ -306,6 +314,8 @@ static HyDragAndDropManager *_instance;
         
         [self positionDragShadow:recognizer];
     }
+    
+    return _dragSource == nil ? NO : YES;
 }
 
 /**

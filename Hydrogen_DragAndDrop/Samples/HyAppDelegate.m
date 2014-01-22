@@ -7,7 +7,7 @@
 //
 
 #import "HyAppDelegate.h"
-#import "HyDragAndDropViewController.h"
+#import "HySampleViewController.h"
 #import "HyDragAndDrop.h"
 
 @implementation HyAppDelegate
@@ -16,13 +16,16 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
-    HyDragAndDropViewController *test = [[HyDragAndDropViewController alloc] initWithNibName:@"HyDragAndDropViewController" bundle:nil];
-    self.window.rootViewController = test;
+    
+    HySampleViewController *sampleViewController = [[[HySampleViewController alloc] initWithNibName:@"HySampleViewController" bundle:nil] autorelease];
+    UINavigationController *navController = [[[UINavigationController alloc] initWithRootViewController:sampleViewController] autorelease];
+    navController.navigationBar.translucent = NO;
+    navController.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    self.window.rootViewController = navController;
     
     [self.window makeKeyAndVisible];
     
-    [[HyDragAndDropManager instance] start];
-
     return YES;
 }
 							

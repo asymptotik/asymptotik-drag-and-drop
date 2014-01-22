@@ -1,19 +1,19 @@
 //
-//  HyDragView.m
+//  HySampleOneDragSourceView.m
 //  Rnd_DragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
 //  Copyright (c) 2014 Mondo Robot. All rights reserved.
 //
 
-#import "HyDragView.h"
+#import "HySampleOneDragSourceView.h"
 #import "HyDragAndDropManager.h"
 
-@interface HyDragView()
+@interface HySampleOneDragSourceView()
 
 @end
 
-@implementation HyDragView
+@implementation HySampleOneDragSourceView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -37,7 +37,7 @@
 
 - (BOOL)dragStarted
 {
-    [HyDragAndDropManager instance].pasteboard.string = [NSString stringWithFormat:@"val-%d", self.tag];;
+    [HyDragAndDropManager instance].pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];;
     return YES;
 }
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (DragAndDrop)
+@interface UIView (HyDragAndDrop)
 
 /**
  * Creates a UIView based on self that is a UIImageView with an image
