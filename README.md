@@ -24,7 +24,7 @@ Here we have a UIView drag source.
 
 - (BOOL)dragStarted:(HyDragAndDropManager *)manager
 {
-    manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];;
+    manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];
     return YES;
 }
 
@@ -57,8 +57,9 @@ Here we have a UIView drop zone.
 
     BOOL ret = NO;
     UIPasteboard *pastebaord = manager.pasteboard;
-
-    if([[NSString stringWithFormat:@"val-%ld", (long)self.tag] isEqualToString:pastebaord.string])
+    NSString *interestedInString = 
+    	     [NSString stringWithFormat:@"val-%ld", (long)self.tag];
+    if([interestedInString isEqualToString:pastebaord.string])
         ret = YES;
     
     return ret;
@@ -93,8 +94,8 @@ And finally, we have our UIViewController. This assumes the drag source and drop
 {
     self.navigationItem.title = @"Sample One";
     //
-    // By default the HyDragAndDropManager uses the UIApplication key windows as the rootView
-    // and a UIPanGestureRecognizer. However, these are configurable.
+    // By default the HyDragAndDropManager uses the UIApplication key windows as 
+    // the rootView and a UIPanGestureRecognizer. However, these are configurable.
     // Notice there is no need to register the drag sources or drop zones. The
     // HyDragAndDropManager will by default traverse the view hierarch and find them. 
     // This behavior is also configurable through the HyDragAndDropManager delegate.
