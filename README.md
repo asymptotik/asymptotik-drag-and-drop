@@ -1,16 +1,23 @@
-hydrogen-drag-and-drop
+Hydrogen Drag and Drop
 =================
 
-iOS drag and drop toolkit with support for UIScrollView, Drag Shadow generation, Drag Source and Drop Zones by either subclassing or wrapping UIView. The HyDragAndDropManager also uses the common delegate pattern to allow a wide varienty of drag and drop scenarios and accepts any continuous UIGestureRecognizer class for drag recognition. Additionally, the system works with the UIPasteboard as a means of data passing for the drag and drop operation.
+iOS drag and drop toolkit with support for:
+
+* Drag Source and Drop Zones by either subclassing or wrapping UIView and subclasses
+* Drag shadow generation for UIView
+* UIScrollView drag target auto scrolling  
+* HyDragAndDropManager uses the delegate pattern to allow a wide varienty of drag and drop scenarios
+* Accepts any continuous UIGestureRecognizer class for drag recognition
+* Works with the UIPasteboard as a means of data passing for the drag and drop operation.
 
 The current limitation to the library is that drag and drop takes place for objects that are associated with a common root view. In practice this simply limits draging across UIWindows.
 
-Please try it out and give me your feedback. I'm interested in making this pretty robust and will accept reasonable pull request. If you want to do big changes, I'm open, but lets talk.
+I wrote this because I needed drag and drop support and didn't find something out there that met all my needs. Please try it out and give me your feedback. I'm interested in making this pretty robust and will accept reasonable pull requests. If you want to do big changes, I'm open, but lets talk.
 
-Examples
+Example
 --------
 
-The source base provides a few examples that use most of the features. Here is a simple example of setting up a scenario.
+The source base provides a few examples that use most of the features. Here is a simple example of setting up a scenario that uses most of the defaults.
 
 Here we have a UIView drag source.
 
