@@ -3,7 +3,7 @@ hydrogen-drag-and-drop
 
 iOS drag and drop toolkit with support for UIScrollView, Drag Shadow generation, Drag Source and Drop Zones by either subclassing or wrapping UIView. The HyDragAndDropManager also uses the common delegate pattern to allow a wide varienty of drag and drop scenarios and accepts any continuous UIGestureRecognizer class for drag recognition. Additionally, the system works with the UIPasteboard as a means of data passing for the drag and drop operation.
 
-The current limitation to the library is that drag and drop takes place for object that are associated with a root view. In practice this simply limits draging across UIWindows.
+The current limitation to the library is that drag and drop takes place for objects that are associated with a common root view. In practice this simply limits draging across UIWindows.
 
 Please try it out and give me your feedback. I'm interested in making this pretty robust and will accept reasonable pull request. If you want to do big changes, I'm open, but lets talk.
 
@@ -68,7 +68,7 @@ Here we have a UIView drop zone.
 
 ```
 
-And finally, we have our UIViewController 
+And finally, we have our UIViewController. This assumes the drag source and drop zones were layed out on the MySampleOneViewController in Interface Builder or some other means. 
 
 ```objective-c
 
@@ -92,6 +92,13 @@ And finally, we have our UIViewController
 - (void)initialize
 {
     self.navigationItem.title = @"Sample One";
+    //
+    // By default the HyDragAndDropManager uses the UIApplication key windows as the rootView
+    // and a UIPanGestureRecognizer. However, these are configurable.
+    // Notice there is no need to register the drag sources or drop zones. The
+    // HyDragAndDropManager will by default traverse the view hierarch and find them. 
+    // This behavior is also configurable through the HyDragAndDropManager delegate.
+    //
     self.dragAndDropManager = [[[HyDragAndDropManager alloc] init] autorelease];
 }
 
