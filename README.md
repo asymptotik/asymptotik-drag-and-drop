@@ -10,7 +10,7 @@ iOS drag and drop toolkit with support for:
 * Accepts any continuous UIGestureRecognizer class for drag recognition
 * Works with the UIPasteboard as a means of data passing for the drag and drop operation.
 
-The current limitation to the library is that drag and drop takes place for objects that are associated with a common root view. In practice this simply limits draging across UIWindows.
+The current limitation to the library is that drag and drop takes place for objects that are associated with a common root view. In practice this simply limits draging across UIWindows. This library does not currently use ARC. I know. I know. But my motivation was a much bigger project that has not yet been converted.
 
 I wrote this because I needed drag and drop support and didn't find something out there that met all my needs. Please try it out and give me your feedback. I'm interested in making this pretty robust and will accept reasonable pull requests. If you want to do big changes, I'm open, but lets talk.
 
