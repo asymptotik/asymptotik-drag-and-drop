@@ -24,17 +24,17 @@
 		1D55A8A81890EC7E00634E3E /* UIView+AtkImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A8A21890EC7E00634E3E /* UIView+AtkImage.m */; };
 		1D55A8C31890EC8400634E3E /* AtkAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A8AB1890EC8400634E3E /* AtkAppDelegate.m */; };
 		1D55A8C41890EC8400634E3E /* AtkSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A8AD1890EC8400634E3E /* AtkSampleViewController.m */; };
-		1D55A8C51890EC8400634E3E /* HySampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D55A8AE1890EC8400634E3E /* HySampleViewController.xib */; };
+		1D55A8C51890EC8400634E3E /* AtkSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D55A8AE1890EC8400634E3E /* AtkSampleViewController.xib */; };
 		1D55A8C61890EC8400634E3E /* AtkSampleOneDragSourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A8B11890EC8400634E3E /* AtkSampleOneDragSourceView.m */; };
 		1D55A8C71890EC8400634E3E /* AtkSampleOneDropZoneScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A8B31890EC8400634E3E /* AtkSampleOneDropZoneScrollView.m */; };
 		1D55A8C81890EC8400634E3E /* AtkSampleOneDropZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A8B51890EC8400634E3E /* AtkSampleOneDropZoneView.m */; };
 		1D55A8C91890EC8400634E3E /* AtkSampleOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A8B71890EC8400634E3E /* AtkSampleOneViewController.m */; };
-		1D55A8CA1890EC8400634E3E /* HySampleOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D55A8B81890EC8400634E3E /* HySampleOneViewController.xib */; };
+		1D55A8CA1890EC8400634E3E /* AtkSampleOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D55A8B81890EC8400634E3E /* AtkSampleOneViewController.xib */; };
 		1D55A8CB1890EC8400634E3E /* AtkSampleTwoDragSourceWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A8BB1890EC8400634E3E /* AtkSampleTwoDragSourceWrapper.m */; };
 		1D55A8CC1890EC8400634E3E /* AtkSampleTwoDropZoneScrollViewWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A8BD1890EC8400634E3E /* AtkSampleTwoDropZoneScrollViewWrapper.m */; };
 		1D55A8CD1890EC8400634E3E /* AtkSampleTwoDropZoneWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A8BF1890EC8400634E3E /* AtkSampleTwoDropZoneWrapper.m */; };
 		1D55A8CE1890EC8400634E3E /* AtkSampleTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55A8C11890EC8400634E3E /* AtkSampleTwoViewController.m */; };
-		1D55A8CF1890EC8400634E3E /* HySampleTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D55A8C21890EC8400634E3E /* HySampleTwoViewController.xib */; };
+		1D55A8CF1890EC8400634E3E /* AtkSampleTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D55A8C21890EC8400634E3E /* AtkSampleTwoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +78,7 @@
 		1D55A8AB1890EC8400634E3E /* AtkAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkAppDelegate.m; sourceTree = "<group>"; };
 		1D55A8AC1890EC8400634E3E /* AtkSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleViewController.h; sourceTree = "<group>"; };
 		1D55A8AD1890EC8400634E3E /* AtkSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleViewController.m; sourceTree = "<group>"; };
-		1D55A8AE1890EC8400634E3E /* HySampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HySampleViewController.xib; sourceTree = "<group>"; };
+		1D55A8AE1890EC8400634E3E /* AtkSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtkSampleViewController.xib; sourceTree = "<group>"; };
 		1D55A8B01890EC8400634E3E /* AtkSampleOneDragSourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleOneDragSourceView.h; sourceTree = "<group>"; };
 		1D55A8B11890EC8400634E3E /* AtkSampleOneDragSourceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleOneDragSourceView.m; sourceTree = "<group>"; };
 		1D55A8B21890EC8400634E3E /* AtkSampleOneDropZoneScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleOneDropZoneScrollView.h; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 		1D55A8B51890EC8400634E3E /* AtkSampleOneDropZoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleOneDropZoneView.m; sourceTree = "<group>"; };
 		1D55A8B61890EC8400634E3E /* AtkSampleOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleOneViewController.h; sourceTree = "<group>"; };
 		1D55A8B71890EC8400634E3E /* AtkSampleOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleOneViewController.m; sourceTree = "<group>"; };
-		1D55A8B81890EC8400634E3E /* HySampleOneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HySampleOneViewController.xib; sourceTree = "<group>"; };
+		1D55A8B81890EC8400634E3E /* AtkSampleOneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtkSampleOneViewController.xib; sourceTree = "<group>"; };
 		1D55A8BA1890EC8400634E3E /* AtkSampleTwoDragSourceWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleTwoDragSourceWrapper.h; sourceTree = "<group>"; };
 		1D55A8BB1890EC8400634E3E /* AtkSampleTwoDragSourceWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleTwoDragSourceWrapper.m; sourceTree = "<group>"; };
 		1D55A8BC1890EC8400634E3E /* AtkSampleTwoDropZoneScrollViewWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleTwoDropZoneScrollViewWrapper.h; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		1D55A8BF1890EC8400634E3E /* AtkSampleTwoDropZoneWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleTwoDropZoneWrapper.m; sourceTree = "<group>"; };
 		1D55A8C01890EC8400634E3E /* AtkSampleTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleTwoViewController.h; sourceTree = "<group>"; };
 		1D55A8C11890EC8400634E3E /* AtkSampleTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleTwoViewController.m; sourceTree = "<group>"; };
-		1D55A8C21890EC8400634E3E /* HySampleTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HySampleTwoViewController.xib; sourceTree = "<group>"; };
+		1D55A8C21890EC8400634E3E /* AtkSampleTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtkSampleTwoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +155,8 @@
 		1D55A86A1890EB9E00634E3E /* AtkDragAndDrop */ = {
 			isa = PBXGroup;
 			children = (
-				1D55A8A91890EC8400634E3E /* Samples */,
 				1D55A8931890EC7E00634E3E /* Classes */,
+				1D55A8A91890EC8400634E3E /* Samples */,
 				1D55A8761890EB9E00634E3E /* Images.xcassets */,
 				1D55A86B1890EB9E00634E3E /* Supporting Files */,
 			);
@@ -203,7 +203,7 @@
 				1D55A8AB1890EC8400634E3E /* AtkAppDelegate.m */,
 				1D55A8AC1890EC8400634E3E /* AtkSampleViewController.h */,
 				1D55A8AD1890EC8400634E3E /* AtkSampleViewController.m */,
-				1D55A8AE1890EC8400634E3E /* HySampleViewController.xib */,
+				1D55A8AE1890EC8400634E3E /* AtkSampleViewController.xib */,
 				1D55A8AF1890EC8400634E3E /* Sample01 */,
 				1D55A8B91890EC8400634E3E /* Sample02 */,
 			);
@@ -221,7 +221,7 @@
 				1D55A8B51890EC8400634E3E /* AtkSampleOneDropZoneView.m */,
 				1D55A8B61890EC8400634E3E /* AtkSampleOneViewController.h */,
 				1D55A8B71890EC8400634E3E /* AtkSampleOneViewController.m */,
-				1D55A8B81890EC8400634E3E /* HySampleOneViewController.xib */,
+				1D55A8B81890EC8400634E3E /* AtkSampleOneViewController.xib */,
 			);
 			path = Sample01;
 			sourceTree = "<group>";
@@ -237,7 +237,7 @@
 				1D55A8BF1890EC8400634E3E /* AtkSampleTwoDropZoneWrapper.m */,
 				1D55A8C01890EC8400634E3E /* AtkSampleTwoViewController.h */,
 				1D55A8C11890EC8400634E3E /* AtkSampleTwoViewController.m */,
-				1D55A8C21890EC8400634E3E /* HySampleTwoViewController.xib */,
+				1D55A8C21890EC8400634E3E /* AtkSampleTwoViewController.xib */,
 			);
 			path = Sample02;
 			sourceTree = "<group>";
@@ -320,9 +320,9 @@
 			files = (
 				1D55A86F1890EB9E00634E3E /* InfoPlist.strings in Resources */,
 				1D55A8771890EB9E00634E3E /* Images.xcassets in Resources */,
-				1D55A8CA1890EC8400634E3E /* HySampleOneViewController.xib in Resources */,
-				1D55A8C51890EC8400634E3E /* HySampleViewController.xib in Resources */,
-				1D55A8CF1890EC8400634E3E /* HySampleTwoViewController.xib in Resources */,
+				1D55A8CA1890EC8400634E3E /* AtkSampleOneViewController.xib in Resources */,
+				1D55A8C51890EC8400634E3E /* AtkSampleViewController.xib in Resources */,
+				1D55A8CF1890EC8400634E3E /* AtkSampleTwoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
