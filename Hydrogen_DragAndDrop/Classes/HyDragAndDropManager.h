@@ -41,11 +41,6 @@
 extern NSString *const HyPasteboardNameDragAndDrop;
 
 /**
- * The instance of HyDragAndDropManager.
- */
-+ (HyDragAndDropManager *)instance;
-
-/**
  * The HyDDragAndDropManager delegate.
  */
 @property (nonatomic, retain) id<HyDragAndDropManagerDelegate> delegate;
@@ -75,9 +70,14 @@ extern NSString *const HyPasteboardNameDragAndDrop;
 - (void)start;
 
 /**
- * Starts the drag and drop manager. This sets up the gesture recognizer and the rootView.
+ * Starts the drag and drop manager. This sets up the rootView.
  */
 - (void)start:(UIView *)rootView;
+
+/**
+ * Starts the drag and drop manager. This sets up the gesture recognizer and the rootView.
+ */
+- (void)start:(UIView *)rootView recognizerClass:(Class)recognizerClass;
 
 /**
  * Stops the drag and drop manager. Any gesture recognizer is removed. Any drag operation in progress is ended.

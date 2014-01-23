@@ -22,6 +22,7 @@
 @property (nonatomic, retain) IBOutlet UIView *viewTarget06;
 @property (nonatomic, retain) IBOutlet UIView *viewTarget07;
 @property (nonatomic, retain) IBOutlet UIView *viewTarget08;
+@property (nonatomic, retain) HyDragAndDropManager *dragAndDropManager;
 
 @end
 
@@ -39,6 +40,7 @@
 - (void)initialize
 {
     self.navigationItem.title = @"Sample One";
+    self.dragAndDropManager = [[[HyDragAndDropManager alloc] init] autorelease];
 }
 
 - (void)viewDidLoad
@@ -54,12 +56,12 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [[HyDragAndDropManager instance] start];
+    [self.dragAndDropManager start];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [[HyDragAndDropManager instance] stop];
+    [self.dragAndDropManager stop];
     [super viewWillDisappear:animated];
 }
 

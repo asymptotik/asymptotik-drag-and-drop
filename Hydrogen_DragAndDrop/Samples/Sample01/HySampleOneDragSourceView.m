@@ -35,9 +35,9 @@
 }
 
 
-- (BOOL)dragStarted
+- (BOOL)dragStarted:(HyDragAndDropManager *)manager
 {
-    [HyDragAndDropManager instance].pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];;
+    manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];;
     return YES;
 }
 

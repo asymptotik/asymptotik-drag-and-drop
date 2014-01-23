@@ -29,23 +29,6 @@
 
 NSString *const HyPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pasteboard";
 
-static HyDragAndDropManager *_instance;
-
-+ (void)initialize
-{
-    static BOOL initialized = NO;
-    if(!initialized)
-    {
-        initialized = YES;
-        _instance = [[HyDragAndDropManager alloc] init];
-    }
-}
-
-+ (HyDragAndDropManager *)instance
-{
-    return _instance;
-}
-
 - (id)init
 {
     if((self = [super init]))
@@ -77,15 +60,24 @@ static HyDragAndDropManager *_instance;
 
 - (void)start:(UIView *)rootView
 {
-    NSLog(@"HyDragAndDropManager.start:rootView");
+    NSLog(@"HyDragAndDropManager.start:");
+    [self start:rootView recognizerClass:[UIPanGestureRecognizer class]];
+}
+
+- (void)start:(UIView *)rootView recognizerClass:(Class)recognizerClass
+{
+    NSLog(@"HyDragAndDropManager.start:recognizerClass:");
+    
+    assert([recognizerClass isSubclassOfClass:[UIGestureRecognizer class]]);
     
     if(_rootView)
         [self stop];
     
     if(rootView)
     {
+        
         self.rootView = rootView;
-        self.recognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)] autorelease];
+        self.recognizer = [[[recognizerClass alloc] initWithTarget:self action:@selector(handlePanGesture:)] autorelease];
         self.recognizer.delegate = self;
         [self.rootView addGestureRecognizer:self.recognizer];
     }
@@ -141,8 +133,8 @@ static HyDragAndDropManager *_instance;
         
         if(_dragSource)
         {
-            if([_dragSource respondsToSelector:@selector(createDragShadowView)])
-                self.dragShadowView = [_dragSource createDragShadowView];
+            if([_dragSource respondsToSelector:@selector(createDragShadowView:)])
+                self.dragShadowView = [_dragSource createDragShadowView:self];
             else if([_dragSource respondsToSelector:@selector(createDefaultDragShadowView)])
                 self.dragShadowView = [_dragSource performSelector:@selector(createDefaultDragShadowView)];
         }
@@ -239,27 +231,27 @@ static HyDragAndDropManager *_instance;
             {
                 // transitioned to inside
                 dropZone.isActive = YES;
-                [dropZone.dropZone dragEntered:pointInRootView];
+                [dropZone.dropZone dragEntered:self point:pointInRootView];
                 
-                if([self.dragSource respondsToSelector:@selector(dragEnteredDropZone:point:)])
-                    [self.dragSource dragEnteredDropZone:dropZone.dropZone point:pointInRootView];
+                if([self.dragSource respondsToSelector:@selector(dragEntered:dropZone:point:)])
+                    [self.dragSource dragEntered:self dropZone:dropZone.dropZone point:pointInRootView];
             }
             else
             {
-                [dropZone.dropZone dragMoved:pointInRootView];
+                [dropZone.dropZone dragMoved:self point:pointInRootView];
                 
-                if([self.dragSource respondsToSelector:@selector(dragMovedOnDropZone:point:)])
-                    [self.dragSource dragMovedOnDropZone:dropZone.dropZone point:pointInRootView];
+                if([self.dragSource respondsToSelector:@selector(dragMoved:dropZone:point:)])
+                    [self.dragSource dragMoved:self dropZone:dropZone.dropZone point:pointInRootView];
             }
         }
         else if(dropZone.isActive)
         {
             // transitioned to outside
             dropZone.isActive = NO;
-            [dropZone.dropZone dragExited:pointInRootView];
+            [dropZone.dropZone dragExited:self point:pointInRootView];
             
-            if([self.dragSource respondsToSelector:@selector(dragExitedDropZone:point:)])
-                [self.dragSource dragExitedDropZone:dropZone.dropZone point:pointInRootView];
+            if([self.dragSource respondsToSelector:@selector(dragExited:dropZone:point:)])
+                [self.dragSource dragExited:self dropZone:dropZone.dropZone point:pointInRootView];
         }
     }
 }
@@ -288,7 +280,7 @@ static HyDragAndDropManager *_instance;
         {
             for(id<HyDropZoneProtocol> dropZone in dropZones)
             {
-                if([dropZone respondsToSelector:@selector(isInterested)] && [dropZone isInterested])
+                if([dropZone respondsToSelector:@selector(isInterested:)] && [dropZone isInterested:self])
                 {
                     if(!interestedDropZones)
                         interestedDropZones = [NSMutableArray arrayWithCapacity:[dropZones count]];
@@ -306,10 +298,10 @@ static HyDragAndDropManager *_instance;
         self.interestedDropZones = interestedDropZones;
         self.uninterestedDropZones = uninterestedDropZones;
         
-        if([self.dragSource respondsToSelector:@selector(dragStartedOnDropZone:)])
+        if([self.dragSource respondsToSelector:@selector(dragStarted:dropZone:)])
         {
             for(HyDropZoneWrapper *interestedDropZone in self.interestedDropZones)
-                [self.dragSource dragStartedOnDropZone:interestedDropZone.dropZone];
+                [self.dragSource dragStarted:self dropZone:interestedDropZone.dropZone];
         }
         
         [self positionDragShadow:recognizer];
@@ -327,20 +319,20 @@ static HyDragAndDropManager *_instance;
     
     for(HyDropZoneWrapper *dropZone in self.uninterestedDropZones)
     {
-        [dropZone.dropZone dragEnded];
-        if([self.dragSource respondsToSelector:@selector(dragEndedOnDropZone:)])
-            [self.dragSource dragEndedOnDropZone:dropZone.dropZone];
+        [dropZone.dropZone dragEnded:self];
+        if([self.dragSource respondsToSelector:@selector(dragEnded:dropZone:)])
+            [self.dragSource dragEnded:self dropZone:dropZone.dropZone];
     }
     
     for(HyDropZoneWrapper *dropZone in self.interestedDropZones)
     {
-        [dropZone.dropZone dragEnded];
-        if([self.dragSource respondsToSelector:@selector(dragEndedOnDropZone:)])
-            [self.dragSource dragEndedOnDropZone:dropZone.dropZone];
+        [dropZone.dropZone dragEnded:self];
+        if([self.dragSource respondsToSelector:@selector(dragEnded:dropZone:)])
+            [self.dragSource dragEnded:self dropZone:dropZone.dropZone];
     }
     
-    if([self.dragSource respondsToSelector:@selector(dragEnded)])
-        [self.dragSource dragEnded];
+    if([self.dragSource respondsToSelector:@selector(dragEnded:)])
+        [self.dragSource dragEnded:self];
     
     self.dragShadowView = nil;
     self.dragSource = nil;
@@ -370,10 +362,10 @@ static HyDragAndDropManager *_instance;
         HyDropZoneWrapper *interestedDropZone = [self.interestedDropZones objectAtIndex:n];
         if(interestedDropZone.isActive)
         {
-            [interestedDropZone.dropZone dragDropped:[recognizer locationInView:self.rootView]];
+            [interestedDropZone.dropZone dragDropped:self point:[recognizer locationInView:self.rootView]];
             
-            if([self.dragSource respondsToSelector:@selector(dragEndedOnDropZone:)])
-                [self.dragSource dragDroppedOnDropZone:interestedDropZone.dropZone point:[recognizer locationInView:self.rootView]];
+            if([self.dragSource respondsToSelector:@selector(dragDropped:dropZone:point:)])
+                [self.dragSource dragDropped:self dropZone:interestedDropZone.dropZone point:[recognizer locationInView:self.rootView]];
         }
     }
 }

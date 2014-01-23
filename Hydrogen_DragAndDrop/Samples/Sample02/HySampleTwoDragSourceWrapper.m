@@ -27,13 +27,13 @@
     
 }
 
-- (BOOL)dragStarted
+- (BOOL)dragStarted:(HyDragAndDropManager *)manager
 {
-    [HyDragAndDropManager instance].pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.view.tag];;
+    manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.view.tag];;
     return YES;
 }
 
-- (UIView *)createDragShadowView
+- (UIView *)createDragShadowView:(HyDragAndDropManager *)manager
 {
     return [self.view createDefaultDragShadowView];
 }

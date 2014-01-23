@@ -7,6 +7,7 @@
 //
 
 #import "HyDefaultDragAndDropManagerDelegate.h"
+#import "UIView+HyDragAndDrop.h"
 
 @implementation HyDefaultDragAndDropManagerDelegate
 
@@ -23,8 +24,8 @@
     {
         if([hitView conformsToProtocol:@protocol(HyDragSourceProtocol)])
         {
-            if([hitView respondsToSelector:@selector(dragStarted)])
-                dragStarted = [(UIView<HyDragSourceProtocol> *)hitView dragStarted];
+            if([hitView respondsToSelector:@selector(dragStarted:)])
+                dragStarted = [(UIView<HyDragSourceProtocol> *)hitView dragStarted:manager];
             else
                 dragStarted = YES;
         }
@@ -43,9 +44,9 @@
  * and adds them to dropZones. The return value is the passed in dropZones. If a drop zone is found and dropZones is nil, a new
  * NSMutableArray will be constructed, filled and returned.
  */
-- (NSMutableArray *)findDropZonesInView:(UIView *)view recognizer:(UIGestureRecognizer *)recognizer dropZones:(NSMutableArray *)dropZones
+- (NSMutableArray *)findDropZones:(HyDragAndDropManager *)manager view:(UIView *)view recognizer:(UIGestureRecognizer *)recognizer dropZones:(NSMutableArray *)dropZones
 {
-    if([view conformsToProtocol:@protocol(HyDropZoneProtocol)] && [(id<HyDropZoneProtocol>)view dragStarted])
+    if([view conformsToProtocol:@protocol(HyDropZoneProtocol)] && [(id<HyDropZoneProtocol>)view dragStarted:manager])
     {
         if(!dropZones)
             dropZones = [NSMutableArray array];
@@ -55,7 +56,7 @@
     
     for (UIView *subview in view.subviews)
     {
-        dropZones = [self findDropZonesInView:subview recognizer:recognizer dropZones:dropZones];
+        dropZones = [self findDropZones:manager view:subview recognizer:recognizer dropZones:dropZones];
     }
     
     return dropZones;
@@ -67,7 +68,7 @@
  */
 - (NSArray *)findDropZones:(HyDragAndDropManager *)manager recognizer:(UIGestureRecognizer *)recognizer
 {
-    NSMutableArray *ret = [self findDropZonesInView:manager.rootView recognizer:recognizer dropZones:nil];
+    NSMutableArray *ret = [self findDropZones:manager view:manager.rootView recognizer:recognizer dropZones:nil];
     return ret ? [NSArray arrayWithArray:ret] : nil;
 }
 
@@ -79,15 +80,14 @@
 {
     BOOL ret = false;
     
-    if([dropZone respondsToSelector:@selector(containsPoint:point:)])
+    if([dropZone respondsToSelector:@selector(isActive:point:)])
     {
-        ret = [dropZone containsPoint:manager.rootView point:[recognizer locationInView:manager.rootView]];
+        ret = [dropZone isActive:manager point:[recognizer locationInView:manager.rootView]];
     }
     else if([dropZone isKindOfClass:[UIView class]])
     {
         UIView *dropView = (UIView *)dropZone;
-        CGPoint pointRelativeToDropView = [recognizer locationInView:dropView];
-        ret = [dropView pointInside:pointRelativeToDropView withEvent:nil];
+        ret = [dropView isActiveDropZone:manager point:[recognizer locationInView:manager.rootView]];
     }
     
     return ret;

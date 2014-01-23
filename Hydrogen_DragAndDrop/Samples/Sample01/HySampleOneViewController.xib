@@ -81,11 +81,27 @@
                 <view contentMode="scaleToFill" id="Kqm-Tt-Lt6" customClass="HySampleOneDragSourceView">
                     <rect key="frame" x="32" y="45" width="96" height="96"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kaE-fl-8vA">
+                            <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <color key="backgroundColor" red="0.47766376556760604" green="0.87842032999381248" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view tag="1" contentMode="scaleToFill" id="sJC-uQ-U7o" customClass="HySampleOneDragSourceView">
                     <rect key="frame" x="192" y="45" width="96" height="96"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drag Me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ANy-ea-3bn">
+                            <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <color key="backgroundColor" red="0.47766376560000001" green="0.87842032999999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>

@@ -7,7 +7,6 @@
 //
 
 #import "HySampleTwoViewController.h"
-#import "HyDragAndDrop.h"
 #import "HySampleTwoDragSourceWrapper.h"
 #import "HySampleTwoDropZoneWrapper.h"
 #import "HySampleTwoDropZoneScrollViewWrapper.h"
@@ -18,6 +17,7 @@
 @property (nonatomic, retain) IBOutlet UIView *viewSource02;
 @property (nonatomic, retain) IBOutlet UIScrollView *scroller;
 @property (nonatomic, retain) IBOutlet UIView *viewParent;
+@property (nonatomic, retain) HyDragAndDropManager *dragAndDropManager;
 
 @end
 
@@ -35,6 +35,8 @@
 - (void)initialize
 {
     self.navigationItem.title = @"Sample Two";
+    self.dragAndDropManager = [[[HyDragAndDropManager alloc] init] autorelease];
+    self.dragAndDropManager.delegate = self;
 }
 
 - (void)viewDidLoad
@@ -50,13 +52,12 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [HyDragAndDropManager instance].delegate = self;
-    [[HyDragAndDropManager instance] start];
+    [self.dragAndDropManager start:[[UIApplication sharedApplication] keyWindow] recognizerClass:[UILongPressGestureRecognizer class]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [[HyDragAndDropManager instance] stop];
+    [self.dragAndDropManager stop];
     [super viewWillDisappear:animated];
 }
 
@@ -84,7 +85,7 @@
     if(dragStarted)
     {
         ret = [[[HySampleTwoDragSourceWrapper alloc] initWithView:hitView] autorelease];
-        [ret dragStarted];
+        [ret dragStarted:manager];
     }
 
     return ret;
@@ -98,13 +99,13 @@
 {
     NSMutableArray *ret = [NSMutableArray arrayWithCapacity:10];
     HySampleTwoDropZoneScrollViewWrapper *scrollViewDropZone = [[[HySampleTwoDropZoneScrollViewWrapper alloc] initWithScrollView:_scroller] autorelease];
-    [scrollViewDropZone dragStarted];
+    [scrollViewDropZone dragStarted:manager];
     [ret addObject:scrollViewDropZone];
     
     for(UIView *child in _viewParent.subviews)
     {
         HySampleTwoDropZoneWrapper *viewDropZone = [[[HySampleTwoDropZoneWrapper alloc] initWithView:child] autorelease];
-        [viewDropZone dragStarted];
+        [viewDropZone dragStarted:manager];
         [ret addObject:viewDropZone];
     }
     
@@ -119,9 +120,9 @@
 {
     BOOL ret = false;
     
-    if([dropZone respondsToSelector:@selector(containsPoint:point:)])
+    if([dropZone respondsToSelector:@selector(isActive:point:)])
     {
-        ret = [dropZone containsPoint:manager.rootView point:[recognizer locationInView:manager.rootView]];
+        ret = [dropZone isActive:manager point:[recognizer locationInView:manager.rootView]];
     }
     
     return ret;

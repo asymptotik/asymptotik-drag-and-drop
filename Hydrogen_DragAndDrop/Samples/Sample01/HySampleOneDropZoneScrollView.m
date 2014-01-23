@@ -48,44 +48,44 @@
 {
 }
 
-- (BOOL)dragStarted
+- (BOOL)dragStarted:(HyDragAndDropManager *)manager
 {
     NSLog(@"HySampleOneDropZoneScrollView.dragStarted");
     [self autoScrollDragStarted];
     return YES;
 }
 
-- (BOOL)isInterested
+- (BOOL)isInterested:(HyDragAndDropManager *)manager
 {
     NSLog(@"HySampleOneDropZoneScrollView.isInterested");
     return YES;
 }
 
-- (void)dragEnded
+- (void)dragEnded:(HyDragAndDropManager *)manager
 {
     NSLog(@"HySampleOneDropZoneScrollView.dragEnded");
     [self autoScrollDragEnded];
 }
 
-- (void)dragEntered:(CGPoint)point
+- (void)dragEntered:(HyDragAndDropManager *)manager point:(CGPoint)point
 {
     NSLog(@"HySampleOneDropZoneScrollView.dragEntered");
     self.savedBackgroundColor = self.backgroundColor;
     self.backgroundColor = [UIColor blueColor];
 }
 
-- (void)dragExited:(CGPoint)point
+- (void)dragExited:(HyDragAndDropManager *)manager point:(CGPoint)point
 {
     NSLog(@"HySampleOneDropZoneScrollView.dragExited");
     self.backgroundColor = self.savedBackgroundColor;
 }
 
-- (void)dragMoved:(CGPoint)point
+- (void)dragMoved:(HyDragAndDropManager *)manager point:(CGPoint)point
 {
-    [self autoScrollDragMoved:[[HyDragAndDropManager instance].rootView convertPoint:point toView:self]];
+    [self autoScrollDragMoved:[manager.rootView convertPoint:point toView:self]];
 }
 
-- (void)dragDropped:(CGPoint)point
+- (void)dragDropped:(HyDragAndDropManager *)manager point:(CGPoint)point
 {
     NSLog(@"HySampleOneDropZoneScrollView.dragDropped");
     self.backgroundColor = [UIColor greenColor];

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HyDragAndDrop.h"
 
 @interface UIView (HyDragAndDrop)
 
@@ -15,5 +16,11 @@
  * of self to be used as the drag shadow for self.
  */
 - (UIView *)createDefaultDragShadowView;
+
+/**
+ * determine if this view can be considered active by the HyDragAndDropManager based on the location of point
+ * point is give relative to manager.rootView, not this view.
+ */
+- (BOOL)isActiveDropZone:(HyDragAndDropManager *)manager point:(CGPoint)point;
 
 @end
