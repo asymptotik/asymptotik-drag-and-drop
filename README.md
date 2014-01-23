@@ -1,9 +1,11 @@
-kit-drag-and-drop
+hydrogen-drag-and-drop
 =================
 
-iOS drag and drop toolkit with support for UIScrollView, Drag Shadow generation, Drag Source and Drop Zoned by either subclassing or wrapping UIView. The HyDragAndDropManager also uses the common delegate pattern to allow a wide varienty of drag and drop scenarios. Additionally, the system works with the UIPasteboard as a means of data passing for the drag and drop operation.
+iOS drag and drop toolkit with support for UIScrollView, Drag Shadow generation, Drag Source and Drop Zones by either subclassing or wrapping UIView. The HyDragAndDropManager also uses the common delegate pattern to allow a wide varienty of drag and drop scenarios. Additionally, the system works with the UIPasteboard as a means of data passing for the drag and drop operation.
 
-The currentl limitation to the library is that drag and drop takes place for object that are associated with a root view. In practice this simply limits draging across UIWindows.
+The current limitation to the library is that drag and drop takes place for object that are associated with a root view. In practice this simply limits draging across UIWindows.
+
+Please try it out and give me your feedback. I'm interested in making this pretty robust and will accept reasonable pull request. If you want to do big changes, I'm open, but lets talk.
 
 Examples
 --------
@@ -27,7 +29,6 @@ Here we have a drag source wrapper for a UIView.
 }
 
 @end
-
 
 ```
 
