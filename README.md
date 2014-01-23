@@ -1,4 +1,4 @@
-Hydrogen Drag and Drop
+Asymptotik Drag and Drop
 =================
 
 iOS drag and drop toolkit with support for:
@@ -6,7 +6,7 @@ iOS drag and drop toolkit with support for:
 * Drag Source and Drop Zones by either subclassing or wrapping UIView and subclasses
 * Drag shadow generation for UIView
 * UIScrollView drag target auto scrolling  
-* HyDragAndDropManager uses the delegate pattern to allow a wide varienty of drag and drop scenarios
+* AtkDragAndDropManager uses the delegate pattern to allow a wide varienty of drag and drop scenarios
 * Accepts any continuous UIGestureRecognizer class for drag recognition
 * Works with the UIPasteboard as a means of data passing for the drag and drop operation.
 
@@ -23,13 +23,13 @@ Here we have a UIView drag source.
 
 ```objective-c
 
-@interface HySampleOneDragSourceView<HtDragSourceProtocol>
+@interface AtkSampleOneDragSourceView<HtDragSourceProtocol>
 
 @end
 
-@implementation HySampleOneDragSourceView
+@implementation AtkSampleOneDragSourceView
 
-- (BOOL)dragStarted:(HyDragAndDropManager *)manager
+- (BOOL)dragStarted:(AtkDragAndDropManager *)manager
 {
     manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];
     return YES;
@@ -43,19 +43,19 @@ Here we have a UIView drop zone.
 
 ```objective-c
 
-@interface HySampleOneDropZoneView<HyDropZoneProtocol>
+@interface AtkSampleOneDropZoneView<AtkDropZoneProtocol>
 
 @end
 
-@implementation HySampleOneDropZoneView
+@implementation AtkSampleOneDropZoneView
 
-- (BOOL)dragStarted:(HyDragAndDropManager *)manager
+- (BOOL)dragStarted:(AtkDragAndDropManager *)manager
 {
     // Yes, consider me for drags.
     return YES;
 }
 
-- (BOOL)isInterested:(HyDragAndDropManager *)manager
+- (BOOL)isInterested:(AtkDragAndDropManager *)manager
 {
     // Only consider me for enter, exit, move and drop if
     // we are interested in what on the pasteboard.
@@ -80,13 +80,13 @@ And finally, we have our UIViewController. This assumes the drag source and drop
 
 ```objective-c
 
-@interface HySampleOneViewController : UIViewController
+@interface AtkSampleOneViewController : UIViewController
 
-@property (nonatomic, retain) HyDragAndDropManager *dragAndDropManager;
+@property (nonatomic, retain) AtkDragAndDropManager *dragAndDropManager;
 
 @end
 
-@implementation HySampleOneViewController
+@implementation AtkSampleOneViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -101,13 +101,13 @@ And finally, we have our UIViewController. This assumes the drag source and drop
 {
     self.navigationItem.title = @"Sample One";
     //
-    // By default the HyDragAndDropManager uses the UIApplication key windows as 
+    // By default the AtkDragAndDropManager uses the UIApplication key windows as 
     // the rootView and a UIPanGestureRecognizer. However, these are configurable.
     // Notice there is no need to register the drag sources or drop zones. The
-    // HyDragAndDropManager will by default traverse the view hierarch and find them. 
-    // This behavior is also configurable through the HyDragAndDropManager delegate.
+    // AtkDragAndDropManager will by default traverse the view hierarch and find them. 
+    // This behavior is also configurable through the AtkDragAndDropManager delegate.
     //
-    self.dragAndDropManager = [[[HyDragAndDropManager alloc] init] autorelease];
+    self.dragAndDropManager = [[[AtkDragAndDropManager alloc] init] autorelease];
 }
 
 - (void)viewDidAppear:(BOOL)animated
