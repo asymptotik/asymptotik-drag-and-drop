@@ -127,6 +127,7 @@ And finally, we have our UIViewController. This assumes the drag source and drop
 
 ```
 
+<!---
 [![Version](http://cocoapod-badges.herokuapp.com/v/AtkDragAndDrop/badge.png)](http://cocoadocs.org/docsets/AtkDragAndDrop)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/AtkDragAndDrop/badge.png)](http://cocoadocs.org/docsets/AtkDragAndDrop)
 
@@ -142,6 +143,8 @@ AtkDragAndDrop is available through [CocoaPods](http://cocoapods.org), to instal
 it simply add the following line to your Podfile:
 
     pod "AtkDragAndDrop"
+
+-->
 
 ## Author
 
