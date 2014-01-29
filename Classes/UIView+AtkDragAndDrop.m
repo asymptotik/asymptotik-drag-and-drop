@@ -15,7 +15,7 @@
 - (UIView *)createDefaultDragShadowView
 {
     UIImage *image = [self imageFromView];
-    UIImageView *imageView = [[[UIImageView alloc] initWithImage:image] autorelease];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.alpha = 0.5;
     return imageView;
 }

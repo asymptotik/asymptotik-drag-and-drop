@@ -11,7 +11,7 @@
 
 @interface AtkSampleTwoDropZoneScrollViewWrapper : NSObject<AtkDropZoneProtocol>
 
-@property (nonatomic, retain) UIScrollView *view;
+@property (nonatomic, strong) UIScrollView *view;
 
 - (id)initWithScrollView:(UIScrollView *)view;
 

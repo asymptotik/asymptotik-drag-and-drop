@@ -14,11 +14,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     
-    AtkSampleViewController *sampleViewController = [[[AtkSampleViewController alloc] initWithNibName:@"AtkSampleViewController" bundle:nil] autorelease];
-    UINavigationController *navController = [[[UINavigationController alloc] initWithRootViewController:sampleViewController] autorelease];
+    AtkSampleViewController *sampleViewController = [[AtkSampleViewController alloc] initWithNibName:@"AtkSampleViewController" bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:sampleViewController];
     navController.navigationBar.translucent = NO;
     navController.edgesForExtendedLayout = UIRectEdgeNone;
     

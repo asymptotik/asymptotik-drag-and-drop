@@ -21,7 +21,7 @@ static const CGFloat kAtkAutoScrollVelocityDefault = 0.1;
     @property (nonatomic, assign) CGFloat autoScrollMaxVelocity;
     @property (nonatomic, assign) CGPoint autoScrollDragPinnedPoint;
     @property (nonatomic, assign) CGPoint autoScrollLastDragPoint;
-    @property (nonatomic, retain) NSTimer *autoScrollTimer;
+    @property (nonatomic, strong) NSTimer *autoScrollTimer;
 @end
 
 @implementation AtkDragAndDropScrollViewPropertyHolder
@@ -57,7 +57,7 @@ static const CGFloat kAtkAutoScrollVelocityDefault = 0.1;
 {
     AtkDragAndDropScrollViewPropertyHolder *result = (AtkDragAndDropScrollViewPropertyHolder *)objc_getAssociatedObject(self, &AtkDragAndDropScrollViewPropertyHolderKey);
     if (result == nil) {
-        result = [[[AtkDragAndDropScrollViewPropertyHolder alloc] init] autorelease];
+        result = [[AtkDragAndDropScrollViewPropertyHolder alloc] init];
         objc_setAssociatedObject(self, &AtkDragAndDropScrollViewPropertyHolderKey, result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     
@@ -78,7 +78,7 @@ static const CGFloat kAtkAutoScrollVelocityDefault = 0.1;
 {
     AtkDragAndDropScrollViewPropertyHolder *result = (AtkDragAndDropScrollViewPropertyHolder *)objc_getAssociatedObject(self, &AtkDragAndDropScrollViewPropertyHolderKey);
     if (result == nil) {
-        result = [[[AtkDragAndDropScrollViewPropertyHolder alloc] init] autorelease];
+        result = [[AtkDragAndDropScrollViewPropertyHolder alloc] init];
         objc_setAssociatedObject(self, &AtkDragAndDropScrollViewPropertyHolderKey, result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     
@@ -99,7 +99,7 @@ static const CGFloat kAtkAutoScrollVelocityDefault = 0.1;
 {
     AtkDragAndDropScrollViewPropertyHolder *result = (AtkDragAndDropScrollViewPropertyHolder *)objc_getAssociatedObject(self, &AtkDragAndDropScrollViewPropertyHolderKey);
     if (result == nil) {
-        result = [[[AtkDragAndDropScrollViewPropertyHolder alloc] init] autorelease];
+        result = [[AtkDragAndDropScrollViewPropertyHolder alloc] init];
         objc_setAssociatedObject(self, &AtkDragAndDropScrollViewPropertyHolderKey, result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     
@@ -120,7 +120,7 @@ static const CGFloat kAtkAutoScrollVelocityDefault = 0.1;
 {
     AtkDragAndDropScrollViewPropertyHolder *result = (AtkDragAndDropScrollViewPropertyHolder *)objc_getAssociatedObject(self, &AtkDragAndDropScrollViewPropertyHolderKey);
     if (result == nil) {
-        result = [[[AtkDragAndDropScrollViewPropertyHolder alloc] init] autorelease];
+        result = [[AtkDragAndDropScrollViewPropertyHolder alloc] init];
         objc_setAssociatedObject(self, &AtkDragAndDropScrollViewPropertyHolderKey, result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     
@@ -141,7 +141,7 @@ static const CGFloat kAtkAutoScrollVelocityDefault = 0.1;
 {
     AtkDragAndDropScrollViewPropertyHolder *result = (AtkDragAndDropScrollViewPropertyHolder *)objc_getAssociatedObject(self, &AtkDragAndDropScrollViewPropertyHolderKey);
     if (result == nil) {
-        result = [[[AtkDragAndDropScrollViewPropertyHolder alloc] init] autorelease];
+        result = [[AtkDragAndDropScrollViewPropertyHolder alloc] init];
         objc_setAssociatedObject(self, &AtkDragAndDropScrollViewPropertyHolderKey, result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     
@@ -162,7 +162,7 @@ static const CGFloat kAtkAutoScrollVelocityDefault = 0.1;
 {
     AtkDragAndDropScrollViewPropertyHolder *result = (AtkDragAndDropScrollViewPropertyHolder *)objc_getAssociatedObject(self, &AtkDragAndDropScrollViewPropertyHolderKey);
     if (result == nil) {
-        result = [[[AtkDragAndDropScrollViewPropertyHolder alloc] init] autorelease];
+        result = [[AtkDragAndDropScrollViewPropertyHolder alloc] init];
         objc_setAssociatedObject(self, &AtkDragAndDropScrollViewPropertyHolderKey, result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     

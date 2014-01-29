@@ -11,7 +11,7 @@
 
 @interface AtkSampleTwoDropZoneWrapper : NSObject<AtkDropZoneProtocol>
 
-@property (nonatomic, retain) UIView *view;
+@property (nonatomic, strong) UIView *view;
 
 - (id)initWithView:(UIView *)view;
 

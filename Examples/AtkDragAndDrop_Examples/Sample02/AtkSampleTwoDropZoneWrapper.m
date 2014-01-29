@@ -11,7 +11,7 @@
 
 @interface AtkSampleTwoDropZoneWrapper()
 
-@property (nonatomic, retain) UIColor *savedBackgroundColor;
+@property (nonatomic, strong) UIColor *savedBackgroundColor;
 
 @end
 

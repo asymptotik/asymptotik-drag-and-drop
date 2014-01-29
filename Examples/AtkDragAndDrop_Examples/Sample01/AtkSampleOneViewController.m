@@ -11,18 +11,18 @@
 
 @interface AtkSampleOneViewController ()
 
-@property (nonatomic, retain) IBOutlet UIView *viewSource;
-@property (nonatomic, retain) IBOutlet UIScrollView *scroller;
-@property (nonatomic, retain) IBOutlet UIView *viewParent;
-@property (nonatomic, retain) IBOutlet UIView *viewTarget01;
-@property (nonatomic, retain) IBOutlet UIView *viewTarget02;
-@property (nonatomic, retain) IBOutlet UIView *viewTarget03;
-@property (nonatomic, retain) IBOutlet UIView *viewTarget04;
-@property (nonatomic, retain) IBOutlet UIView *viewTarget05;
-@property (nonatomic, retain) IBOutlet UIView *viewTarget06;
-@property (nonatomic, retain) IBOutlet UIView *viewTarget07;
-@property (nonatomic, retain) IBOutlet UIView *viewTarget08;
-@property (nonatomic, retain) AtkDragAndDropManager *dragAndDropManager;
+@property (nonatomic, strong) IBOutlet UIView *viewSource;
+@property (nonatomic, strong) IBOutlet UIScrollView *scroller;
+@property (nonatomic, strong) IBOutlet UIView *viewParent;
+@property (nonatomic, strong) IBOutlet UIView *viewTarget01;
+@property (nonatomic, strong) IBOutlet UIView *viewTarget02;
+@property (nonatomic, strong) IBOutlet UIView *viewTarget03;
+@property (nonatomic, strong) IBOutlet UIView *viewTarget04;
+@property (nonatomic, strong) IBOutlet UIView *viewTarget05;
+@property (nonatomic, strong) IBOutlet UIView *viewTarget06;
+@property (nonatomic, strong) IBOutlet UIView *viewTarget07;
+@property (nonatomic, strong) IBOutlet UIView *viewTarget08;
+@property (nonatomic, strong) AtkDragAndDropManager *dragAndDropManager;
 
 @end
 
@@ -40,7 +40,7 @@
 - (void)initialize
 {
     self.navigationItem.title = @"Sample One";
-    self.dragAndDropManager = [[[AtkDragAndDropManager alloc] init] autorelease];
+    self.dragAndDropManager = [[AtkDragAndDropManager alloc] init];
 }
 
 - (void)viewDidLoad

@@ -11,7 +11,7 @@
 
 @interface AtkDropZoneWrapper : NSObject
 
-@property (nonatomic, retain) id<AtkDropZoneProtocol> dropZone;
+@property (nonatomic, strong) id<AtkDropZoneProtocol> dropZone;
 @property (nonatomic, assign) BOOL isActive;
 @property (nonatomic, assign) BOOL isInterested;
 

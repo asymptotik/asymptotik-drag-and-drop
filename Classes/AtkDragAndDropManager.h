@@ -43,25 +43,25 @@ extern NSString *const AtkPasteboardNameDragAndDrop;
 /**
  * The AtkDDragAndDropManager delegate.
  */
-@property (nonatomic, retain) id<AtkDragAndDropManagerDelegate> delegate;
+@property (nonatomic, weak) id<AtkDragAndDropManagerDelegate> delegate;
 
 /**
  * The pastbaord name. Defaults to AtkPasteboardNameDragAndDrop which creates
  * a pastebaord unique to drag and drop. This may be changed to any unique name, including
  * the shared pastebaord.
  */
-@property (nonatomic, retain) NSString* pasteboardName;
+@property (nonatomic, strong) NSString* pasteboardName;
 
 /**
  * Get the Drag and Drop pastebaord. The paasteboard is based on pasteboardName, which is configurable.
  */
-@property (nonatomic, readonly) UIPasteboard* pasteboard;
+@property (weak, nonatomic, readonly) UIPasteboard* pasteboard;
 
 /**
  * The root UIView as set by the call to start:(UIView *) or the UIApplication keyWindow
  * by default. All the players in the drag and drop scenerio must be descendants of rootView.
  */
-@property (nonatomic, readonly) UIView* rootView;
+- (UIView*)rootView;
 
 /**
  * Starts the drag and drop manager. This sets up the gesture recognizer and UIApplication keyWindow

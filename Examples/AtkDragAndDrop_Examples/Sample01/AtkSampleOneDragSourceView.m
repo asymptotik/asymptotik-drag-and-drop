@@ -29,10 +29,6 @@
 
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 
 - (BOOL)dragStarted:(AtkDragAndDropManager *)manager

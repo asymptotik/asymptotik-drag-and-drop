@@ -13,11 +13,11 @@
 
 @interface AtkSampleTwoViewController ()
 
-@property (nonatomic, retain) IBOutlet UIView *viewSource01;
-@property (nonatomic, retain) IBOutlet UIView *viewSource02;
-@property (nonatomic, retain) IBOutlet UIScrollView *scroller;
-@property (nonatomic, retain) IBOutlet UIView *viewParent;
-@property (nonatomic, retain) AtkDragAndDropManager *dragAndDropManager;
+@property (nonatomic, strong) IBOutlet UIView *viewSource01;
+@property (nonatomic, strong) IBOutlet UIView *viewSource02;
+@property (nonatomic, strong) IBOutlet UIScrollView *scroller;
+@property (nonatomic, strong) IBOutlet UIView *viewParent;
+@property (nonatomic, strong) AtkDragAndDropManager *dragAndDropManager;
 
 @end
 
@@ -35,7 +35,7 @@
 - (void)initialize
 {
     self.navigationItem.title = @"Sample Two";
-    self.dragAndDropManager = [[[AtkDragAndDropManager alloc] init] autorelease];
+    self.dragAndDropManager = [[AtkDragAndDropManager alloc] init];
     self.dragAndDropManager.delegate = self;
 }
 
@@ -84,7 +84,7 @@
     
     if(dragStarted)
     {
-        ret = [[[AtkSampleTwoDragSourceWrapper alloc] initWithView:hitView] autorelease];
+        ret = [[AtkSampleTwoDragSourceWrapper alloc] initWithView:hitView];
         [ret dragStarted:manager];
     }
 
@@ -98,13 +98,13 @@
 - (NSArray *)findDropZones:(AtkDragAndDropManager *)manager recognizer:(UIGestureRecognizer *)recognizer
 {
     NSMutableArray *ret = [NSMutableArray arrayWithCapacity:10];
-    AtkSampleTwoDropZoneScrollViewWrapper *scrollViewDropZone = [[[AtkSampleTwoDropZoneScrollViewWrapper alloc] initWithScrollView:_scroller] autorelease];
+    AtkSampleTwoDropZoneScrollViewWrapper *scrollViewDropZone = [[AtkSampleTwoDropZoneScrollViewWrapper alloc] initWithScrollView:_scroller];
     [scrollViewDropZone dragStarted:manager];
     [ret addObject:scrollViewDropZone];
     
     for(UIView *child in _viewParent.subviews)
     {
-        AtkSampleTwoDropZoneWrapper *viewDropZone = [[[AtkSampleTwoDropZoneWrapper alloc] initWithView:child] autorelease];
+        AtkSampleTwoDropZoneWrapper *viewDropZone = [[AtkSampleTwoDropZoneWrapper alloc] initWithView:child];
         [viewDropZone dragStarted:manager];
         [ret addObject:viewDropZone];
     }

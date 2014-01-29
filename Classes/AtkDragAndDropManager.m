@@ -14,14 +14,14 @@
 
 @interface AtkDragAndDropManager ()<UIGestureRecognizerDelegate>
 
-@property (nonatomic, retain) UIView *rootView;
-@property (nonatomic, retain) id<AtkDragSourceProtocol> dragSource;
-@property (nonatomic, retain) UIView *dragShadowView;
-@property (nonatomic, retain) UIPanGestureRecognizer *recognizer;
-@property (nonatomic, retain) NSArray *uninterestedDropZones;
-@property (nonatomic, retain) NSArray *interestedDropZones;
-@property (nonatomic, retain) id<AtkDragAndDropManagerDelegate> defaultDelegate;
-@property (nonatomic, readonly) id<AtkDragAndDropManagerDelegate> activeDelegate;
+@property (nonatomic, strong) UIView *rootView;
+@property (nonatomic, strong) id<AtkDragSourceProtocol> dragSource;
+@property (nonatomic, strong) UIView *dragShadowView;
+@property (nonatomic, strong) UIPanGestureRecognizer *recognizer;
+@property (nonatomic, strong) NSArray *uninterestedDropZones;
+@property (nonatomic, strong) NSArray *interestedDropZones;
+@property (nonatomic, strong) id<AtkDragAndDropManagerDelegate> defaultDelegate;
+@property (weak, nonatomic, readonly) id<AtkDragAndDropManagerDelegate> activeDelegate;
 
 @end
 
@@ -41,14 +41,9 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 
 - (void)dealloc
 {
-    self.rootView = nil;
     self.dragSource = nil;
     self.dragShadowView = nil;
-    self.recognizer = nil;
-    self.uninterestedDropZones = nil;
-    self.interestedDropZones = nil;
     
-    [super dealloc];
 }
 
 - (void)start
@@ -77,7 +72,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
     {
         
         self.rootView = rootView;
-        self.recognizer = [[[recognizerClass alloc] initWithTarget:self action:@selector(handlePanGesture:)] autorelease];
+        self.recognizer = [[recognizerClass alloc] initWithTarget:self action:@selector(handlePanGesture:)];
         self.recognizer.delegate = self;
         [self.rootView addGestureRecognizer:self.recognizer];
     }
@@ -128,8 +123,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 {
     if(_dragSource != dragSource)
     {
-        [_dragSource release];
-        _dragSource = [dragSource retain];
+        _dragSource = dragSource;
         
         if(_dragSource)
         {
@@ -155,10 +149,9 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
         if(_dragShadowView)
         {
             [_dragShadowView removeFromSuperview];
-            [_dragShadowView release];
         }
         
-        _dragShadowView = [view retain];
+        _dragShadowView = view;
         
         if(_dragShadowView)
         {
@@ -284,13 +277,13 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
                 {
                     if(!interestedDropZones)
                         interestedDropZones = [NSMutableArray arrayWithCapacity:[dropZones count]];
-                    [interestedDropZones addObject:[[[AtkDropZoneWrapper alloc] initWithDropZone:dropZone interested:YES] autorelease]];
+                    [interestedDropZones addObject:[[AtkDropZoneWrapper alloc] initWithDropZone:dropZone interested:YES]];
                 }
                 else
                 {
                     if(!uninterestedDropZones)
                         uninterestedDropZones = [NSMutableArray arrayWithCapacity:[dropZones count]];
-                    [uninterestedDropZones addObject:[[[AtkDropZoneWrapper alloc] initWithDropZone:dropZone interested:NO] autorelease]];
+                    [uninterestedDropZones addObject:[[AtkDropZoneWrapper alloc] initWithDropZone:dropZone interested:NO]];
                 }
             }
         }
@@ -394,7 +387,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 {
     if(!_defaultDelegate)
     {
-        self.defaultDelegate = [[[AtkDefaultDragAndDropManagerDelegate alloc] init] autorelease];
+        self.defaultDelegate = [[AtkDefaultDragAndDropManagerDelegate alloc] init];
     }
     
     return _defaultDelegate;
@@ -404,8 +397,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 {
     if(_delegate != delegate)
     {
-        [_delegate release];
-        _delegate = [delegate retain];
+        _delegate = delegate;
     }
     
     if(_delegate)

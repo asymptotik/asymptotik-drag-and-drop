@@ -26,9 +26,6 @@
 		1D847C461898471E00F419F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D847C451898471E00F419F6 /* main.m */; };
 		1D847C4A1898471E00F419F6 /* AtkAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D847C491898471E00F419F6 /* AtkAppDelegate.m */; };
 		1D847C4C1898471E00F419F6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D847C4B1898471E00F419F6 /* Images.xcassets */; };
-		1D847C531898471F00F419F6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D847C521898471F00F419F6 /* XCTest.framework */; };
-		1D847C541898471F00F419F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D847C391898471E00F419F6 /* Foundation.framework */; };
-		1D847C551898471F00F419F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D847C3D1898471E00F419F6 /* UIKit.framework */; };
 		1DE3C72118988AD2002C1C4E /* AtkDefaultDragAndDropManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE3C71318988AD2002C1C4E /* AtkDefaultDragAndDropManagerDelegate.m */; };
 		1DE3C72218988AD2002C1C4E /* AtkDragAndDropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE3C71618988AD2002C1C4E /* AtkDragAndDropManager.m */; };
 		1DE3C72318988AD2002C1C4E /* AtkDropZoneWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE3C71A18988AD2002C1C4E /* AtkDropZoneWrapper.m */; };
@@ -36,16 +33,6 @@
 		1DE3C72518988AD2002C1C4E /* UIView+AtkDragAndDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE3C71E18988AD2002C1C4E /* UIView+AtkDragAndDrop.m */; };
 		1DE3C72618988AD2002C1C4E /* UIView+AtkImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE3C72018988AD2002C1C4E /* UIView+AtkImage.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		1D847C561898471F00F419F6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1D847C2E1898471E00F419F6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1D847C351898471E00F419F6;
-			remoteInfo = AtkDragAndDrop_Examples;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D0A2D8E189848D000175F59 /* AtkSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleViewController.h; sourceTree = "<group>"; };
@@ -80,7 +67,6 @@
 		1D847C481898471E00F419F6 /* AtkAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtkAppDelegate.h; sourceTree = "<group>"; };
 		1D847C491898471E00F419F6 /* AtkAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AtkAppDelegate.m; sourceTree = "<group>"; };
 		1D847C4B1898471E00F419F6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1D847C511898471F00F419F6 /* AtkDragAndDrop_ExamplesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtkDragAndDrop_ExamplesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D847C521898471F00F419F6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1DE3C71218988AD2002C1C4E /* AtkDefaultDragAndDropManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkDefaultDragAndDropManagerDelegate.h; sourceTree = "<group>"; };
 		1DE3C71318988AD2002C1C4E /* AtkDefaultDragAndDropManagerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkDefaultDragAndDropManagerDelegate.m; sourceTree = "<group>"; };
@@ -108,16 +94,6 @@
 				1D847C3C1898471E00F419F6 /* CoreGraphics.framework in Frameworks */,
 				1D847C3E1898471E00F419F6 /* UIKit.framework in Frameworks */,
 				1D847C3A1898471E00F419F6 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1D847C4E1898471F00F419F6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1D847C531898471F00F419F6 /* XCTest.framework in Frameworks */,
-				1D847C551898471F00F419F6 /* UIKit.framework in Frameworks */,
-				1D847C541898471F00F419F6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				1D847C361898471E00F419F6 /* AtkDragAndDrop_Examples.app */,
-				1D847C511898471F00F419F6 /* AtkDragAndDrop_ExamplesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -257,24 +232,6 @@
 			productReference = 1D847C361898471E00F419F6 /* AtkDragAndDrop_Examples.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1D847C501898471F00F419F6 /* AtkDragAndDrop_ExamplesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1D847C651898471F00F419F6 /* Build configuration list for PBXNativeTarget "AtkDragAndDrop_ExamplesTests" */;
-			buildPhases = (
-				1D847C4D1898471F00F419F6 /* Sources */,
-				1D847C4E1898471F00F419F6 /* Frameworks */,
-				1D847C4F1898471F00F419F6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1D847C571898471F00F419F6 /* PBXTargetDependency */,
-			);
-			name = AtkDragAndDrop_ExamplesTests;
-			productName = AtkDragAndDrop_ExamplesTests;
-			productReference = 1D847C511898471F00F419F6 /* AtkDragAndDrop_ExamplesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -284,11 +241,6 @@
 				CLASSPREFIX = Atk;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Asymptotik Limited";
-				TargetAttributes = {
-					1D847C501898471F00F419F6 = {
-						TestTargetID = 1D847C351898471E00F419F6;
-					};
-				};
 			};
 			buildConfigurationList = 1D847C311898471E00F419F6 /* Build configuration list for PBXProject "AtkDragAndDrop_Examples" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -303,7 +255,6 @@
 			projectRoot = "";
 			targets = (
 				1D847C351898471E00F419F6 /* AtkDragAndDrop_Examples */,
-				1D847C501898471F00F419F6 /* AtkDragAndDrop_ExamplesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -318,13 +269,6 @@
 				1D0A2DB0189848D000175F59 /* AtkSampleTwoViewController.xib in Resources */,
 				1D0A2DAB189848D000175F59 /* AtkSampleOneViewController.xib in Resources */,
 				1D847C4C1898471E00F419F6 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1D847C4F1898471F00F419F6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,22 +299,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1D847C4D1898471F00F419F6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1D847C571898471F00F419F6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1D847C351898471E00F419F6 /* AtkDragAndDrop_Examples */;
-			targetProxy = 1D847C561898471F00F419F6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1D847C421898471E00F419F6 /* InfoPlist.strings */ = {
@@ -461,7 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Prefix.pch";
 				INFOPLIST_FILE = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Info.plist";
@@ -475,54 +404,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Prefix.pch";
 				INFOPLIST_FILE = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		1D847C661898471F00F419F6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AtkDragAndDrop_Examples.app/AtkDragAndDrop_Examples";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "AtkDragAndDrop_ExamplesTests/AtkDragAndDrop_ExamplesTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		1D847C671898471F00F419F6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AtkDragAndDrop_Examples.app/AtkDragAndDrop_Examples";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Prefix.pch";
-				INFOPLIST_FILE = "AtkDragAndDrop_ExamplesTests/AtkDragAndDrop_ExamplesTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -543,15 +430,6 @@
 			buildConfigurations = (
 				1D847C631898471F00F419F6 /* Debug */,
 				1D847C641898471F00F419F6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1D847C651898471F00F419F6 /* Build configuration list for PBXNativeTarget "AtkDragAndDrop_ExamplesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1D847C661898471F00F419F6 /* Debug */,
-				1D847C671898471F00F419F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

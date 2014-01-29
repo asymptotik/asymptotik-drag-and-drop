@@ -15,10 +15,10 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = "https://github.com/ptoinson/asymptotik-drag-and-drop"
   s.license      = 'MIT'
-  s.author       = { "Rick Boykin" => "rick.boykin@gmail.com" }
+  s.author       = { "Rick Boykin" => "info@asymptotik.com" }
   s.source       = { :git => "https://github.com/ptoinson/asymptotik-drag-and-drop.git", :tag => "v#{s.version.to_s}" }
   s.platform     = :ios, '5.0'
-  s.requires_arc = false
+  s.requires_arc = true
   s.source_files = 'Classes'
   s.frameworks = 'UIKit'
 end
