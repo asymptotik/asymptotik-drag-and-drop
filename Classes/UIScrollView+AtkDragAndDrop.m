@@ -314,6 +314,9 @@ static const CGFloat kAtkAutoScrollVelocityDefault = 0.1;
     point = CGPointMake(point.x - offset.x, point.y - offset.y);
     self.autoScrollLastDragPoint = point;
     
+    if(autoScrollTimer)
+        return;
+    
     CGPoint autoScrollDelta = [self autoScrollDelta:point];
     NSLog(@"AtkSampleOneDropZoneScrollView.autoScrollDragMoved:point: %f %f delta: %f %f", point.x, point.y, autoScrollDelta.x, autoScrollDelta.y);
     

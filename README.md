@@ -9,6 +9,7 @@ iOS drag and drop toolkit with support for:
 * AtkDragAndDropManager uses the delegate pattern to allow a wide varienty of drag and drop scenarios
 * Accepts any continuous UIGestureRecognizer class for drag recognition
 * Works with the UIPasteboard as a means of data passing for the drag and drop operation.
+* Complete set of lifecycle handlers.
 
 The current limitation to the library is that drag and drop takes place for objects that are associated with a common root view. In practice this simply limits draging across UIWindows. This library does not currently use ARC. I know. I know. But my motivation was a much bigger project that has not yet been converted.
 
@@ -125,3 +126,28 @@ And finally, we have our UIViewController. This assumes the drag source and drop
 @end
 
 ```
+
+[![Version](http://cocoapod-badges.herokuapp.com/v/AtkDragAndDrop/badge.png)](http://cocoadocs.org/docsets/AtkDragAndDrop)
+[![Platform](http://cocoapod-badges.herokuapp.com/p/AtkDragAndDrop/badge.png)](http://cocoadocs.org/docsets/AtkDragAndDrop)
+
+## Usage
+
+To run the example project; clone the repo, and run `pod install` from the Project directory first.
+
+## Requirements
+
+## Installation
+
+AtkDragAndDrop is available through [CocoaPods](http://cocoapods.org), to install
+it simply add the following line to your Podfile:
+
+    pod "AtkDragAndDrop"
+
+## Author
+
+Rick Boykin, rick.boykin@gmail.com
+
+## License
+
+AtkDragAndDrop is available under the MIT license. See the LICENSE file for more info.
+

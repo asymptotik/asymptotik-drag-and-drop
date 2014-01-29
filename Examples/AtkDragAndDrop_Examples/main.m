@@ -1,9 +1,9 @@
 //
 //  main.m
-//  Rnd_DragAndDrop
+//  AtkDragAndDrop_Examples
 //
-//  Created by Rick Boykin on 1/15/14.
-//  Copyright (c) 2014 Rick Boykin. All rights reserved.
+//  Created by Rick Boykin on 1/28/14.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

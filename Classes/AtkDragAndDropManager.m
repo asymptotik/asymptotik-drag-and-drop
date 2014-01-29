@@ -337,6 +337,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
     self.dragShadowView = nil;
     self.dragSource = nil;
     self.interestedDropZones = nil;
+    self.uninterestedDropZones = nil;
 }
 
 /**

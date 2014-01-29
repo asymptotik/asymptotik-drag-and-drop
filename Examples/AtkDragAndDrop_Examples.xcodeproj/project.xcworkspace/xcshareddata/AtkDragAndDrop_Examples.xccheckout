@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>78B10556-4EA7-482E-9876-CECBC2DCF540</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AtkDragAndDrop_Examples</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9C2B6D92-48ED-46C9-8815-CAB5193B9A07</key>
+		<string>ssh://github.com/ptoinson/asymptotik-drag-and-drop.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Examples/AtkDragAndDrop_Examples.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9C2B6D92-48ED-46C9-8815-CAB5193B9A07</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/ptoinson/asymptotik-drag-and-drop.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9C2B6D92-48ED-46C9-8815-CAB5193B9A07</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9C2B6D92-48ED-46C9-8815-CAB5193B9A07</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Asymptotik_AtkDragAndDrop</string>
+		</dict>
+	</array>
+</dict>
+</plist>
