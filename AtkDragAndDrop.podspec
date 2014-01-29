@@ -1,12 +1,6 @@
-#
-# Be sure to run `pod spec lint NAME.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://docs.cocoapods.org/specification.html
-#
 Pod::Spec.new do |s|
   s.name         = "AtkDragAndDrop"
-  s.version      = "1.0.0"
+  s.version      = "0.1.0"
   s.summary      = "A drag and drop toolkit for iOS."
   s.description  = <<-DESC
                    iOS drag and drop toolkit with support for:
@@ -22,8 +16,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/ptoinson/asymptotik-drag-and-drop"
   s.license      = 'MIT'
   s.author       = { "Rick Boykin" => "rick.boykin@gmail.com" }
-  s.source       = { :git => "https://github.com/ptoinson/asymptotik-drag-and-drop", :tag => s.version.to_s }
-
+  s.source       = { :git => "https://github.com/ptoinson/asymptotik-drag-and-drop.git", :tag => "v#{s.version.to_s}" }
   s.platform     = :ios, '5.0'
   s.requires_arc = false
   s.source_files = 'Classes'
