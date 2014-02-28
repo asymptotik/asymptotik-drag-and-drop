@@ -90,7 +90,7 @@ And finally, we have our UIViewController. This assumes the drag source and drop
 
 ```objective-c
 
-@interface AtkSampleOneViewController : UIViewController
+@interface AtkSampleOneViewController : UIViewController<AtkDragAndDropManagerDelegate>
 
 @property (nonatomic, retain) AtkDragAndDropManager *dragAndDropManager;
 
@@ -118,6 +118,12 @@ And finally, we have our UIViewController. This assumes the drag source and drop
     // This behavior is also configurable through the AtkDragAndDropManager delegate.
     //
     self.dragAndDropManager = [[[AtkDragAndDropManager alloc] init] autorelease];
+    // For the AtkDragAndDropManagerDelegate methods findDragSource: finrDropZones: and
+    // isDropZoneActive:recognizer:, if we do not implement them here, the 
+    // relevant methods in AtkDefaultDragAndDropManagerDelegate will be called.
+    // This gives us our reasonable defaults even if we want to capture drag and drop
+    // events here.
+    self.dragAndDropManager.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -130,6 +136,14 @@ And finally, we have our UIViewController. This assumes the drag source and drop
 {
     [self.dragAndDropManager stop];
     [super viewWillDisappear:animated];
+}
+
+/**
+ * Called when a drag is dropped onto a drop zone.
+ */
+- (void)dragDropped:(AtkDragAndDropManager *)manager dropZone:(id<AtkDropZoneProtocol>) dropZone point:(CGPoint)point
+{
+   // The drag was dropped onto an interested AtkDropZoneProtocol. Do something with it.
 }
 
 @end
