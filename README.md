@@ -66,8 +66,8 @@ Here we have a UIView drop zone.
 
 - (BOOL)isInterested:(AtkDragAndDropManager *)manager
 {
-    // If we return true here then dragEntered, dragExited, dragMoved and dragDropped can
-    // be called.
+    // If we return true here then dragEntered, dragExited, dragMoved and 
+    // dragDropped can be called.
     // So, let's see if we are interested in what's on the pasteboard.
     // For the example this is if the pastbaord string matches
     // a string made up from the views tag property.
