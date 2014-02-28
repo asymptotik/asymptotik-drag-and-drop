@@ -24,16 +24,22 @@ Here we have a UIView drag source.
 
 ```objective-c
 
-@interface AtkSampleOneDragSourceView<HtDragSourceProtocol>
+@interface AtkSampleOneDragSourceView<AtkDragSourceProtocol>
 
 @end
 
 @implementation AtkSampleOneDragSourceView
 
-- (BOOL)dragStarted:(AtkDragAndDropManager *)manager
+- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
 {
-    manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];
     return YES;
+}
+
+- (void)dragWillStart:(AtkDragAndDropManager *)manager
+{
+    // This is called before any call to AtkDropZoneProtocol shouldDragStart. 
+    // It's a good place to setup data for that method to examine.
+    manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];
 }
 
 @end
@@ -50,16 +56,19 @@ Here we have a UIView drop zone.
 
 @implementation AtkSampleOneDropZoneView
 
-- (BOOL)dragStarted:(AtkDragAndDropManager *)manager
+- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
 {
-    // Yes, consider me for drags.
+    // Yes, consider me for drags. Returning true here only
+    // ensures that isInterested, dragStarted, and dragEnded will
+    // be called. 
     return YES;
 }
 
 - (BOOL)isInterested:(AtkDragAndDropManager *)manager
 {
-    // Only consider me for enter, exit, move and drop if
-    // we are interested in what on the pasteboard.
+    // If we return true here then dragEntered, dragExited, dragMoved and 
+    // dragDropped can be called.
+    // So, let's see if we are interested in what's on the pasteboard.
     // For the example this is if the pastbaord string matches
     // a string made up from the views tag property.
 
@@ -81,7 +90,7 @@ And finally, we have our UIViewController. This assumes the drag source and drop
 
 ```objective-c
 
-@interface AtkSampleOneViewController : UIViewController
+@interface AtkSampleOneViewController : UIViewController<AtkDragAndDropManagerDelegate>
 
 @property (nonatomic, retain) AtkDragAndDropManager *dragAndDropManager;
 
@@ -109,6 +118,12 @@ And finally, we have our UIViewController. This assumes the drag source and drop
     // This behavior is also configurable through the AtkDragAndDropManager delegate.
     //
     self.dragAndDropManager = [[[AtkDragAndDropManager alloc] init] autorelease];
+    // For the AtkDragAndDropManagerDelegate methods findDragSource: finrDropZones: and
+    // isDropZoneActive:recognizer:, if we do not implement them here, the 
+    // relevant methods in AtkDefaultDragAndDropManagerDelegate will be called.
+    // This gives us our reasonable defaults even if we want to capture drag and drop
+    // events here.
+    self.dragAndDropManager.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -121,6 +136,16 @@ And finally, we have our UIViewController. This assumes the drag source and drop
 {
     [self.dragAndDropManager stop];
     [super viewWillDisappear:animated];
+}
+
+/**
+ * Called when a drag is dropped onto a drop zone.
+ */
+- (void)dragDropped:(AtkDragAndDropManager *)manager
+           dropZone:(id<AtkDropZoneProtocol>)dropZone 
+              point:(CGPoint)point
+{
+   // The drag was dropped onto an interested AtkDropZoneProtocol. Do something with it.
 }
 
 @end
@@ -145,6 +170,16 @@ it simply add the following line to your Podfile:
     pod "AtkDragAndDrop"
 
 -->
+
+## Updates
+### 0.1.0 -> 0.2.0
+
+* added drag and drop handler methods to the AtkDragAndDropManagerDelegate.
+* added shouldDragStart to AtkDragSourceProtocol and AtkDropZoneProtocol. dragStarted no londer returns a boolean.
+* made all protocol methods optional. this allows for maximal flexability.
+* if a AtkDragAndDropManagerDelegate does not implement methods findDragSource: findDropZones: or isDropZoneActive:recognizer: we look to the AtkDefaultDragAndDropManagerDelegate.
+* added dragWillStart to AtkDragSourceProtocol. this is called before dragStarted and AtkDropZoneProtocol shouldDragStart and allows us to setup data for drop zones to look at in shouldDragStart so they can determine if they want to participate as a drop zone.
+* Updates to the examples and readme.
 
 ## Author
 
