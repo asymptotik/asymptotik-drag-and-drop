@@ -37,8 +37,8 @@ Here we have a UIView drag source.
 
 - (void)dragWillStart:(AtkDragAndDropManager *)manager
 {
-    // This is called before any call to AtkDropZoneProtocol shouldDragStart. It's a good place
-    // to setup data for that method to examine.
+    // This is called before any call to AtkDropZoneProtocol shouldDragStart. 
+    // It's a good place to setup data for that method to examine.
     manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];
 }
 
@@ -141,7 +141,9 @@ And finally, we have our UIViewController. This assumes the drag source and drop
 /**
  * Called when a drag is dropped onto a drop zone.
  */
-- (void)dragDropped:(AtkDragAndDropManager *)manager dropZone:(id<AtkDropZoneProtocol>) dropZone point:(CGPoint)point
+- (void)dragDropped:(AtkDragAndDropManager *)manager
+           dropZone:(id<AtkDropZoneProtocol>)dropZone 
+              point:(CGPoint)point
 {
    // The drag was dropped onto an interested AtkDropZoneProtocol. Do something with it.
 }
