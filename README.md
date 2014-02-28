@@ -175,8 +175,10 @@ it simply add the following line to your Podfile:
 ### 0.1.0 -> 0.2.0
 
 * added drag and drop handler methods to the AtkDragAndDropManagerDelegate.
-* added shouldDragStart to AtkDragSource and AtkDropZone. dragStarted no londer returns a boolean.
-* added dragWillStart to AtkDragSource. This is called before dragStarted and AtkDropZone shouldDragStart and allows us to setup data for drop zones to look at in shouldDragStart so they can determine if they want to participate as a drop zone.
+* added shouldDragStart to AtkDragSourceProtocol and AtkDropZoneProtocol. dragStarted no londer returns a boolean.
+* made all protocol methods optional. this allows for maximal flexability.
+* if a AtkDragAndDropManagerDelegate does not implement methods findDragSource: findDropZones: or isDropZoneActive:recognizer: we look to the AtkDefaultDragAndDropManagerDelegate.
+* added dragWillStart to AtkDragSourceProtocol. this is called before dragStarted and AtkDropZoneProtocol shouldDragStart and allows us to setup data for drop zones to look at in shouldDragStart so they can determine if they want to participate as a drop zone.
 * Updates to the examples and readme.
 
 ## Author
