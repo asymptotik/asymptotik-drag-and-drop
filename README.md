@@ -171,6 +171,14 @@ it simply add the following line to your Podfile:
 
 -->
 
+## Updates
+### 0.1.0 -> 0.2.0
+
+* added drag and drop handler methods to the AtkDragAndDropManagerDelegate.
+* added shouldDragStart to AtkDragSource and AtkDropZone. dragStarted no londer returns a boolean.
+* added dragWillStart to AtkDragSource. This is called before dragStarted and AtkDropZone shouldDragStart and allows us to setup data for drop zones to look at in shouldDragStart.
+* Updates the examples and readme.
+
 ## Author
 
 Rick Boykin, rick.boykin@gmail.com
