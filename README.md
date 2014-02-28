@@ -24,16 +24,22 @@ Here we have a UIView drag source.
 
 ```objective-c
 
-@interface AtkSampleOneDragSourceView<HtDragSourceProtocol>
+@interface AtkSampleOneDragSourceView<AtkDragSourceProtocol>
 
 @end
 
 @implementation AtkSampleOneDragSourceView
 
-- (BOOL)dragStarted:(AtkDragAndDropManager *)manager
+- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
 {
-    manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];
     return YES;
+}
+
+- (void)dragWillStart:(AtkDragAndDropManager *)manager
+{
+    // This is called before any call to AtkDropZoneProtocol shouldDragStart. It's a good place
+    // to setup data for that method to examine.
+    manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];
 }
 
 @end
@@ -50,16 +56,19 @@ Here we have a UIView drop zone.
 
 @implementation AtkSampleOneDropZoneView
 
-- (BOOL)dragStarted:(AtkDragAndDropManager *)manager
+- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
 {
-    // Yes, consider me for drags.
+    // Yes, consider me for drags. Returning true here only
+    // ensures that isInterested, dragStarted, and dragEnded will
+    // be called. 
     return YES;
 }
 
 - (BOOL)isInterested:(AtkDragAndDropManager *)manager
 {
-    // Only consider me for enter, exit, move and drop if
-    // we are interested in what on the pasteboard.
+    // If we return true here then dragEntered, dragExited, dragMoved and dragDropped can
+    // be called.
+    // So, let's see if we are interested in what's on the pasteboard.
     // For the example this is if the pastbaord string matches
     // a string made up from the views tag property.
 
