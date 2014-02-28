@@ -38,10 +38,14 @@
     return [self.view isActiveDropZone:manager point:point];
 }
 
-- (BOOL)dragStarted:(AtkDragAndDropManager *)manager
+- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
+{
+    return YES;
+}
+
+- (void)dragStarted:(AtkDragAndDropManager *)manager
 {
     self.savedBackgroundColor = self.view.backgroundColor;
-    return YES;
 }
 
 - (BOOL)isInterested:(AtkDragAndDropManager *)manager

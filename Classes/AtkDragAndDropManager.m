@@ -21,7 +21,6 @@
 @property (nonatomic, strong) NSArray *uninterestedDropZones;
 @property (nonatomic, strong) NSArray *interestedDropZones;
 @property (nonatomic, strong) id<AtkDragAndDropManagerDelegate> defaultDelegate;
-@property (weak, nonatomic, readonly) id<AtkDragAndDropManagerDelegate> activeDelegate;
 
 @end
 
@@ -87,7 +86,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
     
     if(self.dragSource)
     {
-        [self dragEnded:nil];
+        [self onDragEnded:nil];
     }
     
     self.recognizer = nil;
@@ -99,22 +98,124 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
     return [UIPasteboard pasteboardWithName:self.pasteboardName create:YES];
 }
 
-#pragma mark - private methods
-
 - (id<AtkDragSourceProtocol>)findDragSource:(UIGestureRecognizer *)recognizer
 {
-    return [self.activeDelegate findDragSource:self recognizer:recognizer];
+    if(_delegate && [_delegate respondsToSelector:@selector(findDragSource:recognizer:)])
+        return [_delegate findDragSource:self recognizer:recognizer];
+    else
+        return [self.defaultDelegate findDragSource:self recognizer:recognizer];
 }
 
 - (NSArray *)findDropZones:(UIGestureRecognizer *)recognizer
 {
-    return [self.activeDelegate findDropZones:self recognizer:recognizer];
+    if(_delegate && [_delegate respondsToSelector:@selector(findDropZones:recognizer:)])
+        return [_delegate findDropZones:self recognizer:recognizer];
+    else
+        return [self.defaultDelegate findDropZones:self recognizer:recognizer];
 }
 
 - (BOOL)isDropZoneActive:(id<AtkDropZoneProtocol>)dropZone recognizer:(UIGestureRecognizer *)recognizer
 {
-    return [self.activeDelegate isDropZoneActive:self dropZone:dropZone recognizer:recognizer];
+    if(_delegate && [_delegate respondsToSelector:@selector(isDropZoneActive:dropZone:recognizer:)])
+        return [_delegate isDropZoneActive:self dropZone:dropZone recognizer:recognizer];
+    else
+        return [self.defaultDelegate isDropZoneActive:self dropZone:dropZone recognizer:recognizer];
 }
+
+- (void)dragWillStart
+{
+    if([self.dragSource respondsToSelector:@selector(dragWillStart:)])
+        [self.dragSource dragWillStart:self];
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(dragWillStart:)])
+        [_delegate dragWillStart:self];
+}
+
+- (void)dragStarted
+{
+    for(AtkDropZoneWrapper *dropZone in self.interestedDropZones)
+    {
+        if([dropZone.dropZone respondsToSelector:@selector(dragStarted:)])
+            [dropZone.dropZone dragStarted:self];
+    }
+    
+    if([self.dragSource respondsToSelector:@selector(dragStarted:)])
+        [self.dragSource dragStarted:self];
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(dragStarted:)])
+        [_delegate dragStarted:self];
+}
+
+- (void)dragEnded
+{
+    for(AtkDropZoneWrapper *dropZone in self.uninterestedDropZones)
+    {
+        if([dropZone.dropZone respondsToSelector:@selector(dragEnded:)])
+            [dropZone.dropZone dragEnded:self];
+    }
+    
+    for(AtkDropZoneWrapper *dropZone in self.interestedDropZones)
+    {
+        if([dropZone.dropZone respondsToSelector:@selector(dragEnded:)])
+            [dropZone.dropZone dragEnded:self];
+    }
+    
+    if([self.dragSource respondsToSelector:@selector(dragEnded:)])
+        [self.dragSource dragEnded:self];
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(dragEnded:)])
+        [_delegate dragEnded:self];
+}
+
+- (void)dragEntered:(id<AtkDropZoneProtocol>)dropZone point:(CGPoint)point
+{
+    if([dropZone respondsToSelector:@selector(dragEntered:point:)])
+        [dropZone dragEntered:self point:point];
+    
+    if([self.dragSource respondsToSelector:@selector(dragEntered:dropZone:point:)])
+        [self.dragSource dragEntered:self dropZone:dropZone point:point];
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(dragEntered:dropZone:point:)])
+        [_delegate dragEntered:self dropZone:dropZone point:point];
+}
+
+- (void)dragExited:(id<AtkDropZoneProtocol>)dropZone point:(CGPoint)point
+{
+    if([dropZone respondsToSelector:@selector(dragExited:point:)])
+        [dropZone dragExited:self point:point];
+    
+    if([self.dragSource respondsToSelector:@selector(dragExited:dropZone:point:)])
+        [self.dragSource dragExited:self dropZone:dropZone point:point];
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(dragExited:dropZone:point:)])
+        [_delegate dragExited:self dropZone:dropZone point:point];
+}
+
+- (void)dragMoved:(id<AtkDropZoneProtocol>)dropZone point:(CGPoint)point
+{
+    if([dropZone respondsToSelector:@selector(dragMoved:point:)])
+        [dropZone dragMoved:self point:point];
+    
+    if([self.dragSource respondsToSelector:@selector(dragMoved:dropZone:point:)])
+        [self.dragSource dragMoved:self dropZone:dropZone point:point];
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(dragMoved:dropZone:point:)])
+        [_delegate dragMoved:self dropZone:dropZone point:point];
+}
+
+- (void)dragDropped:(id<AtkDropZoneProtocol>)dropZone point:(CGPoint)point
+{
+    if([dropZone respondsToSelector:@selector(dragDropped:point:)])
+        [dropZone dragDropped:self point:point];
+    
+    if([self.dragSource respondsToSelector:@selector(dragDropped:dropZone:point:)])
+        [self.dragSource dragDropped:self dropZone:dropZone point:point];
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(dragDropped:dropZone:point:)])
+        [_delegate dragDropped:self dropZone:dropZone point:point];
+}
+
+#pragma mark - private methods
 
 /**
  * Sets the drag source.
@@ -164,7 +265,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 {
     NSLog(@"AtkDragAndDropManager:gestureRecognizerShouldBegin");
     // Only begin if we have a dragSource.
-    return [self dragStart:recognizer];
+    return [self onDragStart:recognizer];
 }
 
 /**
@@ -179,28 +280,28 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
         case UIGestureRecognizerStateChanged:
             if(_dragSource)
             {
-                [self dragMoved:recognizer];
+                [self onDragMoved:recognizer];
             }
             break;
         case UIGestureRecognizerStateEnded: // same as UIGestureRecognizerStateRecognized
             if(_dragSource)
             {
-                [self dragDropped:recognizer];
-                [self dragEnded:recognizer];
+                [self onDragDropped:recognizer];
+                [self onDragEnded:recognizer];
             }
             break;
         case UIGestureRecognizerStateCancelled:
             if(_dragSource)
             {
                 NSLog(@"UIGestureRecognizerStateCancelled");
-                [self dragEnded:recognizer];
+                [self onDragEnded:recognizer];
             }
             break;
         case UIGestureRecognizerStateFailed:
             if(_dragSource)
             {
                 NSLog(@"UIGestureRecognizerStateFailed");
-                [self dragEnded:recognizer];
+                [self onDragEnded:recognizer];
             }
             break;
         case UIGestureRecognizerStatePossible:
@@ -224,27 +325,19 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
             {
                 // transitioned to inside
                 dropZone.isActive = YES;
-                [dropZone.dropZone dragEntered:self point:pointInRootView];
                 
-                if([self.dragSource respondsToSelector:@selector(dragEntered:dropZone:point:)])
-                    [self.dragSource dragEntered:self dropZone:dropZone.dropZone point:pointInRootView];
+                [self dragEntered:dropZone.dropZone point:pointInRootView];
             }
             else
             {
-                [dropZone.dropZone dragMoved:self point:pointInRootView];
-                
-                if([self.dragSource respondsToSelector:@selector(dragMoved:dropZone:point:)])
-                    [self.dragSource dragMoved:self dropZone:dropZone.dropZone point:pointInRootView];
+                [self dragMoved:dropZone.dropZone point:pointInRootView];
             }
         }
         else if(dropZone.isActive)
         {
             // transitioned to outside
             dropZone.isActive = NO;
-            [dropZone.dropZone dragExited:self point:pointInRootView];
-            
-            if([self.dragSource respondsToSelector:@selector(dragExited:dropZone:point:)])
-                [self.dragSource dragExited:self dropZone:dropZone.dropZone point:pointInRootView];
+            [self dragExited:dropZone.dropZone point:pointInRootView];
         }
     }
 }
@@ -253,7 +346,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
  * Called when a drag operation starts. Returns true if a self.dragSource was set indicating
  * that a drag source was found and dragging will commence.
  */
-- (BOOL)dragStart:(UIGestureRecognizer *)recognizer
+- (BOOL)onDragStart:(UIGestureRecognizer *)recognizer
 {
     NSLog(@"AtkDragAndDropManager.dragStart");
     
@@ -263,6 +356,8 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
     
     if((self.dragSource = [self findDragSource:recognizer]))
     {
+        [self dragWillStart];
+        
         NSArray *dropZones = [self findDropZones:recognizer];
         
         // Wrap the drop zones with AtkDropZoneWrapper to track it's state.
@@ -291,12 +386,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
         self.interestedDropZones = interestedDropZones;
         self.uninterestedDropZones = uninterestedDropZones;
         
-        if([self.dragSource respondsToSelector:@selector(dragStarted:dropZone:)])
-        {
-            for(AtkDropZoneWrapper *interestedDropZone in self.interestedDropZones)
-                [self.dragSource dragStarted:self dropZone:interestedDropZone.dropZone];
-        }
-        
+        [self dragStarted];
         [self positionDragShadow:recognizer];
     }
     
@@ -306,26 +396,11 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 /**
  * Called when a drag operation ends.
  */
-- (void)dragEnded:(UIGestureRecognizer *)recognizer
+- (void)onDragEnded:(UIGestureRecognizer *)recognizer
 {
     NSLog(@"AtkDragAndDropManager.dragEnded");
     
-    for(AtkDropZoneWrapper *dropZone in self.uninterestedDropZones)
-    {
-        [dropZone.dropZone dragEnded:self];
-        if([self.dragSource respondsToSelector:@selector(dragEnded:dropZone:)])
-            [self.dragSource dragEnded:self dropZone:dropZone.dropZone];
-    }
-    
-    for(AtkDropZoneWrapper *dropZone in self.interestedDropZones)
-    {
-        [dropZone.dropZone dragEnded:self];
-        if([self.dragSource respondsToSelector:@selector(dragEnded:dropZone:)])
-            [self.dragSource dragEnded:self dropZone:dropZone.dropZone];
-    }
-    
-    if([self.dragSource respondsToSelector:@selector(dragEnded:)])
-        [self.dragSource dragEnded:self];
+    [self dragEnded];
     
     self.dragShadowView = nil;
     self.dragSource = nil;
@@ -336,7 +411,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 /**
  * Called when a drag moves.
  */
-- (void)dragMoved:(UIGestureRecognizer *)recognizer
+- (void)onDragMoved:(UIGestureRecognizer *)recognizer
 {
     //NSLog(@"AtkDragAndDropManager.dragMoved");
     
@@ -347,7 +422,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 /**
  * Called when a drag is dropped.
  */
-- (void)dragDropped:(UIGestureRecognizer *)recognizer
+- (void)onDragDropped:(UIGestureRecognizer *)recognizer
 {
     NSLog(@"AtkDragAndDropManager.dragDropped");
     
@@ -355,12 +430,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
     {
         AtkDropZoneWrapper *interestedDropZone = [self.interestedDropZones objectAtIndex:n];
         if(interestedDropZone.isActive)
-        {
-            [interestedDropZone.dropZone dragDropped:self point:[recognizer locationInView:self.rootView]];
-            
-            if([self.dragSource respondsToSelector:@selector(dragDropped:dropZone:point:)])
-                [self.dragSource dragDropped:self dropZone:interestedDropZone.dropZone point:[recognizer locationInView:self.rootView]];
-        }
+            [self dragDropped:interestedDropZone.dropZone point:[recognizer locationInView:self.rootView]];
     }
 }
 
@@ -376,11 +446,6 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
         frame.origin = CGPointMake(point.x - (frame.size.width / 2.0), point.y - (frame.size.height / 2.0));
         _dragShadowView.frame = frame;
     }
-}
-
-- (id<AtkDragAndDropManagerDelegate>)activeDelegate
-{
-    return _delegate ? _delegate : self.defaultDelegate;
 }
 
 - (id<AtkDragAndDropManagerDelegate>)defaultDelegate

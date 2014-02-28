@@ -37,11 +37,16 @@
     return [self.view isActiveDropZone:manager point:point];
 }
 
-- (BOOL)dragStarted:(AtkDragAndDropManager *)manager
+- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
+{
+    NSLog(@"AtkSampleOneDropZoneScrollView.shouldDragStart");
+    return YES;
+}
+
+- (void)dragStarted:(AtkDragAndDropManager *)manager
 {
     NSLog(@"AtkSampleOneDropZoneScrollView.dragStarted");
     [self.view autoScrollDragStarted];
-    return YES;
 }
 
 - (BOOL)isInterested:(AtkDragAndDropManager *)manager

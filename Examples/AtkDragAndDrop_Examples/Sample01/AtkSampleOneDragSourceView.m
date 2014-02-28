@@ -29,12 +29,14 @@
 
 }
 
-
-
-- (BOOL)dragStarted:(AtkDragAndDropManager *)manager
+- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
 {
-    manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];;
     return YES;
+}
+
+- (void)dragWillStart:(AtkDragAndDropManager *)manager
+{
+    manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];
 }
 
 /*

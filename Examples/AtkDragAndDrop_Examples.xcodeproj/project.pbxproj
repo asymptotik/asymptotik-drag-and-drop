@@ -35,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D0928B418B0827B00ACDAE7 /* AtkDragAndDrop.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = AtkDragAndDrop.podspec; path = ../AtkDragAndDrop.podspec; sourceTree = "<group>"; };
 		1D0A2D8E189848D000175F59 /* AtkSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleViewController.h; sourceTree = "<group>"; };
 		1D0A2D8F189848D000175F59 /* AtkSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleViewController.m; sourceTree = "<group>"; };
 		1D0A2D90189848D000175F59 /* AtkSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtkSampleViewController.xib; sourceTree = "<group>"; };
@@ -135,6 +136,7 @@
 		1D847C2D1898471E00F419F6 = {
 			isa = PBXGroup;
 			children = (
+				1D0928B418B0827B00ACDAE7 /* AtkDragAndDrop.podspec */,
 				1DE3C71118988AD2002C1C4E /* Classes */,
 				1D847C3F1898471E00F419F6 /* AtkDragAndDrop_Examples */,
 				1D847C381898471E00F419F6 /* Frameworks */,

@@ -17,20 +17,18 @@
     if(self)
     {
         self.view = view;
-        [self initialize];
     }
     return self;
 }
 
-- (void)initialize
+- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
 {
-    
+    return YES;
 }
 
-- (BOOL)dragStarted:(AtkDragAndDropManager *)manager
+- (void)dragWillStart:(AtkDragAndDropManager *)manager
 {
-    manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.view.tag];;
-    return YES;
+    manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.view.tag];
 }
 
 - (UIView *)createDragShadowView:(AtkDragAndDropManager *)manager

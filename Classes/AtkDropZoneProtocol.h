@@ -18,17 +18,22 @@
 
 /**
  * A drag has started and dragStarted returned YES. Should we consider this drop zone interested in receiving
- * the following calls dragEntered, dragExited, dragMoved, dragDropped and dragEnded.
+ * the following calls dragStarted, dragEntered, dragExited, dragMoved, dragDropped and dragEnded.
  */
 - (BOOL)isInterested:(AtkDragAndDropManager *)manager;
 
-@required
-
 /**
  * A drag has started, should we consider this drop zone. A drop zone that is considered
- * will receive calls, as appropriate, to isInterested and dragEnded
+ * will receive calls, as appropriate, to isInterested and dragEnded but not dragStarted, 
+ * dragEntered, dragExited, dragMoved and dragDropped
  */
-- (BOOL)dragStarted:(AtkDragAndDropManager *)manager;
+- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager;
+
+/*
+ * called on all drop zones that responded YES to dragStarted when the drag operation has started. This will
+ * be soon after shouldDragStart responds YES.
+ */
+- (void)dragStarted:(AtkDragAndDropManager *)manager;
 
 /*
  * called on all drop zones that responded YES to dragStarted when the drag operation has ended. This will

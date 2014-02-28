@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AtkDragAndDrop"
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "A drag and drop toolkit for iOS."
   s.description  = <<-DESC
                    iOS drag and drop toolkit with support for:

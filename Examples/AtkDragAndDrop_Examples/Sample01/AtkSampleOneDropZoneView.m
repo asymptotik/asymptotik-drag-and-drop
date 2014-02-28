@@ -25,10 +25,14 @@
     return self;
 }
 
-- (BOOL)dragStarted:(AtkDragAndDropManager *)manager
+- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
+{
+    return YES;
+}
+
+- (void)dragStarted:(AtkDragAndDropManager *)manager
 {
     self.savedBackgroundColor = self.backgroundColor;
-    return YES;
 }
 
 - (BOOL)isInterested:(AtkDragAndDropManager *)manager

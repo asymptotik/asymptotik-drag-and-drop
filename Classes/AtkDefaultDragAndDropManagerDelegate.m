@@ -24,8 +24,8 @@
     {
         if([hitView conformsToProtocol:@protocol(AtkDragSourceProtocol)])
         {
-            if([hitView respondsToSelector:@selector(dragStarted:)])
-                dragStarted = [(UIView<AtkDragSourceProtocol> *)hitView dragStarted:manager];
+            if([hitView respondsToSelector:@selector(shouldDragStart:)])
+                dragStarted = [(UIView<AtkDragSourceProtocol> *)hitView shouldDragStart:manager];
             else
                 dragStarted = YES;
         }
@@ -40,13 +40,15 @@
 }
 
 /**
- * Recursively finds any drop zones (id<AtkDropZoneProtocol>) in view and it's descendents that are interested in the gesture recognizer
+ * Recursively finds any drop zones (id<AtkDropZoneProtocol>) in view and it's descendants that are interested in the gesture recognizer
  * and adds them to dropZones. The return value is the passed in dropZones. If a drop zone is found and dropZones is nil, a new
  * NSMutableArray will be constructed, filled and returned.
  */
 - (NSMutableArray *)findDropZones:(AtkDragAndDropManager *)manager view:(UIView *)view recognizer:(UIGestureRecognizer *)recognizer dropZones:(NSMutableArray *)dropZones
 {
-    if([view conformsToProtocol:@protocol(AtkDropZoneProtocol)] && [(id<AtkDropZoneProtocol>)view dragStarted:manager])
+    if([view conformsToProtocol:@protocol(AtkDropZoneProtocol)] &&
+       [view respondsToSelector:@selector(shouldDragStart:)] &&
+       [(id<AtkDropZoneProtocol>)view shouldDragStart:manager])
     {
         if(!dropZones)
             dropZones = [NSMutableArray array];
@@ -63,7 +65,7 @@
 }
 
 /**
- * Recursively finds any drop zones (id<AtkDropZoneProtocol>) in rootView and it's descendents that are interested in the gesture
+ * Recursively finds any drop zones (id<AtkDropZoneProtocol>) in rootView and it's descendants that are interested in the gesture
  * recognizer and returns them.
  */
 - (NSArray *)findDropZones:(AtkDragAndDropManager *)manager recognizer:(UIGestureRecognizer *)recognizer
