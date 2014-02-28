@@ -177,7 +177,7 @@ it simply add the following line to your Podfile:
 * added drag and drop handler methods to the AtkDragAndDropManagerDelegate.
 * added shouldDragStart to AtkDragSource and AtkDropZone. dragStarted no londer returns a boolean.
 * added dragWillStart to AtkDragSource. This is called before dragStarted and AtkDropZone shouldDragStart and allows us to setup data for drop zones to look at in shouldDragStart so thay can determine if they want to participate as a drop zone.
-* Updates the examples and readme.
+* Updates to the examples and readme.
 
 ## Author
 
