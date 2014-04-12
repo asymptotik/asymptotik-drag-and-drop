@@ -85,7 +85,6 @@
     if(dragStarted)
     {
         ret = [[AtkSampleTwoDragSourceWrapper alloc] initWithView:hitView];
-        [ret dragStarted:manager];
     }
 
     return ret;
@@ -105,7 +104,6 @@
     for(UIView *child in _viewParent.subviews)
     {
         AtkSampleTwoDropZoneWrapper *viewDropZone = [[AtkSampleTwoDropZoneWrapper alloc] initWithView:child];
-        [viewDropZone dragStarted:manager];
         [ret addObject:viewDropZone];
     }
     
