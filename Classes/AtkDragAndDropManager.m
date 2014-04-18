@@ -1,9 +1,9 @@
 //
 //  AtkDragAndDropManager.m
-//  Rnd_DragAndDrop
+//  AtkDragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
-//  Copyright (c) 2014 Mondo Robot. All rights reserved.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import "AtkDragAndDropManager.h"
@@ -60,7 +60,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 
 - (void)start:(UIView *)rootView recognizerClass:(Class)recognizerClass
 {
-    NSLog(@"AtkDragAndDropManager.start:recognizerClass:");
+    NSLog(@"AtkDragAndDropManager.start:recognizerClass: %@", [recognizerClass description]);
     
     assert([recognizerClass isSubclassOfClass:[UIGestureRecognizer class]]);
     

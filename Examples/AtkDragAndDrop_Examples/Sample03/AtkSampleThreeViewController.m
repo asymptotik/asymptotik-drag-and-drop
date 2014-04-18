@@ -6,9 +6,12 @@
 //  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
+#import <MobileCoreServices/MobileCoreServices.h>
+
 #import "AtkSampleThreeViewController.h"
 #import "AtkSampleThreeCollectionViewController.h"
 #import "AtkDragAndDrop.h"
+#import "AtkSampleThreeCellData.h"
 
 @interface AtkSampleThreeViewController ()<AtkDragAndDropManagerDelegate>
 
@@ -92,6 +95,8 @@
     if(dragStarted)
     {
         ret = (id<AtkDragSourceProtocol>)hitView;
+        NSDictionary *values = @{ @"title" : @"DragSource",  @"subtitle": @"This is my drag source" };
+        [manager.pasteboard setValue:values forPasteboardType:(NSString *)kUTTypeItem];
     }
     
     return ret;

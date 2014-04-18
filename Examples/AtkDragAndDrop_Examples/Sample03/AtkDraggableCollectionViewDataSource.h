@@ -1,14 +1,14 @@
 //
-//  Copyright (c) 2013 Luke Scott
-//  https://github.com/lukescott/DraggableCollectionView
-//  Distributed under MIT license
+//  AtkDraggableCollectionViewDataSource.h
+//  AtkDragAndDrop
+//
+//  Created by Rick Boykin on 4/17/14.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@class LSCollectionViewHelper;
-
-@protocol UICollectionViewDataSource_Draggable <UICollectionViewDataSource>
+@protocol AtkDraggableCollectionViewDataSource <UICollectionViewDataSource>
 @required
 
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath;

@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="2" id="BJT-z9-Gye" customClass="DraggableCollectionViewFlowLayout">
+            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="2" id="BJT-z9-Gye" customClass="AtkDraggableCollectionViewFlowLayout">
                 <size key="itemSize" width="78" height="105"/>
                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                 <size key="footerReferenceSize" width="0.0" height="0.0"/>

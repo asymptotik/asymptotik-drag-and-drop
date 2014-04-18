@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "AtkDropZoneProtocol.h"
+#import "AtkDragAndDropCollectionViewController.h"
 
-@interface AtkSampleThreeCollectionViewController : UICollectionViewController<AtkDropZoneProtocol>
+@interface AtkSampleThreeCollectionViewController : AtkDragAndDropCollectionViewController
 
 @end

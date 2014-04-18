@@ -1,9 +1,9 @@
 //
 //  AtkSampleThreeDragSourceView.m
-//  Rnd_DragAndDrop
+//  AtkDragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
-//  Copyright (c) 2014 Mondo Robot. All rights reserved.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import "AtkSampleThreeDragSourceView.h"

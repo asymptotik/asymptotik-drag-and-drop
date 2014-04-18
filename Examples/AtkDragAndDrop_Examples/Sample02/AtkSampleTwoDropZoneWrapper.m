@@ -3,7 +3,7 @@
 //  Atkdrogen_DragAndDrop
 //
 //  Created by Rick Boykin on 1/21/14.
-//  Copyright (c) 2014 Mondo Robot. All rights reserved.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import "AtkSampleTwoDropZoneWrapper.h"

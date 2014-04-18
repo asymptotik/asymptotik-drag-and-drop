@@ -11,15 +11,14 @@
 #import "AtkSampleThreeCellData.h"
 #import "AtkDragAndDrop.h"
 #import "UIScrollView+AtkDragAndDrop.h"
-#import "UICollectionViewDataSource_Draggable.h"
-#import "UICollectionView+Draggable.h"
+#import "AtkDraggableCollectionViewDataSource.h"
 
 #define SECTION_COUNT 5
 #define ITEM_COUNT 20
 
 static NSString *kAtkCellReuseId = @"PrimaryCell";
 
-@interface AtkSampleThreeCollectionViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource_Draggable>
+@interface AtkSampleThreeCollectionViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AtkDraggableCollectionViewDataSource>
 
 @property (nonatomic) NSMutableArray *sections;
 
@@ -55,7 +54,6 @@ static NSString *kAtkCellReuseId = @"PrimaryCell";
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.collectionView.draggable = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,9 +92,9 @@ static NSString *kAtkCellReuseId = @"PrimaryCell";
     //[collectionView dequeueReusableSupplementaryViewOfKind:(NSString*)elementKind withReuseIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath*)indexPath]
 }
 
-#pragma - mark UICollectionViewDataSource_Draggable
+#pragma - mark AtkDraggableCollectionViewDataSource
 
-- (BOOL)collectionView:(LSCollectionViewHelper *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
@@ -110,7 +108,7 @@ static NSString *kAtkCellReuseId = @"PrimaryCell";
     return YES;
 }
 
-- (void)collectionView:(LSCollectionViewHelper *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
     NSMutableArray *data1 = [self.sections objectAtIndex:fromIndexPath.section];
     NSMutableArray *data2 = [self.sections objectAtIndex:toIndexPath.section];
@@ -188,56 +186,5 @@ static NSString *kAtkCellReuseId = @"PrimaryCell";
 - (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout;
 
 */
-
-#pragma - mark AtkDropZoneProtocol
-
-- (BOOL)isActive:(AtkDragAndDropManager *)manager point:(CGPoint)point
-{
-    return [self.view isActiveDropZone:manager point:point];
-}
-
-- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
-{
-    return YES;
-}
-
-- (void)dragStarted:(AtkDragAndDropManager *)manager
-{
-    NSLog(@"AtkSampleThreeCollectionViewController.dragStarted");
-    [self.collectionView autoScrollDragStarted];
-}
-
-- (BOOL)isInterested:(AtkDragAndDropManager *)manager
-{
-    NSLog(@"AtkSampleThreeCollectionViewController.isInterested");
-    return YES;
-}
-
-- (void)dragEnded:(AtkDragAndDropManager *)manager
-{
-    NSLog(@"AtkSampleThreeCollectionViewController.dragEnded");
-    [self.collectionView autoScrollDragEnded];
-}
-
-- (void)dragEntered:(AtkDragAndDropManager *)manager point:(CGPoint)point
-{
-    NSLog(@"AtkSampleThreeCollectionViewController.dragEntered");
-
-}
-
-- (void)dragExited:(AtkDragAndDropManager *)manager point:(CGPoint)point
-{
-    NSLog(@"AtkSampleThreeCollectionViewController.dragExited");
-}
-
-- (void)dragMoved:(AtkDragAndDropManager *)manager point:(CGPoint)point
-{
-    [self.collectionView autoScrollDragMoved:[manager.rootView convertPoint:point toView:self.view]];
-}
-
-- (void)dragDropped:(AtkDragAndDropManager *)manager point:(CGPoint)point
-{
-    NSLog(@"AtkSampleThreeCollectionViewController.dragDropped");
-}
 
 @end
