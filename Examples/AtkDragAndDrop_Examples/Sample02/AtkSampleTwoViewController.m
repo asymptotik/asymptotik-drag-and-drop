@@ -10,8 +10,9 @@
 #import "AtkSampleTwoDragSourceWrapper.h"
 #import "AtkSampleTwoDropZoneWrapper.h"
 #import "AtkSampleTwoDropZoneScrollViewWrapper.h"
+#import "AtkDragAndDrop.h"
 
-@interface AtkSampleTwoViewController ()
+@interface AtkSampleTwoViewController ()<AtkDragAndDropManagerDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *viewSource01;
 @property (nonatomic, strong) IBOutlet UIView *viewSource02;
@@ -85,7 +86,6 @@
     if(dragStarted)
     {
         ret = [[AtkSampleTwoDragSourceWrapper alloc] initWithView:hitView];
-        [ret dragStarted:manager];
     }
 
     return ret;
@@ -99,13 +99,11 @@
 {
     NSMutableArray *ret = [NSMutableArray arrayWithCapacity:10];
     AtkSampleTwoDropZoneScrollViewWrapper *scrollViewDropZone = [[AtkSampleTwoDropZoneScrollViewWrapper alloc] initWithScrollView:_scroller];
-    [scrollViewDropZone dragStarted:manager];
     [ret addObject:scrollViewDropZone];
     
     for(UIView *child in _viewParent.subviews)
     {
         AtkSampleTwoDropZoneWrapper *viewDropZone = [[AtkSampleTwoDropZoneWrapper alloc] initWithView:child];
-        [viewDropZone dragStarted:manager];
         [ret addObject:viewDropZone];
     }
     

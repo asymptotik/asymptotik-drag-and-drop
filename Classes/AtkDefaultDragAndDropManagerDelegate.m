@@ -91,7 +91,12 @@
         UIView *dropView = (UIView *)dropZone;
         ret = [dropView isActiveDropZone:manager point:[recognizer locationInView:manager.rootView]];
     }
-    
+    else if([dropZone isKindOfClass:[UIViewController class]])
+    {
+        UIView *dropView = ((UIViewController *)dropZone).view;
+        ret = [dropView isActiveDropZone:manager point:[recognizer locationInView:manager.rootView]];
+    }
+
     return ret;
 }
 

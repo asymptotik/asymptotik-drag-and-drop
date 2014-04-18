@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AtkDragAndDrop.h"
 
-@interface AtkSampleTwoViewController : UIViewController<AtkDragAndDropManagerDelegate>
+@interface AtkSampleTwoViewController : UIViewController
 
 @end

@@ -19,6 +19,18 @@
 		1D0A2DAE189848D000175F59 /* AtkSampleTwoDropZoneWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0A2DA1189848D000175F59 /* AtkSampleTwoDropZoneWrapper.m */; };
 		1D0A2DAF189848D000175F59 /* AtkSampleTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0A2DA3189848D000175F59 /* AtkSampleTwoViewController.m */; };
 		1D0A2DB0189848D000175F59 /* AtkSampleTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D0A2DA4189848D000175F59 /* AtkSampleTwoViewController.xib */; };
+		1D2FE0D418FF8B4B00A81589 /* DraggableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FE0CB18FF8B4B00A81589 /* DraggableCollectionViewFlowLayout.m */; };
+		1D2FE0D518FF8B4B00A81589 /* LSCollectionViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FE0CD18FF8B4B00A81589 /* LSCollectionViewHelper.m */; };
+		1D2FE0D618FF8B4B00A81589 /* LSCollectionViewLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FE0CF18FF8B4B00A81589 /* LSCollectionViewLayoutHelper.m */; };
+		1D2FE0D718FF8B4B00A81589 /* UICollectionView+Draggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FE0D118FF8B4B00A81589 /* UICollectionView+Draggable.m */; };
+		1D4070B418F8ADD5007E7D0D /* AtkSampleThreeDragSourceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4070B318F8ADD5007E7D0D /* AtkSampleThreeDragSourceView.m */; };
+		1D75620B18F65BD600DF4F21 /* AtkSampleThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D75620918F65BD600DF4F21 /* AtkSampleThreeViewController.m */; };
+		1D75620C18F65BD600DF4F21 /* AtkSampleThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D75620A18F65BD600DF4F21 /* AtkSampleThreeViewController.xib */; };
+		1D75621018F6766B00DF4F21 /* AtkSampleThreeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D75620E18F6766B00DF4F21 /* AtkSampleThreeCollectionViewController.m */; };
+		1D75621118F6766B00DF4F21 /* AtkSampleThreeCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D75620F18F6766B00DF4F21 /* AtkSampleThreeCollectionViewController.xib */; };
+		1D75621418F8580900DF4F21 /* AtkSampleThreeCellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D75621318F8580900DF4F21 /* AtkSampleThreeCellData.m */; };
+		1D75621918F8648000DF4F21 /* AtkSampleThreeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D75621818F8648000DF4F21 /* AtkSampleThreeCollectionViewCell.xib */; };
+		1D75621C18F864A100DF4F21 /* AtkSampleThreeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D75621B18F864A100DF4F21 /* AtkSampleThreeCollectionViewCell.m */; };
 		1D847C3A1898471E00F419F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D847C391898471E00F419F6 /* Foundation.framework */; };
 		1D847C3C1898471E00F419F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D847C3B1898471E00F419F6 /* CoreGraphics.framework */; };
 		1D847C3E1898471E00F419F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D847C3D1898471E00F419F6 /* UIKit.framework */; };
@@ -57,6 +69,29 @@
 		1D0A2DA2189848D000175F59 /* AtkSampleTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleTwoViewController.h; sourceTree = "<group>"; };
 		1D0A2DA3189848D000175F59 /* AtkSampleTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleTwoViewController.m; sourceTree = "<group>"; };
 		1D0A2DA4189848D000175F59 /* AtkSampleTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtkSampleTwoViewController.xib; sourceTree = "<group>"; };
+		1D2FE0CA18FF8B4B00A81589 /* DraggableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		1D2FE0CB18FF8B4B00A81589 /* DraggableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		1D2FE0CC18FF8B4B00A81589 /* LSCollectionViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCollectionViewHelper.h; sourceTree = "<group>"; };
+		1D2FE0CD18FF8B4B00A81589 /* LSCollectionViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCollectionViewHelper.m; sourceTree = "<group>"; };
+		1D2FE0CE18FF8B4B00A81589 /* LSCollectionViewLayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCollectionViewLayoutHelper.h; sourceTree = "<group>"; };
+		1D2FE0CF18FF8B4B00A81589 /* LSCollectionViewLayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCollectionViewLayoutHelper.m; sourceTree = "<group>"; };
+		1D2FE0D018FF8B4B00A81589 /* UICollectionView+Draggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Draggable.h"; sourceTree = "<group>"; };
+		1D2FE0D118FF8B4B00A81589 /* UICollectionView+Draggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Draggable.m"; sourceTree = "<group>"; };
+		1D2FE0D218FF8B4B00A81589 /* UICollectionViewDataSource_Draggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewDataSource_Draggable.h; sourceTree = "<group>"; };
+		1D2FE0D318FF8B4B00A81589 /* UICollectionViewLayout_Warpable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLayout_Warpable.h; sourceTree = "<group>"; };
+		1D4070B218F8ADD5007E7D0D /* AtkSampleThreeDragSourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleThreeDragSourceView.h; sourceTree = "<group>"; };
+		1D4070B318F8ADD5007E7D0D /* AtkSampleThreeDragSourceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleThreeDragSourceView.m; sourceTree = "<group>"; };
+		1D75620818F65BD600DF4F21 /* AtkSampleThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleThreeViewController.h; sourceTree = "<group>"; };
+		1D75620918F65BD600DF4F21 /* AtkSampleThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleThreeViewController.m; sourceTree = "<group>"; };
+		1D75620A18F65BD600DF4F21 /* AtkSampleThreeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtkSampleThreeViewController.xib; sourceTree = "<group>"; };
+		1D75620D18F6766B00DF4F21 /* AtkSampleThreeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleThreeCollectionViewController.h; sourceTree = "<group>"; };
+		1D75620E18F6766B00DF4F21 /* AtkSampleThreeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleThreeCollectionViewController.m; sourceTree = "<group>"; };
+		1D75620F18F6766B00DF4F21 /* AtkSampleThreeCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtkSampleThreeCollectionViewController.xib; sourceTree = "<group>"; };
+		1D75621218F8580900DF4F21 /* AtkSampleThreeCellData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleThreeCellData.h; sourceTree = "<group>"; };
+		1D75621318F8580900DF4F21 /* AtkSampleThreeCellData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleThreeCellData.m; sourceTree = "<group>"; };
+		1D75621818F8648000DF4F21 /* AtkSampleThreeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtkSampleThreeCollectionViewCell.xib; sourceTree = "<group>"; };
+		1D75621A18F864A100DF4F21 /* AtkSampleThreeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleThreeCollectionViewCell.h; sourceTree = "<group>"; };
+		1D75621B18F864A100DF4F21 /* AtkSampleThreeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleThreeCollectionViewCell.m; sourceTree = "<group>"; };
 		1D847C361898471E00F419F6 /* AtkDragAndDrop_Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtkDragAndDrop_Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D847C391898471E00F419F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D847C3B1898471E00F419F6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +168,36 @@
 			path = Sample02;
 			sourceTree = "<group>";
 		};
+		1D75620718F65B1400DF4F21 /* Sample03 */ = {
+			isa = PBXGroup;
+			children = (
+				1D2FE0CA18FF8B4B00A81589 /* DraggableCollectionViewFlowLayout.h */,
+				1D2FE0CB18FF8B4B00A81589 /* DraggableCollectionViewFlowLayout.m */,
+				1D2FE0CC18FF8B4B00A81589 /* LSCollectionViewHelper.h */,
+				1D2FE0CD18FF8B4B00A81589 /* LSCollectionViewHelper.m */,
+				1D2FE0CE18FF8B4B00A81589 /* LSCollectionViewLayoutHelper.h */,
+				1D2FE0CF18FF8B4B00A81589 /* LSCollectionViewLayoutHelper.m */,
+				1D2FE0D018FF8B4B00A81589 /* UICollectionView+Draggable.h */,
+				1D2FE0D118FF8B4B00A81589 /* UICollectionView+Draggable.m */,
+				1D2FE0D218FF8B4B00A81589 /* UICollectionViewDataSource_Draggable.h */,
+				1D2FE0D318FF8B4B00A81589 /* UICollectionViewLayout_Warpable.h */,
+				1D4070B218F8ADD5007E7D0D /* AtkSampleThreeDragSourceView.h */,
+				1D4070B318F8ADD5007E7D0D /* AtkSampleThreeDragSourceView.m */,
+				1D75620818F65BD600DF4F21 /* AtkSampleThreeViewController.h */,
+				1D75620918F65BD600DF4F21 /* AtkSampleThreeViewController.m */,
+				1D75620A18F65BD600DF4F21 /* AtkSampleThreeViewController.xib */,
+				1D75620D18F6766B00DF4F21 /* AtkSampleThreeCollectionViewController.h */,
+				1D75620E18F6766B00DF4F21 /* AtkSampleThreeCollectionViewController.m */,
+				1D75620F18F6766B00DF4F21 /* AtkSampleThreeCollectionViewController.xib */,
+				1D75621218F8580900DF4F21 /* AtkSampleThreeCellData.h */,
+				1D75621318F8580900DF4F21 /* AtkSampleThreeCellData.m */,
+				1D75621A18F864A100DF4F21 /* AtkSampleThreeCollectionViewCell.h */,
+				1D75621B18F864A100DF4F21 /* AtkSampleThreeCollectionViewCell.m */,
+				1D75621818F8648000DF4F21 /* AtkSampleThreeCollectionViewCell.xib */,
+			);
+			path = Sample03;
+			sourceTree = "<group>";
+		};
 		1D847C2D1898471E00F419F6 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +235,7 @@
 				1D847C401898471E00F419F6 /* Supporting Files */,
 				1D0A2D91189848D000175F59 /* Sample01 */,
 				1D0A2D9B189848D000175F59 /* Sample02 */,
+				1D75620718F65B1400DF4F21 /* Sample03 */,
 				1D0A2D8E189848D000175F59 /* AtkSampleViewController.h */,
 				1D0A2D8F189848D000175F59 /* AtkSampleViewController.m */,
 				1D0A2D90189848D000175F59 /* AtkSampleViewController.xib */,
@@ -241,7 +307,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Atk;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Asymptotik Limited";
 			};
 			buildConfigurationList = 1D847C311898471E00F419F6 /* Build configuration list for PBXProject "AtkDragAndDrop_Examples" */;
@@ -267,9 +333,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D0A2DA6189848D000175F59 /* AtkSampleViewController.xib in Resources */,
+				1D75621118F6766B00DF4F21 /* AtkSampleThreeCollectionViewController.xib in Resources */,
 				1D847C441898471E00F419F6 /* InfoPlist.strings in Resources */,
 				1D0A2DB0189848D000175F59 /* AtkSampleTwoViewController.xib in Resources */,
 				1D0A2DAB189848D000175F59 /* AtkSampleOneViewController.xib in Resources */,
+				1D75620C18F65BD600DF4F21 /* AtkSampleThreeViewController.xib in Resources */,
+				1D75621918F8648000DF4F21 /* AtkSampleThreeCollectionViewCell.xib in Resources */,
 				1D847C4C1898471E00F419F6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,17 +356,26 @@
 				1D0A2DA7189848D000175F59 /* AtkSampleOneDragSourceView.m in Sources */,
 				1D847C461898471E00F419F6 /* main.m in Sources */,
 				1D0A2DAA189848D000175F59 /* AtkSampleOneViewController.m in Sources */,
+				1D75621018F6766B00DF4F21 /* AtkSampleThreeCollectionViewController.m in Sources */,
+				1D75620B18F65BD600DF4F21 /* AtkSampleThreeViewController.m in Sources */,
 				1D0A2DAE189848D000175F59 /* AtkSampleTwoDropZoneWrapper.m in Sources */,
 				1D0A2DAD189848D000175F59 /* AtkSampleTwoDropZoneScrollViewWrapper.m in Sources */,
 				1D0A2DA8189848D000175F59 /* AtkSampleOneDropZoneScrollView.m in Sources */,
+				1D2FE0D418FF8B4B00A81589 /* DraggableCollectionViewFlowLayout.m in Sources */,
+				1D75621C18F864A100DF4F21 /* AtkSampleThreeCollectionViewCell.m in Sources */,
 				1D0A2DAF189848D000175F59 /* AtkSampleTwoViewController.m in Sources */,
 				1D847C4A1898471E00F419F6 /* AtkAppDelegate.m in Sources */,
 				1DE3C72218988AD2002C1C4E /* AtkDragAndDropManager.m in Sources */,
 				1D0A2DAC189848D000175F59 /* AtkSampleTwoDragSourceWrapper.m in Sources */,
+				1D2FE0D518FF8B4B00A81589 /* LSCollectionViewHelper.m in Sources */,
 				1DE3C72518988AD2002C1C4E /* UIView+AtkDragAndDrop.m in Sources */,
 				1DE3C72118988AD2002C1C4E /* AtkDefaultDragAndDropManagerDelegate.m in Sources */,
 				1D0A2DA9189848D000175F59 /* AtkSampleOneDropZoneView.m in Sources */,
 				1DE3C72318988AD2002C1C4E /* AtkDropZoneWrapper.m in Sources */,
+				1D2FE0D718FF8B4B00A81589 /* UICollectionView+Draggable.m in Sources */,
+				1D75621418F8580900DF4F21 /* AtkSampleThreeCellData.m in Sources */,
+				1D4070B418F8ADD5007E7D0D /* AtkSampleThreeDragSourceView.m in Sources */,
+				1D2FE0D618FF8B4B00A81589 /* LSCollectionViewLayoutHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +397,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -358,7 +435,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -396,7 +472,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Prefix.pch";
 				INFOPLIST_FILE = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -410,7 +488,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Prefix.pch";
 				INFOPLIST_FILE = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

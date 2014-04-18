@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nLC-ef-QNj" customClass="AtkSampleThreeCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="78" height="105"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="78" height="105"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6i-8T-QtI">
+                        <rect key="frame" x="4" y="0.0" width="70" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="xQg-Ge-aaC"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="RlO-Zr-vjy">
+                        <rect key="frame" x="4" y="21" width="70" height="12"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="B6i-8T-QtI" secondAttribute="trailing" constant="4" id="2OC-Ax-waj"/>
+                <constraint firstItem="B6i-8T-QtI" firstAttribute="top" secondItem="nLC-ef-QNj" secondAttribute="top" id="5X1-SB-fUW"/>
+                <constraint firstItem="RlO-Zr-vjy" firstAttribute="leading" secondItem="nLC-ef-QNj" secondAttribute="leading" constant="4" id="Hgv-ko-PSe"/>
+                <constraint firstAttribute="trailing" secondItem="RlO-Zr-vjy" secondAttribute="trailing" constant="4" id="bCl-Dc-nDD"/>
+                <constraint firstItem="RlO-Zr-vjy" firstAttribute="top" secondItem="B6i-8T-QtI" secondAttribute="bottom" id="gob-g9-iXT"/>
+                <constraint firstItem="B6i-8T-QtI" firstAttribute="leading" secondItem="nLC-ef-QNj" secondAttribute="leading" constant="4" id="hUp-Of-Nad"/>
+            </constraints>
+            <size key="customSize" width="80" height="104"/>
+            <connections>
+                <outlet property="lblSubtitle" destination="RlO-Zr-vjy" id="NLc-EW-elL"/>
+                <outlet property="lblTitle" destination="B6i-8T-QtI" id="FTn-zD-Kth"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
