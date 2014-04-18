@@ -99,6 +99,7 @@
 {
     NSMutableArray *ret = [NSMutableArray arrayWithCapacity:10];
     AtkSampleTwoDropZoneScrollViewWrapper *scrollViewDropZone = [[AtkSampleTwoDropZoneScrollViewWrapper alloc] initWithScrollView:_scroller];
+
     [ret addObject:scrollViewDropZone];
     
     for(UIView *child in _viewParent.subviews)

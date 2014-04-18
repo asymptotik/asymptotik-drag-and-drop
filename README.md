@@ -172,6 +172,10 @@ it simply add the following line to your Podfile:
 -->
 
 ## Updates
+### 0.2.0 -> 0.2.1
+
+* Fixed an issue in Sample 2 which caused a crash. This code was left in after the refactor from 0.1.0 -> 0.2.0 by mistake.
+
 ### 0.1.0 -> 0.2.0
 
 * added drag and drop handler methods to the AtkDragAndDropManagerDelegate.
