@@ -15,7 +15,7 @@
  * Creates a UIView based on self that is a UIImageView with an image
  * of self to be used as the drag shadow for self.
  */
-- (UIView *)createDefaultDragShadowView;
+- (UIView *)createDefaultDragShadowView:(AtkDragAndDropManager *)manager;
 
 /**
  * determine if this view can be considered active by the AtkDragAndDropManager based on the location of point

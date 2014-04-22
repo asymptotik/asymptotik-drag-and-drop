@@ -12,10 +12,13 @@
 
 @implementation UIView (DragAndDrop)
 
-- (UIView *)createDefaultDragShadowView
+- (UIView *)createDefaultDragShadowView:(AtkDragAndDropManager *)manager
 {
     UIImage *image = [self imageFromView];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    CGRect frame = imageView.frame;
+    frame.origin = [self convertPoint:self.bounds.origin toView:manager.rootView];
+    imageView.frame = frame;
     imageView.alpha = 0.5;
     return imageView;
 }

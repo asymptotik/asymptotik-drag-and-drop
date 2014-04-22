@@ -33,7 +33,7 @@
 
 - (UIView *)createDragShadowView:(AtkDragAndDropManager *)manager
 {
-    return [self.view createDefaultDragShadowView];
+    return [self.view createDefaultDragShadowView:manager];
 }
 
 @end
