@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "AtkDragSourceProtocol.h"
+#import "AtkDragAndDropLifecycleProtocol.h"
 
 @class AtkDragAndDropManager;
 
-@protocol AtkDragAndDropManagerDelegate <NSObject>
+@protocol AtkDragAndDropManagerDelegate <AtkDragAndDropLifecycleProtocol>
 
 @optional
 
@@ -43,35 +44,6 @@
  */
 - (void)dragWillStart:(AtkDragAndDropManager *)manager;
 
-/**
- * Called when a drag has started. All of the interested drop zoned have been found.
- */
-- (void)dragStarted:(AtkDragAndDropManager *)manager;
-
-/**
- * Called when a drag has ended.
- */
-- (void)dragEnded:(AtkDragAndDropManager *)manager;
-
-/**
- * Called when a drag has entered a drop zone.
- */
-- (void)dragEntered:(AtkDragAndDropManager *)manager dropZone:(id<AtkDropZoneProtocol>) dropZone point:(CGPoint)point;
-
-/**
- * Called when a drag has exited a drop zone.
- */
-- (void)dragExited:(AtkDragAndDropManager *)manager dropZone:(id<AtkDropZoneProtocol>) dropZone point:(CGPoint)point;
-
-/**
- * Called when a drag has moved within a drop zone. Only called after dragEntered and before dragExited.
- */
-- (void)dragMoved:(AtkDragAndDropManager *)manager dropZone:(id<AtkDropZoneProtocol>) dropZone point:(CGPoint)point;
-
-/**
- * Called when a drag is dropped onto a drop zone.
- */
-- (void)dragDropped:(AtkDragAndDropManager *)manager dropZone:(id<AtkDropZoneProtocol>) dropZone point:(CGPoint)point;
 
 @end
 

@@ -172,6 +172,12 @@ it simply add the following line to your Podfile:
 -->
 
 ## Updates
+
+### 0.2.1 -> 0.2.2
+
+* dragStarted lifecycle event is not called on DropZones that return YES to shouldDragStart.
+* Cleaned up examples.
+
 ### 0.2.0 -> 0.2.1
 
 * Fixed an issue in Sample 2 which caused a crash. This code was left in after the refactor from 0.1.0 -> 0.2.0 by mistake.

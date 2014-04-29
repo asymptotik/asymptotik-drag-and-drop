@@ -9,7 +9,6 @@
 #import "AtkSampleViewController.h"
 #import "AtkSampleOneViewController.h"
 #import "AtkSampleTwoViewController.h"
-#import "AtkSampleThreeViewController.h"
 
 @interface AtkSampleViewController ()
 
@@ -73,7 +72,7 @@
 
 - (IBAction)sampleThreeFired:(id)sender
 {
-    [self.navigationController pushViewController:[[AtkSampleThreeViewController alloc] initWithNibName:@"AtkSampleThreeViewController" bundle:nil] animated: YES];
+    //[self.navigationController pushViewController:[[AtkSampleThreeViewController alloc] initWithNibName:@"AtkSampleThreeViewController" bundle:nil] animated: YES];
 }
 
 @end

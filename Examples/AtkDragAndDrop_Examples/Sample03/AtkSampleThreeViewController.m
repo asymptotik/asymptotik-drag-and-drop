@@ -151,7 +151,7 @@
 
 - (void)dragMoved:(AtkDragAndDropManager *)manager dropZone:(id<AtkDropZoneProtocol>) dropZone point:(CGPoint)point
 {
-    NSLog(@"AtkSampleThreeViewController.dragMoved");
+    //NSLog(@"AtkSampleThreeViewController.dragMoved");
 }
 
 - (void)dragDropped:(AtkDragAndDropManager *)manager dropZone:(id<AtkDropZoneProtocol>) dropZone point:(CGPoint)point

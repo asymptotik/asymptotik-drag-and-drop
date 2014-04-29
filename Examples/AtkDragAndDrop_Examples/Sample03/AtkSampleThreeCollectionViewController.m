@@ -13,8 +13,8 @@
 #import "UIScrollView+AtkDragAndDrop.h"
 #import "AtkDraggableCollectionViewDataSource.h"
 
-#define SECTION_COUNT 5
-#define ITEM_COUNT 20
+#define SECTION_COUNT 1
+#define ITEM_COUNT 10
 
 static NSString *kAtkCellReuseId = @"PrimaryCell";
 

@@ -48,20 +48,20 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 
 - (void)start
 {
-    NSLog(@"AtkDragAndDropManager.start");
+    //NSLog(@"AtkDragAndDropManager.start");
     
     [self start:[[UIApplication sharedApplication] keyWindow]];
 }
 
 - (void)start:(UIView *)rootView
 {
-    NSLog(@"AtkDragAndDropManager.start:");
+    //NSLog(@"AtkDragAndDropManager.start:");
     [self start:rootView recognizerClass:[UIPanGestureRecognizer class]];
 }
 
 - (void)start:(UIView *)rootView recognizerClass:(Class)recognizerClass
 {
-    NSLog(@"AtkDragAndDropManager.start:recognizerClass: %@", [recognizerClass description]);
+    //NSLog(@"AtkDragAndDropManager.start:recognizerClass: %@", [recognizerClass description]);
     
     assert([recognizerClass isSubclassOfClass:[UIGestureRecognizer class]]);
     
@@ -134,6 +134,12 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 
 - (void)dragStarted
 {
+    for(AtkDropZoneWrapper *dropZone in self.uninterestedDropZones)
+    {
+        if([dropZone.dropZone respondsToSelector:@selector(dragStarted:)])
+            [dropZone.dropZone dragStarted:self];
+    }
+    
     for(AtkDropZoneWrapper *dropZone in self.interestedDropZones)
     {
         if([dropZone.dropZone respondsToSelector:@selector(dragStarted:)])
@@ -264,7 +270,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)recognizer
 {
-    NSLog(@"AtkDragAndDropManager:gestureRecognizerShouldBegin");
+    //NSLog(@"AtkDragAndDropManager:gestureRecognizerShouldBegin");
     // Only begin if we have a dragSource.
     return [self onDragStart:recognizer];
 }
@@ -294,19 +300,19 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
         case UIGestureRecognizerStateCancelled:
             if(_dragSource)
             {
-                NSLog(@"UIGestureRecognizerStateCancelled");
+                //NSLog(@"UIGestureRecognizerStateCancelled");
                 [self onDragEnded:recognizer];
             }
             break;
         case UIGestureRecognizerStateFailed:
             if(_dragSource)
             {
-                NSLog(@"UIGestureRecognizerStateFailed");
+                //NSLog(@"UIGestureRecognizerStateFailed");
                 [self onDragEnded:recognizer];
             }
             break;
         case UIGestureRecognizerStatePossible:
-            NSLog(@"UIGestureRecognizerStatePossible");
+            //NSLog(@"UIGestureRecognizerStatePossible");
             break;
     }
 }
@@ -349,7 +355,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
  */
 - (BOOL)onDragStart:(UIGestureRecognizer *)recognizer
 {
-    NSLog(@"AtkDragAndDropManager.dragStart");
+    //NSLog(@"AtkDragAndDropManager.dragStart");
     
     self.dragShadowView = nil;
     self.interestedDropZones = nil;
@@ -400,7 +406,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
  */
 - (void)onDragEnded:(UIGestureRecognizer *)recognizer
 {
-    NSLog(@"AtkDragAndDropManager.dragEnded");
+    //NSLog(@"AtkDragAndDropManager.dragEnded");
     
     [self dragEnded];
     
@@ -426,7 +432,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
  */
 - (void)onDragDropped:(UIGestureRecognizer *)recognizer
 {
-    NSLog(@"AtkDragAndDropManager.dragDropped");
+    //NSLog(@"AtkDragAndDropManager.dragDropped");
     
     for(NSInteger n = [self.interestedDropZones count] - 1; n >= 0; n--)
     {
@@ -447,7 +453,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
         CGRect frame = _dragShadowView.frame;
         
         CGPoint offset = CGPointMake(point.x - self.locationOffset.x, point.y - self.locationOffset.y);
-        NSLog(@"offset %f %f frame %f %f", offset.x, offset.y, frame.origin.x, frame.origin.y);
+        //NSLog(@"offset %f %f frame %f %f", offset.x, offset.y, frame.origin.x, frame.origin.y);
         
         frame.origin = CGPointMake(offset.x + frame.origin.x, offset.y + frame.origin.y);
         self.locationOffset = point;

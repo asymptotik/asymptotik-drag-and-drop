@@ -22,8 +22,6 @@ static int kObservingCollectionViewLayoutContext;
     NSIndexPath *lastIndexPath;
     UIImageView *mockCell;
     CGPoint mockCenter;
-    CGPoint fingerPosition;    // position at first press
-    CGPoint fingerTranslation; // delta since last move
     BOOL canWarp;
     BOOL canScroll;
 }
@@ -204,7 +202,7 @@ static int kObservingCollectionViewLayoutContext;
 
 - (void)dragEntered:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
-    NSLog(@"AtkSampleThreeCollectionViewController.dragEntered");
+    //NSLog(@"AtkSampleThreeCollectionViewController.dragEntered");
     
     NSIndexPath *indexPath = [self indexPathForItemClosestToPoint:[manager.rootView convertPoint:point toView:self.collectionView]];
     

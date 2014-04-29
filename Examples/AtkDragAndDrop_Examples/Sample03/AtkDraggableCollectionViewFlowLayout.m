@@ -54,6 +54,113 @@
             }
             if ([layoutAttributes.indexPath isEqual:hideIndexPath])
             {
+                layoutAttributes.alpha = 0.2;
+                //layoutAttributes.hidden = YES;
+            }
+        }
+        
+        return elements;
+    }
+    
+    NSLog(@"Layout: \nfrom: %@ \nto: %@ \nhide: %@", fromIndexPath, toIndexPath, hideIndexPath);
+    
+    if (fromIndexPath.section != toIndexPath.section)
+    {
+        indexPathToRemove = [NSIndexPath indexPathForItem:[collectionView numberOfItemsInSection:fromIndexPath.section] - 1
+                                                inSection:fromIndexPath.section];
+    }
+    
+    for (UICollectionViewLayoutAttributes *layoutAttributes in elements)
+    {
+        if(layoutAttributes.representedElementCategory != UICollectionElementCategoryCell)
+        {
+            continue;
+        }
+        
+        if([layoutAttributes.indexPath isEqual:indexPathToRemove])
+        {
+            // Remove item in source section and insert item in target section
+            layoutAttributes.indexPath = [NSIndexPath indexPathForItem:[collectionView numberOfItemsInSection:toIndexPath.section]
+                                                             inSection:toIndexPath.section];
+            if (layoutAttributes.indexPath.item != 0)
+            {
+                layoutAttributes.center = [self layoutAttributesForItemAtIndexPath:layoutAttributes.indexPath].center;
+            }
+        }
+        
+        NSIndexPath *indexPath = layoutAttributes.indexPath;
+        
+        if ([indexPath isEqual:hideIndexPath])
+        {
+            layoutAttributes.alpha = 0.2;
+            //layoutAttributes.hidden = YES;
+        }
+        
+        if([indexPath isEqual:toIndexPath])
+        {
+            // Item's new location
+            layoutAttributes.indexPath = fromIndexPath;
+        }
+        else if(fromIndexPath.section != toIndexPath.section)
+        {
+            if(indexPath.section == fromIndexPath.section && indexPath.item >= fromIndexPath.item)
+            {
+                // Change indexes in source section
+                layoutAttributes.indexPath = [NSIndexPath indexPathForItem:indexPath.item + 1 inSection:indexPath.section];
+            }
+            else if(indexPath.section == toIndexPath.section && indexPath.item >= toIndexPath.item)
+            {
+                // Change indexes in destination section
+                layoutAttributes.indexPath = [NSIndexPath indexPathForItem:indexPath.item - 1 inSection:indexPath.section];
+            }
+        }
+        else if(indexPath.section == fromIndexPath.section)
+        {
+            if(indexPath.item <= fromIndexPath.item && indexPath.item > toIndexPath.item)
+            {
+                // Item moved back
+                NSLog(@"Item moved back: %d to %d", indexPath.item, indexPath.item - 1);
+                
+                layoutAttributes.indexPath = [NSIndexPath indexPathForItem:indexPath.item - 1 inSection:indexPath.section];
+            }
+            else if(indexPath.item >= fromIndexPath.item && indexPath.item < toIndexPath.item)
+            {
+                // Item moved forward
+                NSLog(@"Item moved forward: %d to %d", indexPath.item, indexPath.item + 1);
+                
+                layoutAttributes.indexPath = [NSIndexPath indexPathForItem:indexPath.item + 1 inSection:indexPath.section];
+            }
+        }
+    }
+    
+    return elements;
+}
+
+// TODO: May want to move this out of here to make this more generic. Keep it here for now for simplicity.
+- (NSArray *)modifiedLayoutAttributesForElements_Save:(NSArray *)elements
+{
+    UICollectionView *collectionView = self.collectionView;
+    NSIndexPath *fromIndexPath       = self.fromIndexPath;
+    NSIndexPath *toIndexPath         = self.toIndexPath;
+    NSIndexPath *hideIndexPath       = self.hideIndexPath;
+    
+    NSIndexPath *indexPathToRemove;
+    
+    if (toIndexPath == nil)
+    {
+        if (hideIndexPath == nil)
+        {
+            return elements;
+        }
+        
+        for (UICollectionViewLayoutAttributes *layoutAttributes in elements)
+        {
+            if(layoutAttributes.representedElementCategory != UICollectionElementCategoryCell)
+            {
+                continue;
+            }
+            if ([layoutAttributes.indexPath isEqual:hideIndexPath])
+            {
                 layoutAttributes.hidden = YES;
             }
         }
@@ -63,6 +170,7 @@
     
     if (fromIndexPath.section != toIndexPath.section)
     {
+        // Last item in the from section will be removed
         indexPathToRemove = [NSIndexPath indexPathForItem:[collectionView numberOfItemsInSection:fromIndexPath.section] - 1
                                                 inSection:fromIndexPath.section];
     }
@@ -127,5 +235,6 @@
     
     return elements;
 }
+
 
 @end
