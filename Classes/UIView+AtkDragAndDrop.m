@@ -1,9 +1,9 @@
 //
 //  UIView+DragAndDrop.m
-//  Rnd_DragAndDrop
+//  AtkDragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
-//  Copyright (c) 2014 Mondo Robot. All rights reserved.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import "UIView+AtkDragAndDrop.h"
@@ -12,10 +12,13 @@
 
 @implementation UIView (DragAndDrop)
 
-- (UIView *)createDefaultDragShadowView
+- (UIView *)createDefaultDragShadowView:(AtkDragAndDropManager *)manager
 {
     UIImage *image = [self imageFromView];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    CGRect frame = imageView.frame;
+    frame.origin = [self convertPoint:self.bounds.origin toView:manager.rootView];
+    imageView.frame = frame;
     imageView.alpha = 0.5;
     return imageView;
 }

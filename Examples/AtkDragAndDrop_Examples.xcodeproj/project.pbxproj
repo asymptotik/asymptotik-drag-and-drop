@@ -57,6 +57,7 @@
 		1D0A2DA2189848D000175F59 /* AtkSampleTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkSampleTwoViewController.h; sourceTree = "<group>"; };
 		1D0A2DA3189848D000175F59 /* AtkSampleTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkSampleTwoViewController.m; sourceTree = "<group>"; };
 		1D0A2DA4189848D000175F59 /* AtkSampleTwoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtkSampleTwoViewController.xib; sourceTree = "<group>"; };
+		1D29A2861910639D0053E0F4 /* AtkDragAndDropLifecycleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtkDragAndDropLifecycleProtocol.h; sourceTree = "<group>"; };
 		1D847C361898471E00F419F6 /* AtkDragAndDrop_Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtkDragAndDrop_Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D847C391898471E00F419F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D847C3B1898471E00F419F6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -68,7 +69,6 @@
 		1D847C481898471E00F419F6 /* AtkAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtkAppDelegate.h; sourceTree = "<group>"; };
 		1D847C491898471E00F419F6 /* AtkAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AtkAppDelegate.m; sourceTree = "<group>"; };
 		1D847C4B1898471E00F419F6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1D847C521898471F00F419F6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1DE3C71218988AD2002C1C4E /* AtkDefaultDragAndDropManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkDefaultDragAndDropManagerDelegate.h; sourceTree = "<group>"; };
 		1DE3C71318988AD2002C1C4E /* AtkDefaultDragAndDropManagerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtkDefaultDragAndDropManagerDelegate.m; sourceTree = "<group>"; };
 		1DE3C71418988AD2002C1C4E /* AtkDragAndDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtkDragAndDrop.h; sourceTree = "<group>"; };
@@ -158,7 +158,6 @@
 				1D847C391898471E00F419F6 /* Foundation.framework */,
 				1D847C3B1898471E00F419F6 /* CoreGraphics.framework */,
 				1D847C3D1898471E00F419F6 /* UIKit.framework */,
-				1D847C521898471F00F419F6 /* XCTest.framework */,
 				586968C86D4546FF8BBDD1E5 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -197,6 +196,7 @@
 				1DE3C71218988AD2002C1C4E /* AtkDefaultDragAndDropManagerDelegate.h */,
 				1DE3C71318988AD2002C1C4E /* AtkDefaultDragAndDropManagerDelegate.m */,
 				1DE3C71418988AD2002C1C4E /* AtkDragAndDrop.h */,
+				1D29A2861910639D0053E0F4 /* AtkDragAndDropLifecycleProtocol.h */,
 				1DE3C71518988AD2002C1C4E /* AtkDragAndDropManager.h */,
 				1DE3C71618988AD2002C1C4E /* AtkDragAndDropManager.m */,
 				1DE3C71718988AD2002C1C4E /* AtkDragSourceProtocol.h */,
@@ -241,7 +241,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = Atk;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Asymptotik Limited";
 			};
 			buildConfigurationList = 1D847C311898471E00F419F6 /* Build configuration list for PBXProject "AtkDragAndDrop_Examples" */;
@@ -319,7 +319,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -358,7 +357,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -396,7 +394,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Prefix.pch";
 				INFOPLIST_FILE = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -410,7 +410,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Prefix.pch";
 				INFOPLIST_FILE = "AtkDragAndDrop_Examples/AtkDragAndDrop_Examples-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -1,9 +1,9 @@
 //
 //  AtkDragAndDropManager.m
-//  Rnd_DragAndDrop
+//  AtkDragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
-//  Copyright (c) 2014 Mondo Robot. All rights reserved.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import "AtkDragAndDropManager.h"
@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) UIView *rootView;
 @property (nonatomic, strong) id<AtkDragSourceProtocol> dragSource;
+@property (nonatomic, assign) CGPoint locationOffset;
 @property (nonatomic, strong) UIView *dragShadowView;
 @property (nonatomic, strong) UIPanGestureRecognizer *recognizer;
 @property (nonatomic, strong) NSArray *uninterestedDropZones;
@@ -47,20 +48,20 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 
 - (void)start
 {
-    NSLog(@"AtkDragAndDropManager.start");
+    //NSLog(@"AtkDragAndDropManager.start");
     
     [self start:[[UIApplication sharedApplication] keyWindow]];
 }
 
 - (void)start:(UIView *)rootView
 {
-    NSLog(@"AtkDragAndDropManager.start:");
+    //NSLog(@"AtkDragAndDropManager.start:");
     [self start:rootView recognizerClass:[UIPanGestureRecognizer class]];
 }
 
 - (void)start:(UIView *)rootView recognizerClass:(Class)recognizerClass
 {
-    NSLog(@"AtkDragAndDropManager.start:recognizerClass:");
+    //NSLog(@"AtkDragAndDropManager.start:recognizerClass: %@", [recognizerClass description]);
     
     assert([recognizerClass isSubclassOfClass:[UIGestureRecognizer class]]);
     
@@ -71,7 +72,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
     {
         
         self.rootView = rootView;
-        self.recognizer = [[recognizerClass alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+        self.recognizer = [[recognizerClass alloc] initWithTarget:self action:@selector(handleGesture:)];
         self.recognizer.delegate = self;
         [self.rootView addGestureRecognizer:self.recognizer];
     }
@@ -133,6 +134,12 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 
 - (void)dragStarted
 {
+    for(AtkDropZoneWrapper *dropZone in self.uninterestedDropZones)
+    {
+        if([dropZone.dropZone respondsToSelector:@selector(dragStarted:)])
+            [dropZone.dropZone dragStarted:self];
+    }
+    
     for(AtkDropZoneWrapper *dropZone in self.interestedDropZones)
     {
         if([dropZone.dropZone respondsToSelector:@selector(dragStarted:)])
@@ -230,8 +237,8 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
         {
             if([_dragSource respondsToSelector:@selector(createDragShadowView:)])
                 self.dragShadowView = [_dragSource createDragShadowView:self];
-            else if([_dragSource respondsToSelector:@selector(createDefaultDragShadowView)])
-                self.dragShadowView = [_dragSource performSelector:@selector(createDefaultDragShadowView)];
+            else if([_dragSource respondsToSelector:@selector(createDefaultDragShadowView:)])
+                self.dragShadowView = [_dragSource performSelector:@selector(createDefaultDragShadowView:) withObject:self];
         }
         else
         {
@@ -263,7 +270,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)recognizer
 {
-    NSLog(@"AtkDragAndDropManager:gestureRecognizerShouldBegin");
+    //NSLog(@"AtkDragAndDropManager:gestureRecognizerShouldBegin");
     // Only begin if we have a dragSource.
     return [self onDragStart:recognizer];
 }
@@ -271,7 +278,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 /**
  * Handles the gesture. 
  */
-- (IBAction)handlePanGesture:(UIPanGestureRecognizer *)recognizer
+- (IBAction)handleGesture:(UIPanGestureRecognizer *)recognizer
 {
     switch(recognizer.state)
     {
@@ -293,19 +300,19 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
         case UIGestureRecognizerStateCancelled:
             if(_dragSource)
             {
-                NSLog(@"UIGestureRecognizerStateCancelled");
+                //NSLog(@"UIGestureRecognizerStateCancelled");
                 [self onDragEnded:recognizer];
             }
             break;
         case UIGestureRecognizerStateFailed:
             if(_dragSource)
             {
-                NSLog(@"UIGestureRecognizerStateFailed");
+                //NSLog(@"UIGestureRecognizerStateFailed");
                 [self onDragEnded:recognizer];
             }
             break;
         case UIGestureRecognizerStatePossible:
-            NSLog(@"UIGestureRecognizerStatePossible");
+            //NSLog(@"UIGestureRecognizerStatePossible");
             break;
     }
 }
@@ -348,7 +355,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
  */
 - (BOOL)onDragStart:(UIGestureRecognizer *)recognizer
 {
-    NSLog(@"AtkDragAndDropManager.dragStart");
+    //NSLog(@"AtkDragAndDropManager.dragStart");
     
     self.dragShadowView = nil;
     self.interestedDropZones = nil;
@@ -387,6 +394,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
         self.uninterestedDropZones = uninterestedDropZones;
         
         [self dragStarted];
+        self.locationOffset = [recognizer locationInView:self.rootView];
         [self positionDragShadow:recognizer];
     }
     
@@ -398,7 +406,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
  */
 - (void)onDragEnded:(UIGestureRecognizer *)recognizer
 {
-    NSLog(@"AtkDragAndDropManager.dragEnded");
+    //NSLog(@"AtkDragAndDropManager.dragEnded");
     
     [self dragEnded];
     
@@ -424,7 +432,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
  */
 - (void)onDragDropped:(UIGestureRecognizer *)recognizer
 {
-    NSLog(@"AtkDragAndDropManager.dragDropped");
+    //NSLog(@"AtkDragAndDropManager.dragDropped");
     
     for(NSInteger n = [self.interestedDropZones count] - 1; n >= 0; n--)
     {
@@ -443,7 +451,12 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
     {
         CGPoint point = [recognizer locationInView:self.rootView];
         CGRect frame = _dragShadowView.frame;
-        frame.origin = CGPointMake(point.x - (frame.size.width / 2.0), point.y - (frame.size.height / 2.0));
+        
+        CGPoint offset = CGPointMake(point.x - self.locationOffset.x, point.y - self.locationOffset.y);
+        //NSLog(@"offset %f %f frame %f %f", offset.x, offset.y, frame.origin.x, frame.origin.y);
+        
+        frame.origin = CGPointMake(offset.x + frame.origin.x, offset.y + frame.origin.y);
+        self.locationOffset = point;
         _dragShadowView.frame = frame;
     }
 }

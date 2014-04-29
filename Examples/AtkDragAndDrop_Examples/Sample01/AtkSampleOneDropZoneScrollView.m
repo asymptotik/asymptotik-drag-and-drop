@@ -1,9 +1,9 @@
 //
 //  AtkSampleOneDropZoneScrollView.m
-//  Rnd_DragAndDrop
+//  AtkDragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
-//  Copyright (c) 2014 Mondo Robot. All rights reserved.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import "AtkSampleOneDropZoneScrollView.h"
@@ -21,7 +21,7 @@
 {
     self = [super init];
     if(self) {
-        [self initialize];
+
     }
     return self;
 }
@@ -30,7 +30,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self initialize];
+
     }
     return self;
 }
@@ -39,13 +39,9 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self initialize];
+
     }
     return self;
-}
-
-- (void)initialize
-{
 }
 
 - (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
@@ -55,32 +51,32 @@
 
 - (void)dragStarted:(AtkDragAndDropManager *)manager
 {
-    NSLog(@"AtkSampleOneDropZoneScrollView.dragStarted");
+    //NSLog(@"AtkSampleOneDropZoneScrollView.dragStarted");
     [self autoScrollDragStarted];
 }
 
 - (BOOL)isInterested:(AtkDragAndDropManager *)manager
 {
-    NSLog(@"AtkSampleOneDropZoneScrollView.isInterested");
+    //NSLog(@"AtkSampleOneDropZoneScrollView.isInterested");
     return YES;
 }
 
 - (void)dragEnded:(AtkDragAndDropManager *)manager
 {
-    NSLog(@"AtkSampleOneDropZoneScrollView.dragEnded");
+    //NSLog(@"AtkSampleOneDropZoneScrollView.dragEnded");
     [self autoScrollDragEnded];
 }
 
 - (void)dragEntered:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
-    NSLog(@"AtkSampleOneDropZoneScrollView.dragEntered");
+    //NSLog(@"AtkSampleOneDropZoneScrollView.dragEntered");
     self.savedBackgroundColor = self.backgroundColor;
     self.backgroundColor = [UIColor blueColor];
 }
 
 - (void)dragExited:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
-    NSLog(@"AtkSampleOneDropZoneScrollView.dragExited");
+    //NSLog(@"AtkSampleOneDropZoneScrollView.dragExited");
     self.backgroundColor = self.savedBackgroundColor;
 }
 
@@ -91,17 +87,8 @@
 
 - (void)dragDropped:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
-    NSLog(@"AtkSampleOneDropZoneScrollView.dragDropped");
+    //NSLog(@"AtkSampleOneDropZoneScrollView.dragDropped");
     self.backgroundColor = [UIColor greenColor];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

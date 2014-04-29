@@ -1,17 +1,18 @@
 //
 //  AtkSampleTwoViewController.m
-//  Rnd_DragAndDrop
+//  AtkDragAndDrop
 //
 //  Created by Rick Boykin on 1/15/14.
-//  Copyright (c) 2014 Mondo Robot. All rights reserved.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import "AtkSampleTwoViewController.h"
 #import "AtkSampleTwoDragSourceWrapper.h"
 #import "AtkSampleTwoDropZoneWrapper.h"
 #import "AtkSampleTwoDropZoneScrollViewWrapper.h"
+#import "AtkDragAndDrop.h"
 
-@interface AtkSampleTwoViewController ()
+@interface AtkSampleTwoViewController ()<AtkDragAndDropManagerDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *viewSource01;
 @property (nonatomic, strong) IBOutlet UIView *viewSource02;

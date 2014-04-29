@@ -3,7 +3,7 @@
 //  Atkdrogen_DragAndDrop
 //
 //  Created by Rick Boykin on 1/21/14.
-//  Copyright (c) 2014 Mondo Robot. All rights reserved.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import <objc/runtime.h>
@@ -296,7 +296,6 @@ static const CGFloat kAtkAutoScrollVelocityDefault = 0.1;
 
 - (void)autoScrollDragStarted
 {
-    NSLog(@"AtkSampleOneDropZoneScrollView.autoScrollDragStarted");
     self.autoScrollDragPinnedPoint = CGPointZero;
 }
 
@@ -318,8 +317,7 @@ static const CGFloat kAtkAutoScrollVelocityDefault = 0.1;
         return;
     
     CGPoint autoScrollDelta = [self autoScrollDelta:point];
-    NSLog(@"AtkSampleOneDropZoneScrollView.autoScrollDragMoved:point: %f %f delta: %f %f", point.x, point.y, autoScrollDelta.x, autoScrollDelta.y);
-    
+
     if(!CGPointEqualToPoint(autoScrollDelta, CGPointZero))
     {
         CGPoint p = self.contentOffset;
@@ -340,7 +338,6 @@ static const CGFloat kAtkAutoScrollVelocityDefault = 0.1;
 
 - (void)autoScrollDragEnded
 {
-    NSLog(@"AtkSampleOneDropZoneScrollView.autoScrollDragEnded");
     if(self.autoScrollTimer)
     {
         [self.autoScrollTimer invalidate];
@@ -351,7 +348,6 @@ static const CGFloat kAtkAutoScrollVelocityDefault = 0.1;
 - (void)autoScrollTimerTick:(NSTimer *)timer
 {
     CGPoint autoScrollDelta = [self autoScrollDelta:self.autoScrollLastDragPoint];
-    NSLog(@"AtkSampleOneDropZoneScrollView.dragMoved:point: %f %f delta: %f %f", self.autoScrollLastDragPoint.x, self.autoScrollLastDragPoint.y, autoScrollDelta.x, autoScrollDelta.y);
     
     if(!CGPointEqualToPoint(autoScrollDelta, CGPointZero))
     {

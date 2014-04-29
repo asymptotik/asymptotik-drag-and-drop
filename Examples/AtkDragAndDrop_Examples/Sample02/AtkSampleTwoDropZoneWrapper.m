@@ -3,7 +3,7 @@
 //  Atkdrogen_DragAndDrop
 //
 //  Created by Rick Boykin on 1/21/14.
-//  Copyright (c) 2014 Mondo Robot. All rights reserved.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import "AtkSampleTwoDropZoneWrapper.h"
@@ -43,24 +43,26 @@
     return YES;
 }
 
-- (void)dragStarted:(AtkDragAndDropManager *)manager
-{
-    self.savedBackgroundColor = self.view.backgroundColor;
-}
-
 - (BOOL)isInterested:(AtkDragAndDropManager *)manager
 {
     //NSLog(@"AtkSampleOneDropZoneView.dragStarted");
+    UIPasteboard *pastebaord = manager.pasteboard;
+    NSString *tagValue = [NSString stringWithFormat:@"val-%ld", (long)self.view.tag];
+    NSString *pasteboardString = pastebaord.string;
     
-    BOOL ret = NO;
+    return [tagValue isEqualToString:pasteboardString];
+}
+
+- (void)dragStarted:(AtkDragAndDropManager *)manager
+{
+    //NSLog(@"AtkSampleOneDropZoneView.dragStarted");
+    self.savedBackgroundColor = self.view.backgroundColor;
+
     UIPasteboard *pastebaord = manager.pasteboard;
     NSString *tagValue = [NSString stringWithFormat:@"val-%ld", (long)self.view.tag];
     NSString *pasteboardString = pastebaord.string;
     
     if([tagValue isEqualToString:pasteboardString])
-        ret = YES;
-    
-    if(ret)
     {
         self.view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
     }
@@ -68,14 +70,12 @@
     {
         self.view.backgroundColor = [UIColor redColor];
     }
-    
-    return ret;
 }
 
 - (void)dragEnded:(AtkDragAndDropManager *)manager
 {
     //NSLog(@"AtkSampleOneDropZoneView.dragEnded");
-    [self performSelector:@selector(delayEnd) withObject:nil afterDelay:0.2];
+    [self performSelector:@selector(delayEnd) withObject:nil afterDelay:0.4];
 }
 
 - (void)delayEnd

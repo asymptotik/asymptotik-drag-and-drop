@@ -3,7 +3,7 @@
 //  Atkdrogen_DragAndDrop
 //
 //  Created by Rick Boykin on 1/20/14.
-//  Copyright (c) 2014 Mondo Robot. All rights reserved.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import "AtkSampleViewController.h"
@@ -68,6 +68,11 @@
 - (IBAction)sampleTwoFired:(id)sender
 {
     [self.navigationController pushViewController:[[AtkSampleTwoViewController alloc] initWithNibName:@"AtkSampleTwoViewController" bundle:nil] animated: YES];
+}
+
+- (IBAction)sampleThreeFired:(id)sender
+{
+    //[self.navigationController pushViewController:[[AtkSampleThreeViewController alloc] initWithNibName:@"AtkSampleThreeViewController" bundle:nil] animated: YES];
 }
 
 @end

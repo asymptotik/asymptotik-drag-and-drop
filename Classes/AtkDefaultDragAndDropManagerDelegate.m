@@ -3,7 +3,7 @@
 //  Atkdrogen_DragAndDrop
 //
 //  Created by Rick Boykin on 1/20/14.
-//  Copyright (c) 2014 Mondo Robot. All rights reserved.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import "AtkDefaultDragAndDropManagerDelegate.h"
@@ -91,7 +91,12 @@
         UIView *dropView = (UIView *)dropZone;
         ret = [dropView isActiveDropZone:manager point:[recognizer locationInView:manager.rootView]];
     }
-    
+    else if([dropZone isKindOfClass:[UIViewController class]])
+    {
+        UIView *dropView = ((UIViewController *)dropZone).view;
+        ret = [dropView isActiveDropZone:manager point:[recognizer locationInView:manager.rootView]];
+    }
+
     return ret;
 }
 

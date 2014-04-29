@@ -1,9 +1,9 @@
 //
 //  AtkSampleOneDragSourceView.m
-//  Rnd_DragAndDrop
+//  AtkDragAndDrop
 //
 //  Created by Rick Boykin on 1/17/14.
-//  Copyright (c) 2014 Mondo Robot. All rights reserved.
+//  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
 #import "AtkSampleOneDragSourceView.h"
@@ -24,28 +24,9 @@
     return self;
 }
 
-- (void)initialize
-{
-
-}
-
-- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
-{
-    return YES;
-}
-
 - (void)dragWillStart:(AtkDragAndDropManager *)manager
 {
     manager.pasteboard.string = [NSString stringWithFormat:@"val-%ld", (long)self.tag];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
