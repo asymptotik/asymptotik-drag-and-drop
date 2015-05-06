@@ -119,9 +119,9 @@
 {
     BOOL ret = false;
     
-    if([dropZone respondsToSelector:@selector(isActive:point:)])
+    if([dropZone respondsToSelector:@selector(dropZoneIsActive:point:)])
     {
-        ret = [dropZone isActive:manager point:[recognizer locationInView:manager.rootView]];
+        ret = [dropZone dropZoneIsActive:manager point:[recognizer locationInView:manager.rootView]];
     }
     
     return ret;

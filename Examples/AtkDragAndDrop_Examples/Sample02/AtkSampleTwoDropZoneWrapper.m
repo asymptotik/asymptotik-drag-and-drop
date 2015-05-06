@@ -33,17 +33,17 @@
     
 }
 
-- (BOOL)isActive:(AtkDragAndDropManager *)manager point:(CGPoint)point
+- (BOOL)dropZoneIsActive:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
     return [self.view isActiveDropZone:manager point:point];
 }
 
-- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
+- (BOOL)dropZoneShouldDragStart:(AtkDragAndDropManager *)manager
 {
     return YES;
 }
 
-- (BOOL)isInterested:(AtkDragAndDropManager *)manager
+- (BOOL)dropZoneIsInterested:(AtkDragAndDropManager *)manager
 {
     //NSLog(@"AtkSampleOneDropZoneView.dragStarted");
     UIPasteboard *pastebaord = manager.pasteboard;
@@ -53,7 +53,7 @@
     return [tagValue isEqualToString:pasteboardString];
 }
 
-- (void)dragStarted:(AtkDragAndDropManager *)manager
+- (void)dropZoneDragStarted:(AtkDragAndDropManager *)manager
 {
     //NSLog(@"AtkSampleOneDropZoneView.dragStarted");
     self.savedBackgroundColor = self.view.backgroundColor;
@@ -72,38 +72,38 @@
     }
 }
 
-- (void)dragEnded:(AtkDragAndDropManager *)manager
+- (void)dropZoneDragEnded:(AtkDragAndDropManager *)manager
 {
     //NSLog(@"AtkSampleOneDropZoneView.dragEnded");
     [self performSelector:@selector(delayEnd) withObject:nil afterDelay:0.4];
 }
 
-- (void)delayEnd
-{
-    self.view.backgroundColor = self.savedBackgroundColor;
-}
-
-- (void)dragEntered:(AtkDragAndDropManager *)manager point:(CGPoint)point
+- (void)dropZoneDragEntered:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
     //NSLog(@"AtkSampleOneDropZoneView.dragEntered");
     self.view.backgroundColor = [UIColor orangeColor];
 }
 
-- (void)dragExited:(AtkDragAndDropManager *)manager point:(CGPoint)point
+- (void)dropZoneDragExited:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
     //NSLog(@"AtkSampleOneDropZoneView.dragExited");
     self.view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
 }
 
-- (void)dragMoved:(AtkDragAndDropManager *)manager point:(CGPoint)point
+- (void)dropZoneDragMoved:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
     //NSLog(@"AtkSampleOneDropZoneView.dragMoved");
 }
 
-- (void)dragDropped:(AtkDragAndDropManager *)manager point:(CGPoint)point
+- (void)dropZoneDragDropped:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
     //NSLog(@"AtkSampleOneDropZoneView.dragDropped");
     self.view.backgroundColor = [UIColor magentaColor];
+}
+
+- (void)delayEnd
+{
+    self.view.backgroundColor = self.savedBackgroundColor;
 }
 
 @end
