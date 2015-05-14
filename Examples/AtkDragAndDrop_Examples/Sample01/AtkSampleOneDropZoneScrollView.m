@@ -44,48 +44,48 @@
     return self;
 }
 
-- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
+- (BOOL)dropZoneShouldDragStart:(AtkDragAndDropManager *)manager
 {
     return YES;
 }
 
-- (void)dragStarted:(AtkDragAndDropManager *)manager
+- (void)dropZoneDragStarted:(AtkDragAndDropManager *)manager
 {
     //NSLog(@"AtkSampleOneDropZoneScrollView.dragStarted");
     [self autoScrollDragStarted];
 }
 
-- (BOOL)isInterested:(AtkDragAndDropManager *)manager
+- (BOOL)dropZoneIsInterested:(AtkDragAndDropManager *)manager
 {
     //NSLog(@"AtkSampleOneDropZoneScrollView.isInterested");
     return YES;
 }
 
-- (void)dragEnded:(AtkDragAndDropManager *)manager
+- (void)dropZoneDragEnded:(AtkDragAndDropManager *)manager
 {
     //NSLog(@"AtkSampleOneDropZoneScrollView.dragEnded");
     [self autoScrollDragEnded];
 }
 
-- (void)dragEntered:(AtkDragAndDropManager *)manager point:(CGPoint)point
+- (void)dropZoneDragEntered:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
     //NSLog(@"AtkSampleOneDropZoneScrollView.dragEntered");
     self.savedBackgroundColor = self.backgroundColor;
     self.backgroundColor = [UIColor blueColor];
 }
 
-- (void)dragExited:(AtkDragAndDropManager *)manager point:(CGPoint)point
+- (void)dropZoneDragExited:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
     //NSLog(@"AtkSampleOneDropZoneScrollView.dragExited");
     self.backgroundColor = self.savedBackgroundColor;
 }
 
-- (void)dragMoved:(AtkDragAndDropManager *)manager point:(CGPoint)point
+- (void)dropZoneDragMoved:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
     [self autoScrollDragMoved:[manager.rootView convertPoint:point toView:self]];
 }
 
-- (void)dragDropped:(AtkDragAndDropManager *)manager point:(CGPoint)point
+- (void)dropZoneDragDropped:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
     //NSLog(@"AtkSampleOneDropZoneScrollView.dragDropped");
     self.backgroundColor = [UIColor greenColor];

@@ -47,8 +47,8 @@
 - (NSMutableArray *)findDropZones:(AtkDragAndDropManager *)manager view:(UIView *)view recognizer:(UIGestureRecognizer *)recognizer dropZones:(NSMutableArray *)dropZones
 {
     if([view conformsToProtocol:@protocol(AtkDropZoneProtocol)] &&
-       [view respondsToSelector:@selector(shouldDragStart:)] &&
-       [(id<AtkDropZoneProtocol>)view shouldDragStart:manager])
+       [view respondsToSelector:@selector(dropZoneShouldDragStart:)] &&
+       [(id<AtkDropZoneProtocol>)view dropZoneShouldDragStart:manager])
     {
         if(!dropZones)
             dropZones = [NSMutableArray array];
@@ -82,9 +82,9 @@
 {
     BOOL ret = false;
     
-    if([dropZone respondsToSelector:@selector(isActive:point:)])
+    if([dropZone respondsToSelector:@selector(dropZoneIsActive:point:)])
     {
-        ret = [dropZone isActive:manager point:[recognizer locationInView:manager.rootView]];
+        ret = [dropZone dropZoneIsActive:manager point:[recognizer locationInView:manager.rootView]];
     }
     else if([dropZone isKindOfClass:[UIView class]])
     {

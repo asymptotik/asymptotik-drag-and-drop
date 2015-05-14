@@ -136,14 +136,14 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 {
     for(AtkDropZoneWrapper *dropZone in self.uninterestedDropZones)
     {
-        if([dropZone.dropZone respondsToSelector:@selector(dragStarted:)])
-            [dropZone.dropZone dragStarted:self];
+        if([dropZone.dropZone respondsToSelector:@selector(dropZoneDragStarted:)])
+            [dropZone.dropZone dropZoneDragStarted:self];
     }
     
     for(AtkDropZoneWrapper *dropZone in self.interestedDropZones)
     {
-        if([dropZone.dropZone respondsToSelector:@selector(dragStarted:)])
-            [dropZone.dropZone dragStarted:self];
+        if([dropZone.dropZone respondsToSelector:@selector(dropZoneDragStarted:)])
+            [dropZone.dropZone dropZoneDragStarted:self];
     }
     
     if([self.dragSource respondsToSelector:@selector(dragStarted:)])
@@ -157,14 +157,14 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 {
     for(AtkDropZoneWrapper *dropZone in self.uninterestedDropZones)
     {
-        if([dropZone.dropZone respondsToSelector:@selector(dragEnded:)])
-            [dropZone.dropZone dragEnded:self];
+        if([dropZone.dropZone respondsToSelector:@selector(dropZoneDragEnded:)])
+            [dropZone.dropZone dropZoneDragEnded:self];
     }
     
     for(AtkDropZoneWrapper *dropZone in self.interestedDropZones)
     {
-        if([dropZone.dropZone respondsToSelector:@selector(dragEnded:)])
-            [dropZone.dropZone dragEnded:self];
+        if([dropZone.dropZone respondsToSelector:@selector(dropZoneDragEnded:)])
+            [dropZone.dropZone dropZoneDragEnded:self];
     }
     
     if([self.dragSource respondsToSelector:@selector(dragEnded:)])
@@ -176,8 +176,8 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 
 - (void)dragEntered:(id<AtkDropZoneProtocol>)dropZone point:(CGPoint)point
 {
-    if([dropZone respondsToSelector:@selector(dragEntered:point:)])
-        [dropZone dragEntered:self point:point];
+    if([dropZone respondsToSelector:@selector(dropZoneDragEntered:point:)])
+        [dropZone dropZoneDragEntered:self point:point];
     
     if([self.dragSource respondsToSelector:@selector(dragEntered:dropZone:point:)])
         [self.dragSource dragEntered:self dropZone:dropZone point:point];
@@ -188,8 +188,8 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 
 - (void)dragExited:(id<AtkDropZoneProtocol>)dropZone point:(CGPoint)point
 {
-    if([dropZone respondsToSelector:@selector(dragExited:point:)])
-        [dropZone dragExited:self point:point];
+    if([dropZone respondsToSelector:@selector(dropZoneDragExited:point:)])
+        [dropZone dropZoneDragExited:self point:point];
     
     if([self.dragSource respondsToSelector:@selector(dragExited:dropZone:point:)])
         [self.dragSource dragExited:self dropZone:dropZone point:point];
@@ -200,8 +200,8 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 
 - (void)dragMoved:(id<AtkDropZoneProtocol>)dropZone point:(CGPoint)point
 {
-    if([dropZone respondsToSelector:@selector(dragMoved:point:)])
-        [dropZone dragMoved:self point:point];
+    if([dropZone respondsToSelector:@selector(dropZoneDragMoved:point:)])
+        [dropZone dropZoneDragMoved:self point:point];
     
     if([self.dragSource respondsToSelector:@selector(dragMoved:dropZone:point:)])
         [self.dragSource dragMoved:self dropZone:dropZone point:point];
@@ -212,8 +212,8 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
 
 - (void)dragDropped:(id<AtkDropZoneProtocol>)dropZone point:(CGPoint)point
 {
-    if([dropZone respondsToSelector:@selector(dragDropped:point:)])
-        [dropZone dragDropped:self point:point];
+    if([dropZone respondsToSelector:@selector(dropZoneDragDropped:point:)])
+        [dropZone dropZoneDragDropped:self point:point];
     
     if([self.dragSource respondsToSelector:@selector(dragDropped:dropZone:point:)])
         [self.dragSource dragDropped:self dropZone:dropZone point:point];
@@ -375,7 +375,7 @@ NSString *const AtkPasteboardNameDragAndDrop = @"com.comcast.bcv.draganddrop.pas
         {
             for(id<AtkDropZoneProtocol> dropZone in dropZones)
             {
-                if([dropZone respondsToSelector:@selector(isInterested:)] && [dropZone isInterested:self])
+                if([dropZone respondsToSelector:@selector(dropZoneIsInterested:)] && [dropZone dropZoneIsInterested:self])
                 {
                     if(!interestedDropZones)
                         interestedDropZones = [NSMutableArray arrayWithCapacity:[dropZones count]];
