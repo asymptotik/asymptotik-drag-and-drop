@@ -21,7 +21,7 @@
 /**
  * Called to determine if dragging should start on this drag source.
  */
-- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager;
+- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager point:(CGPoint)point;
 
 /**
  * Called when a drag source has been found, but before searching for drop zones.

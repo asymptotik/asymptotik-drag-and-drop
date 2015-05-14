@@ -18,14 +18,15 @@
 {
     BOOL dragStarted = NO;
     
-    UIView *hitView = [manager.rootView hitTest:[recognizer locationInView:manager.rootView] withEvent:nil];
+    CGPoint point = [recognizer locationInView:manager.rootView];
+    UIView *hitView = [manager.rootView hitTest:point withEvent:nil];
     
     while(!dragStarted && hitView)
     {
         if([hitView conformsToProtocol:@protocol(AtkDragSourceProtocol)])
         {
-            if([hitView respondsToSelector:@selector(shouldDragStart:)])
-                dragStarted = [(UIView<AtkDragSourceProtocol> *)hitView shouldDragStart:manager];
+            if([hitView respondsToSelector:@selector(shouldDragStart:point:)])
+                dragStarted = [(UIView<AtkDragSourceProtocol> *)hitView shouldDragStart:manager point: point];
             else
                 dragStarted = YES;
         }
