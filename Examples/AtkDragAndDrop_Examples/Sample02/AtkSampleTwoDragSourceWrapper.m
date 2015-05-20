@@ -21,7 +21,7 @@
     return self;
 }
 
-- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager
+- (BOOL)shouldDragStart:(AtkDragAndDropManager *)manager point:(CGPoint)point
 {
     return YES;
 }
