@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Asymptotik Limited. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "AtkDragAndDrop.h"
 
 @interface AtkSampleTwoDragSourceWrapper : NSObject<AtkDragSourceProtocol>
