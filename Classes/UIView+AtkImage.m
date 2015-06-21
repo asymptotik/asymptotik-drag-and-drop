@@ -14,7 +14,12 @@
 - (UIImage*)imageFromView
 {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0.0);
-    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    if ([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+        [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
+    } else {
+        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    }
     
     UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
     
